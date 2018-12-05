@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:planks",
+        "data": 2
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:wood_vertical_slab_1",
+    "data": 2,
+    "count": 6
+  }
+}

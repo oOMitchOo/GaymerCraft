@@ -1,0 +1,43 @@
+### Creative Tab ###
+itemGroup.gaymercraft=GaymerCraft
+
+### Blocks ###
+## Stone
+tile.stoneVerticalSlab1.stone.name=Vertical Stone Slab
+tile.stoneVerticalSlab1.sand.name=Vertical Sandstone Slab
+tile.stoneVerticalSlab1.cobble.name=Vertical Cobblestone Slab
+tile.stoneVerticalSlab2.brick.name=Vertical Bricks Slab
+tile.stoneVerticalSlab2.smoothStoneBrick.name=Vertical Stone Bricks Slab
+tile.stoneVerticalSlab2.netherBrick.name=Vertical Nether Brick Slab
+tile.stoneVerticalSlab2.quartz.name=Vertical Quartz Slab
+## Wood
+tile.woodVerticalSlab1.oak.name=Vertical Oak Wood Slab
+tile.woodVerticalSlab1.spruce.name=Vertical Spruce Wood Slab
+tile.woodVerticalSlab1.birch.name=Vertical Birch Wood Slab
+tile.woodVerticalSlab1.jungle.name=Vertical Jungle Wood Slab
+tile.woodVerticalSlab2.acacia.name=Vertical Acacia Wood Slab
+tile.woodVerticalSlab2.big_oak.name=Vertical Dark Oak Wood Slab
+tile.stoneVerticalSlabNew.red_sandstone.name=Vertical Red Sandstone Slab
+tile.purpurVerticalSlab.name=Vertical Purpur Slab
+
+
+### Items ###
+item.gaymerLogo.name=GaymerCraft Icon
+
+### Fluids ###
+fluid.white_water=White Water
+fluid.orange_water=Orange Water
+fluid.magenta_water=Magenta Water
+fluid.light_blue_water=Light Blue Water
+fluid.yellow_water=Yellow Water
+fluid.lime_water=Lime Water
+fluid.pink_water=Pink Water
+fluid.gray_water=Gray Water
+fluid.light_gray_water=Light Gray Water
+fluid.cyan_water=Cyan Water
+fluid.purple_water=Purple Water
+fluid.blue_water=Blue Water
+fluid.brown_water=Brown Water
+fluid.green_water=Green Water
+fluid.red_water=Red Water
+fluid.black_water=Black Water

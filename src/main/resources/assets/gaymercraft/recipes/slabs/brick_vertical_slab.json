@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:brick_block"
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:stone_vertical_slab_2",
+    "data": 0,
+    "count": 6
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "forge_marker": 1,
+    "defaults":
+    {
+        "model": "block/block"
+    }, "variants":
+{
+    "inventory": { "model": "block/block" },
+    "facing=south,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia"},
+    "facing=west,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "y": 90},
+    "facing=north,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "y": 180},
+    "facing=east,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "y": 270},
+    "facing=up,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia"}, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia"}, // See first comment.
+
+    "facing=south,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak"},
+    "facing=west,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "y": 90},
+    "facing=north,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "y": 180},
+    "facing=east,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "y": 270},
+    "facing=up,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak"}, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak"} // See first comment.
+}
+}

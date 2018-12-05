@@ -1,0 +1,43 @@
+### Creative Tab ###
+itemGroup.gaymercraft=GaymerCraft
+
+### Blocks ###
+## Stone
+tile.stoneVerticalSlab1.stone.name=Halber polierter Stein
+tile.stoneVerticalSlab1.sand.name=Halber Sandstein
+tile.stoneVerticalSlab1.cobble.name=Halber Bruchstein
+tile.stoneVerticalSlab2.brick.name=Halber Ziegelstein
+tile.stoneVerticalSlab2.smoothStoneBrick.name=Halber Steinziegel
+tile.stoneVerticalSlab2.netherBrick.name=Halber Netherziegel
+tile.stoneVerticalSlab2.quartz.name=Halber Quarzblock
+## Wood
+tile.woodVerticalSlab1.oak.name=Halber Eichenbretterblock
+tile.woodVerticalSlab1.spruce.name=Halber Fichtenbretterblock
+tile.woodVerticalSlab1.birch.name=Halber Birkenbretterblock
+tile.woodVerticalSlab1.jungle.name=Halber Tropenbretterblock
+tile.woodVerticalSlab2.acacia.name=Halber Akazienbretterblock
+tile.woodVerticalSlab2.big_oak.name=Halber Schwarzeichenbretterblock
+tile.stoneVerticalSlabNew.red_sandstone.name=Halber Roter Sandstein
+tile.purpurVerticalSlab.name=Halber Purpurner Block
+
+
+### Items ###
+item.gaymerLogo.name=GaymerCraft Symbol
+
+### Fluids ###
+fluid.white_water=Weißes Wasser
+fluid.orange_water=Orangenes Wasser
+fluid.magenta_water=Magenta Wasser
+fluid.light_blue_water=Hellblaues Wasser
+fluid.yellow_water=Gelbes Wasser
+fluid.lime_water=Hellgrünes Wasser
+fluid.pink_water=Rosa Wasser
+fluid.gray_water=Graues Wasser
+fluid.light_gray_water=Hellgraues Wasser
+fluid.cyan_water=Cyan Wasser
+fluid.purple_water=Lila Wasser
+fluid.blue_water=Blaues Wasser
+fluid.brown_water=Braunes Wasser
+fluid.green_water=Grünes Wasser
+fluid.red_water=Rotes Wasser
+fluid.black_water=Schwarzes Wasser

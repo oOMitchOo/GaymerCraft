@@ -1,0 +1,16 @@
+[
+{
+  "modid": "gaymercraft",
+  "name": "GaymerCraft",
+  "description": "A quick and dirty mod for vertical slabs and colored water. Other things will follow.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["oOMitchOo"],
+  "credits": "All ideas for the mod came from KangOrchyd.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

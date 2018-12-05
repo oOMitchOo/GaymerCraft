@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults":
+  {
+    "model": "block/block"
+  }, "variants":
+{
+  "inventory": { "model": "block/block" },
+  "facing=south,variant=red_sandstone": {"model": "gaymercraft:stone_vertical_slab_new_red_sandstone"},
+  "facing=west,variant=red_sandstone": {"model": "gaymercraft:stone_vertical_slab_new_red_sandstone", "y": 90},
+  "facing=north,variant=red_sandstone": {"model": "gaymercraft:stone_vertical_slab_new_red_sandstone", "y": 180},
+  "facing=east,variant=red_sandstone": {"model": "gaymercraft:stone_vertical_slab_new_red_sandstone", "y": 270},
+  "facing=up,variant=red_sandstone": {"model": "gaymercraft:stone_vertical_slab_new_red_sandstone"}, // Just for error prevention. Block should never be oriented this way.
+  "facing=down,variant=red_sandstone": {"model": "gaymercraft:stone_vertical_slab_new_red_sandstone"} // See first comment.
+}
+}
