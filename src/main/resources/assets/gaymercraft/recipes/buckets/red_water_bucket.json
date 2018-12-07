@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "forge:ore_shapeless",
   "ingredients": [
     {
       "item": "minecraft:water_bucket",
       "data": 0
     },
     {
-      "item": "minecraft:dye",
-      "data": 1
+      "type": "forge:ore_dict",
+      "ore": "dyeRed"
     }
   ],
   "result": {

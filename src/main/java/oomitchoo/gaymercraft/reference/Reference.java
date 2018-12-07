@@ -14,6 +14,11 @@ public class Reference {
     public static final String CLIENT_PROXY_CLASS = "oomitchoo.gaymercraft.proxy.ClientProxy";
     public static final String SERVER_PROXY_CLASS = "oomitchoo.gaymercraft.proxy.ServerProxy";
     public static final String DEPENDENCIES = ""; //required-after:botania@[r1.10-356,) <- for vertical slabs in Botania.
+    public static final String GUI_FACTORY_CLASS = "oomitchoo.gaymercraft.client.gui.GuiFactory";
 
     public static final ModCreativeTab creativeTab = new ModCreativeTab();
+
+    public static class Config {
+        public static int configColoredWaterBrightness = 60;
+    }
 }
