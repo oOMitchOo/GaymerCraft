@@ -11,10 +11,13 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import oomitchoo.gaymercraft.block.baseslabs.BlockStoneVertSlab1;
 import oomitchoo.gaymercraft.block.baseslabs.BlockStoneVertSlab2;
 import oomitchoo.gaymercraft.block.baseslabs.BlockWoodVertSlab1;
 import oomitchoo.gaymercraft.block.baseslabs.BlockWoodVertSlab2;
+import oomitchoo.gaymercraft.client.renderer.entity.RenderUnicorn;
+import oomitchoo.gaymercraft.entity.EntityUnicorn;
 import oomitchoo.gaymercraft.reference.Reference;
 
 import javax.annotation.Nonnull;
@@ -25,8 +28,8 @@ import javax.annotation.Nonnull;
 public class ClientProxy extends CommonProxy{
 
     @Override
-    public void registerItemRendererNoSubt(Item item, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), id));
+    public void registerItemRendererNoSubt(Item item, int metaData, String regNameAddition, String id) {
+        ModelLoader.setCustomModelResourceLocation(item, metaData, new ModelResourceLocation(item.getRegistryName()+regNameAddition, id));
     }
 
     @Override
@@ -60,6 +63,11 @@ public class ClientProxy extends CommonProxy{
             ModelLoader.setCustomMeshDefinition(item, mapper);
         }
         ModelLoader.setCustomStateMapper(block, mapper);
+    }
+
+    @Override
+    public void registerEntityRenderer() {
+        RenderingRegistry.registerEntityRenderingHandler(EntityUnicorn.class, RenderUnicorn::new);
     }
 
     private static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {

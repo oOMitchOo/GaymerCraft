@@ -22,7 +22,8 @@ tile.purpurVerticalSlab.name=Vertical Purpur Slab
 
 
 ### Items ###
-item.gaymerLogo.name=GaymerCraft Icon
+item.rainbowStar.loaded.name=Rainbow Star
+item.rainbowStar.unloaded.name=Rainbow Star (lost all colors)
 
 ### Fluids ###
 fluid.white_water=White Water
@@ -41,3 +42,6 @@ fluid.brown_water=Brown Water
 fluid.green_water=Green Water
 fluid.red_water=Red Water
 fluid.black_water=Black Water
+
+### Entities ###
+entity.unicorn.name=Unicorn

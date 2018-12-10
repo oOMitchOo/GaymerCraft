@@ -11,7 +11,7 @@ import net.minecraftforge.fluids.Fluid;
 public class ServerProxy extends CommonProxy {
 
     @Override
-    public void registerItemRendererNoSubt(Item item, String id) {
+    public void registerItemRendererNoSubt(Item item, int metaData, String regNameAddition, String id) {
         // Nothing to see here. Go to ClientProxy!
     }
 
@@ -22,6 +22,11 @@ public class ServerProxy extends CommonProxy {
 
     @Override
     public void mapFluidState(Block block, Fluid fluid) {
+        // Nothing to see here. Go to ClientProxy!
+    }
+
+    @Override
+    public void registerEntityRenderer() {
         // Nothing to see here. Go to ClientProxy!
     }
 }

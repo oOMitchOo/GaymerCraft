@@ -19,7 +19,7 @@ public class ModCreativeTab extends CreativeTabs{
     @Nonnull
     @Override
     public ItemStack getIconItemStack() {
-        return new ItemStack(ModItems.GAYMER_LOGO);
+        return new ItemStack(ModItems.RAINBOW_STAR);
     }
 
     @Override

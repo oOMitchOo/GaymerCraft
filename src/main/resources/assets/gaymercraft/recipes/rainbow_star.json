@@ -1,0 +1,32 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyeRed"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyeOrange"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyeYellow"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyeLime"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyePurple"
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:rainbow_star",
+    "data": 0
+  }
+}

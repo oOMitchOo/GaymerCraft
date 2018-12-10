@@ -22,7 +22,8 @@ tile.purpurVerticalSlab.name=Halber Purpurner Block
 
 
 ### Items ###
-item.gaymerLogo.name=GaymerCraft Symbol
+item.rainbowStar.loaded.name=Regenbogen-Stern
+item.rainbowStar.unloaded.name=Regenbogen-Stern (farblos)
 
 ### Fluids ###
 fluid.white_water=Weißes Wasser
@@ -41,3 +42,6 @@ fluid.brown_water=Braunes Wasser
 fluid.green_water=Grünes Wasser
 fluid.red_water=Rotes Wasser
 fluid.black_water=Schwarzes Wasser
+
+### Entities ###
+entity.unicorn.name=Einhorn

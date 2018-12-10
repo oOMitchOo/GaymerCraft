@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "gaymercraft:items/gaymer_logo"
+    "layer0": "gaymercraft:items/rainbow_star_colored"
   }
 }

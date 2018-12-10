@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import oomitchoo.gaymercraft.helper.handlers.ConfigHandler;
 import oomitchoo.gaymercraft.helper.LogHelper;
+import oomitchoo.gaymercraft.init.ModEntities;
 import oomitchoo.gaymercraft.proxy.IProxy;
 import oomitchoo.gaymercraft.reference.Reference;
 
@@ -32,6 +33,10 @@ public class GaymerCraft {
     public void preInit(FMLPreInitializationEvent event)
     {
         ConfigHandler.init(event.getSuggestedConfigurationFile());
+
+        ModEntities.init();
+        proxy.registerEntityRenderer();
+
 
         LogHelper.info("Pre Initialization of GaymerCraft Complete!");
     }
