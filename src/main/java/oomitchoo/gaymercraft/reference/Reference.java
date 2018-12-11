@@ -20,5 +20,6 @@ public class Reference {
 
     public static class Config {
         public static int configColoredWaterBrightness = 60;
+        public static int configUnicornLoveAmount = 1;
     }
 }

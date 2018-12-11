@@ -45,3 +45,7 @@ fluid.black_water=Black Water
 
 ### Entities ###
 entity.unicorn.name=Unicorn
+
+### Config ###
+gc.configgui.ctgy.coloredWater.tooltip=Settings for the Colored Water
+gc.configgui.ctgy.unicorn.tooltip=Settings for the Unicorn
