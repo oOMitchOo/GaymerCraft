@@ -19,6 +19,9 @@ public class Reference {
     public static final ModCreativeTab creativeTab = new ModCreativeTab();
 
     public static class Config {
+        public static final String CATEGORY_COLORED_WATER = "colored_water";
+        public static final String CATEGORY_UNICORN = "unicorn";
+
         public static int configColoredWaterBrightness = 60;
         public static int configUnicornLoveAmount = 1;
     }

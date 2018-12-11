@@ -3,7 +3,6 @@ package oomitchoo.gaymercraft.client.gui;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.common.config.ConfigElement;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.DummyConfigElement.DummyCategoryElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.GuiConfigEntries;
@@ -48,8 +47,8 @@ public class GuiModConfig extends GuiConfig {
             // This GuiConfig object specifies the configID of the object and as such will force-save when it is closed. The parent
             // GuiConfig object's entryList will also be refreshed to reflect the changes.
             return new GuiConfig(this.owningScreen,
-                    (new ConfigElement(ConfigHandler.config.getCategory("colored_water"))).getChildElements(), // ConfigHandler.config.getCategory("colored_water")).getChildElements()
-                    this.owningScreen.modID, "colored_water", this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
+                    (new ConfigElement(ConfigHandler.config.getCategory(Reference.Config.CATEGORY_COLORED_WATER))).getChildElements(), // ConfigHandler.config.getCategory("colored_water")).getChildElements()
+                    this.owningScreen.modID, Reference.Config.CATEGORY_COLORED_WATER, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
                     this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart,
                     GuiConfig.getAbridgedConfigPath(ConfigHandler.config.toString()));
         }
@@ -68,8 +67,8 @@ public class GuiModConfig extends GuiConfig {
             // This GuiConfig object specifies the configID of the object and as such will force-save when it is closed. The parent
             // GuiConfig object's entryList will also be refreshed to reflect the changes.
             return new GuiConfig(this.owningScreen,
-                    (new ConfigElement(ConfigHandler.config.getCategory("unicorn"))).getChildElements(),
-                    this.owningScreen.modID, "unicorn", this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
+                    (new ConfigElement(ConfigHandler.config.getCategory(Reference.Config.CATEGORY_UNICORN))).getChildElements(),
+                    this.owningScreen.modID, Reference.Config.CATEGORY_UNICORN, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
                     this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart,
                     GuiConfig.getAbridgedConfigPath(ForgeModContainer.getConfig().toString()));
         }

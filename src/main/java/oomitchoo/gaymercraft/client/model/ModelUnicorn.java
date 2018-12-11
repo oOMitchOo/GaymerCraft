@@ -1,6 +1,5 @@
 package oomitchoo.gaymercraft.client.model;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -8,13 +7,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.AbstractChestHorse;
 import net.minecraft.entity.passive.AbstractHorse;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import oomitchoo.gaymercraft.reference.Reference;
-
-import java.util.Random;
 
 /**
  * Created by oOMitchOo on 09.12.2018.
@@ -381,18 +376,6 @@ public class ModelUnicorn extends ModelBase {
         float f2 = entitylivingbaseIn.prevRotationPitch + (entitylivingbaseIn.rotationPitch - entitylivingbaseIn.prevRotationPitch) * partialTickTime;
         float f3 = f1 - f;
         float f4 = f2 * 0.017453292F;
-
-        // This if-statement adds some heart-particle-magic.
-        if (new Random().nextInt(100) < Reference.Config.configUnicornLoveAmount && !Minecraft.getMinecraft().isGamePaused()) {
-            Random random = entitylivingbaseIn.getRNG();
-            double d0 = random.nextGaussian() * 0.02D;
-            double d1 = random.nextGaussian() * 0.02D;
-            double d2 = random.nextGaussian() * 0.02D;
-            double d3 = random.nextDouble() * (double)entitylivingbaseIn.width * 2.0D - (double)entitylivingbaseIn.width;
-            double d4 = 0.5D + random.nextDouble() * (double)entitylivingbaseIn.height;
-            double d5 = random.nextDouble() * (double)entitylivingbaseIn.width * 2.0D - (double)entitylivingbaseIn.width;
-            entitylivingbaseIn.world.spawnParticle(EnumParticleTypes.HEART, entitylivingbaseIn.posX + d3, entitylivingbaseIn.posY + d4, entitylivingbaseIn.posZ + d5, d0, d1, d2);
-        }
 
         if (f3 > 20.0F)
         {

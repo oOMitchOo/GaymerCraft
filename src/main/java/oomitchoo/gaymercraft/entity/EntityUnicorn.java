@@ -4,10 +4,14 @@ import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+import oomitchoo.gaymercraft.reference.Reference;
+
+import java.util.Random;
 
 /**
  * Created by oOMitchOo on 07.12.2018.
@@ -50,6 +54,22 @@ public class EntityUnicorn extends AbstractChestHorse {
     {
         super.getAngrySound();
         return SoundEvents.ENTITY_HORSE_ANGRY;
+    }
+
+    public void onLivingUpdate()
+    {
+        super.onLivingUpdate();
+
+        if (new Random().nextInt(100) < Reference.Config.configUnicornLoveAmount) {
+
+            double d0 = this.rand.nextGaussian() * 0.02D;
+            double d1 = this.rand.nextGaussian() * 0.02D;
+            double d2 = this.rand.nextGaussian() * 0.02D;
+            double d3 = this.rand.nextDouble() * (double)this.width * 2.0D - (double)this.width;
+            double d4 = 0.5D + this.rand.nextDouble() * (double)this.height;
+            double d5 = this.rand.nextDouble() * (double)this.width * 2.0D - (double)this.width;
+            this.world.spawnParticle(EnumParticleTypes.HEART, this.posX + d3, this.posY + d4, this.posZ + d5, d0, d1, d2);
+        }
     }
 
     /**

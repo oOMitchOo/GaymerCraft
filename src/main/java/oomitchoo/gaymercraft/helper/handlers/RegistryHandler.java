@@ -6,7 +6,6 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -23,13 +22,12 @@ import oomitchoo.gaymercraft.init.ModItems;
 import oomitchoo.gaymercraft.item.ItemRainbowStar;
 import oomitchoo.gaymercraft.reference.Reference;
 
-import java.util.Random;
-
 /**
  * Created by oOMitchOo on 29.11.2018.
  */
 @Mod.EventBusSubscriber
 public class RegistryHandler {
+
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
         Entity target = event.getTarget();
@@ -49,19 +47,6 @@ public class RegistryHandler {
 
                     // TODO: Hier würde ich auch gerne das Alter setzen, aber forcedAge ist protected in EntityAgeable.
                     replaceWith.setHorseTamed(true);
-
-                    // TODO: Trying to get particles to work. HALP!
-                    Random random = new Random();
-                    for (int i = 0; i < 7; ++i)
-                    {
-                        double d0 = random.nextGaussian() * 0.02D;
-                        double d1 = random.nextGaussian() * 0.02D;
-                        double d2 = random.nextGaussian() * 0.02D;
-                        double d3 = random.nextDouble() * (double)target.width * 2.0D - (double)target.width;
-                        double d4 = 0.5D + random.nextDouble() * (double)target.height;
-                        double d5 = random.nextDouble() * (double)target.width * 2.0D - (double)target.width;
-                        world.spawnParticle(EnumParticleTypes.HEART, target.posX + d3, target.posY + d4, target.posZ + d5, d0, d1, d2);
-                    }
 
                     target.setDead();
                     world.spawnEntity(replaceWith);
