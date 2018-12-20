@@ -1,12 +1,18 @@
 package oomitchoo.gaymercraft.entity;
 
+import net.minecraft.block.BlockNewLeaf;
+import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.*;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import oomitchoo.gaymercraft.reference.Reference;
@@ -91,5 +97,18 @@ public class EntityUnicorn extends AbstractChestHorse {
         EntityUnicorn youngUnicorn = new EntityUnicorn(this.world);
         this.setOffspringAttributes(ageable, youngUnicorn);
         return youngUnicorn;
+    }
+
+    /**
+     * Applies movement speed and the sort.
+     */
+    @Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(Reference.Config.configUnicornMaxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(Reference.Config.configUnicornMovementSpeed);
+        this.getEntityAttribute(JUMP_STRENGTH).setBaseValue(Reference.Config.configUnicornJumpStrength);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(Reference.Config.configUnicornArmor);
     }
 }

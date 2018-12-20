@@ -1,16 +1,19 @@
 package oomitchoo.gaymercraft.helper;
 
-import oomitchoo.gaymercraft.reference.Reference;
-import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by oOMitchOo on 14.10.2016.
  */
 
 public class LogHelper {
+    private static Logger modLogger;
+
+    public static void setModLogger(Logger modLogger) {LogHelper.modLogger = modLogger;}
+
     public static void log(Level loglevel, Object object){
-        FMLLog.log(Reference.MOD_ID, loglevel, String.valueOf(object));
+        modLogger.log(loglevel, object);
     }
 
     public static void all(Object object){

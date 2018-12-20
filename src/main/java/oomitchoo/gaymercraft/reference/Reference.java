@@ -24,5 +24,9 @@ public class Reference {
 
         public static int configColoredWaterBrightness = 60;
         public static int configUnicornLoveAmount = 1;
+        public static double configUnicornMaxHealth = 30D;
+        public static double configUnicornMovementSpeed = 0.3375D;
+        public static double configUnicornJumpStrength = 1.0D;
+        public static double configUnicornArmor = 11D;
     }
 }

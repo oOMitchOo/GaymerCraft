@@ -32,6 +32,7 @@ public class GaymerCraft {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        LogHelper.setModLogger(event.getModLog());
         ConfigHandler.init(event.getSuggestedConfigurationFile());
 
         ModEntities.init();
