@@ -118,6 +118,7 @@ public class BlockColoredWater extends BlockFluidClassic {
         }
     }
 
+    // Fixes a bug in the Forge method, which this method overrides (see next comment)
     @Override
     public float getFluidHeightForRender(IBlockAccess world, BlockPos pos, @Nonnull IBlockState up)
     {
@@ -134,15 +135,32 @@ public class BlockColoredWater extends BlockFluidClassic {
                 return quantaFraction;
             }
         }
-        if ((here.getBlock() instanceof BlockLiquid) || (here.getBlock() instanceof BlockFluidClassic))
+        // BlockLiquid is the vanilla Block, I instead use isFluid() which also checks for Forge IFluidBlock. This makes that fluid blocks render correctly (fluid surfaces connect).
+        if (isFluid(here))
         {
             return Math.min(1 - BlockLiquid.getLiquidHeightPercent(here.getValue(BlockLiquid.LEVEL)), quantaFraction);
         }
         return !here.getMaterial().isSolid() && up.getBlock() == this ? 1 : this.getQuantaPercentage(world, pos) * quantaFraction;
     }
 
+    // Had to copy this method from BlockFluidBase because the access was private.
     private static boolean isFluid(@Nonnull IBlockState blockstate)
     {
         return blockstate.getMaterial().isLiquid() || blockstate.getBlock() instanceof IFluidBlock;
+    }
+
+    // Fixes a bug in the Forge method, which this method overrides (see next comment).
+    @Override
+    public float getFilledPercentage(IBlockAccess world, BlockPos pos)
+    {
+        IBlockState blockAbove = world.getBlockState(pos.up());
+        // Checks if the above Block is a Forge FluidBlock and returns 1 if true... this means, that the ForgeHooks method isInsideOfMaterial() correctly says that the whole block space is filled with a fluid.
+        if (isFluid(blockAbove)) {
+            return 1f;
+        }
+
+        int quantaRemaining = getQuantaValue(world, pos); // quantaPerBlock - Level .... or -1 if this is not a fluid block / 0 if it is Air.
+        float remaining = (quantaRemaining + 1f) / (quantaPerBlockFloat + 1f); // I don't get why + 1f on both. So that, if quantaRemaining is 0, we still have 0.11 (when quantaPerBlockFloat is 8 for example)
+        return remaining * (density > 0 ? 1 : -1);
     }
 }
