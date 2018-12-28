@@ -75,13 +75,15 @@ public class RegistryHandler {
         IForgeRegistry<Item> r = event.getRegistry();
         // ITEMS
         r.register(ModItems.RAINBOW_STAR);
-        // ITEMBLOCKS
+        // ITEMBLOCKS VERT SLABS
         r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1);
         r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2);
         r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1);
         r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2);
         r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW);
         r.register(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB);
+        // ITEMBLOCKS HEDGE
+        r.register(ModBlocks.ITEMBLOCK_HEDGE);
     }
 
     @SubscribeEvent
@@ -100,8 +102,8 @@ public class RegistryHandler {
         r.register(ModBlocks.DOUBLE_STONE_VERT_SLAB_NEW);
         r.register(ModBlocks.PURPUR_VERT_SLAB);
         r.register(ModBlocks.DOUBLE_PURPUR_VERT_SLAB);
-        // FLUID BLOCKS
 
+        // FLUID BLOCKS
         r.register(ModBlocks.BLOCK_WHITE_WATER);
         GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_WHITE_WATER, ((BlockColoredWater) ModBlocks.BLOCK_WHITE_WATER).getFluid());
         r.register(ModBlocks.BLOCK_ORANGE_WATER);
@@ -134,6 +136,9 @@ public class RegistryHandler {
         GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_RED_WATER, ((BlockColoredWater) ModBlocks.BLOCK_RED_WATER).getFluid());
         r.register(ModBlocks.BLOCK_BLACK_WATER);
         GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_BLACK_WATER, ((BlockColoredWater) ModBlocks.BLOCK_BLACK_WATER).getFluid());
+
+        // HEDGE BLOCK
+        r.register(ModBlocks.BLOCK_HEDGE);
     }
 
     @SubscribeEvent
@@ -148,5 +153,7 @@ public class RegistryHandler {
         GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2, "inventory");
         GaymerCraft.proxy.registerItemRendererNoSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW, 0, "", "inventory");
         GaymerCraft.proxy.registerItemRendererNoSubt(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB, 0, "", "inventory");
+        // ITEMBLOCK MODELS HEDGE
+        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_HEDGE, "inventory");
     }
 }

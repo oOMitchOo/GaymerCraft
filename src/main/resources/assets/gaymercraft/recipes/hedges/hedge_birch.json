@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LLL",
+    "LLL"],
+  "key": {
+    "L": [
+      {
+        "item": "minecraft:leaves",
+        "data": 2
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:hedge",
+    "data": 2,
+    "count": 6
+  }
+}

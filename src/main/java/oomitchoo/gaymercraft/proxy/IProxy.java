@@ -13,4 +13,6 @@ public interface IProxy {
     void registerItemRendererWithSubt(ItemBlock itemBlock, String id);
     void mapFluidState(Block block, Fluid fluid);
     void registerEntityRenderer();
+    void registerColoredBlocks();
+    void registerColoredItems();
 }

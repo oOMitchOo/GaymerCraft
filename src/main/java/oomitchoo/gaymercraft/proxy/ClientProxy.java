@@ -1,7 +1,9 @@
 package oomitchoo.gaymercraft.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
@@ -12,12 +14,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import oomitchoo.gaymercraft.block.BlockHedge;
 import oomitchoo.gaymercraft.block.baseslabs.BlockStoneVertSlab1;
 import oomitchoo.gaymercraft.block.baseslabs.BlockStoneVertSlab2;
 import oomitchoo.gaymercraft.block.baseslabs.BlockWoodVertSlab1;
 import oomitchoo.gaymercraft.block.baseslabs.BlockWoodVertSlab2;
+import oomitchoo.gaymercraft.client.BlockColorsHedge;
+import oomitchoo.gaymercraft.client.ItemColorsHedge;
 import oomitchoo.gaymercraft.client.renderer.entity.RenderUnicorn;
 import oomitchoo.gaymercraft.entity.EntityUnicorn;
+import oomitchoo.gaymercraft.init.ModBlocks;
 import oomitchoo.gaymercraft.reference.Reference;
 
 import javax.annotation.Nonnull;
@@ -50,6 +56,10 @@ public class ClientProxy extends CommonProxy{
             for (BlockWoodVertSlab2.EnumType blockslabs$enumtype : BlockWoodVertSlab2.EnumType.values()) {
                 ModelLoader.setCustomModelResourceLocation(itemBlock, blockslabs$enumtype.getMetadata(), new ModelResourceLocation(itemBlock.getRegistryName()+"_"+blockslabs$enumtype.getName(), id));
             }
+        } else if (itemBlock.getBlock() instanceof BlockHedge) {
+            for (BlockPlanks.EnumType blockleaves$enumtype : BlockPlanks.EnumType.values()) {
+                ModelLoader.setCustomModelResourceLocation(itemBlock, blockleaves$enumtype.getMetadata(), new ModelResourceLocation(itemBlock.getRegistryName()+"_"+blockleaves$enumtype.getName(), id));
+            }
         }
     }
 
@@ -68,6 +78,16 @@ public class ClientProxy extends CommonProxy{
     @Override
     public void registerEntityRenderer() {
         RenderingRegistry.registerEntityRenderingHandler(EntityUnicorn.class, RenderUnicorn::new);
+    }
+
+    @Override
+    public void registerColoredBlocks() {
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockColorsHedge(), ModBlocks.BLOCK_HEDGE);
+    }
+
+    @Override
+    public void registerColoredItems() {
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorsHedge(), ModBlocks.BLOCK_HEDGE);
     }
 
     private static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {

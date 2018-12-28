@@ -19,7 +19,13 @@ tile.woodVerticalSlab2.acacia.name=Vertical Acacia Wood Slab
 tile.woodVerticalSlab2.big_oak.name=Vertical Dark Oak Wood Slab
 tile.stoneVerticalSlabNew.red_sandstone.name=Vertical Red Sandstone Slab
 tile.purpurVerticalSlab.name=Vertical Purpur Slab
-
+## Hedge
+tile.hedge.oak.name=Oak Hedge
+tile.hedge.spruce.name=Spruce Hedge
+tile.hedge.birch.name=Birch Hedge
+tile.hedge.jungle.name=Jungle Hedge
+tile.hedge.acacia.name=Acacia Hedge
+tile.hedge.big_oak.name=Dark Oak Hedge
 
 ### Items ###
 item.rainbowStar.loaded.name=Rainbow Star

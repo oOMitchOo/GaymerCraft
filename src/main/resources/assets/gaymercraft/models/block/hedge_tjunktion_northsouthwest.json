@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#leaves"
+  },
+  "elements": [
+    {
+      "name": "Middle",
+      "from": [ 2.0, 0.0, 2.0 ],
+      "to": [ 14.0, 16.0, 14.0 ],
+      "faces": {
+        "east": { "uv": [ 2.0, 0.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "up": { "uv": [ 2.0, 2.0, 14.0, 14.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "up" },
+        "down": { "uv": [ 2.0, 2.0, 14.0, 14.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "down" }
+      }
+    },
+    {
+      "name": "North",
+      "from": [ 2.0, 0.0, 0.0 ],
+      "to": [ 14.0, 16.0, 2.0 ],
+      "faces": {
+        "north": { "uv": [ 2.0, 0.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "north" },
+        "east": { "uv": [ 14.0, 0.0, 16.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "west": { "uv": [ 0.0, 0.0, 2.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "up": { "uv": [ 2.0, 0.0, 14.0, 2.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "up" },
+        "down": { "uv": [ 2.0, 14.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "down" }
+      }
+    },
+    {
+      "name": "South",
+      "from": [ 2.0, 0.0, 14.0 ],
+      "to": [ 14.0, 16.0, 16.0 ],
+      "faces": {
+        "east": { "uv": [ 0.0, 0.0, 2.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "south": { "uv": [ 2.0, 0.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "south" },
+        "west": { "uv": [ 14.0, 0.0, 16.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "up": { "uv": [ 2.0, 14.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "up" },
+        "down": { "uv": [ 2.0, 0.0, 14.0, 2.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "down" }
+      }
+    },
+    {
+      "name": "West",
+      "from": [ 0.0, 0.0, 2.0 ],
+      "to": [ 2.0, 16.0, 14.0 ],
+      "faces": {
+        "north": { "uv": [ 14.0, 0.0, 16.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "south": { "uv": [ 0.0, 0.0, 2.0, 16.0 ], "texture": "#leaves", "tintindex": 0 },
+        "west": { "uv": [ 2.0, 0.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "west" },
+        "up": { "uv": [ 0.0, 2.0, 2.0, 14.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "up" },
+        "down": { "uv": [ 0.0, 2.0, 2.0, 14.0 ], "texture": "#leaves", "tintindex": 0, "cullface": "down" }
+      }
+    }
+  ]
+}

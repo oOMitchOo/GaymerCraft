@@ -3,10 +3,12 @@ package oomitchoo.gaymercraft.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
+import oomitchoo.gaymercraft.block.BlockHedge;
 import oomitchoo.gaymercraft.block.BlockVertSlabBase;
 import oomitchoo.gaymercraft.block.BlockColoredWater;
 import oomitchoo.gaymercraft.block.doubleslabs.*;
 import oomitchoo.gaymercraft.block.halfslabs.*;
+import oomitchoo.gaymercraft.item.ItemBlockHedge;
 import oomitchoo.gaymercraft.item.ItemBlockVertSlab;
 
 /**
@@ -51,6 +53,9 @@ public class ModBlocks {
     public static final Block BLOCK_RED_WATER = new BlockColoredWater("redWater","red_water",ModFluids.FLUID_RED_WATER, Material.WATER);
     public static final Block BLOCK_BLACK_WATER = new BlockColoredWater("blackWater","black_water",ModFluids.FLUID_BLACK_WATER, Material.WATER);
 
+    // HEDGE BLOCK
+    public static final Block BLOCK_HEDGE = new BlockHedge("hedge", "hedge");
+
     //ITEMBLOCKS
     public static final ItemBlock ITEMBLOCK_STONE_VERT_SLAB_1 = new ItemBlockVertSlab((BlockVertSlabBase)STONE_VERT_SLAB_1, (BlockVertSlabBase)STONE_VERT_SLAB_1, (BlockVertSlabBase)DOUBLE_STONE_VERT_SLAB_1,"stoneVerticalSlab1","stone_vertical_slab_1");
     public static final ItemBlock ITEMBLOCK_STONE_VERT_SLAB_2 = new ItemBlockVertSlab((BlockVertSlabBase)STONE_VERT_SLAB_2, (BlockVertSlabBase)STONE_VERT_SLAB_2, (BlockVertSlabBase)DOUBLE_STONE_VERT_SLAB_2,"stoneVerticalSlab2","stone_vertical_slab_2");
@@ -58,4 +63,15 @@ public class ModBlocks {
     public static final ItemBlock ITEMBLOCK_WOOD_VERT_SLAB_2 = new ItemBlockVertSlab((BlockVertSlabBase)WOOD_VERT_SLAB_2, (BlockVertSlabBase)WOOD_VERT_SLAB_2, (BlockVertSlabBase)DOUBLE_WOOD_VERT_SLAB_2,"woodVerticalSlab2","wood_vertical_slab_2");
     public static final ItemBlock ITEMBLOCK_STONE_VERT_SLAB_NEW = new ItemBlockVertSlab((BlockVertSlabBase)STONE_VERT_SLAB_NEW, (BlockVertSlabBase)STONE_VERT_SLAB_NEW, (BlockVertSlabBase)DOUBLE_STONE_VERT_SLAB_NEW,"stoneVerticalSlabNew","stone_vertical_slab_new");
     public static final ItemBlock ITEMBLOCK_PURPUR_VERT_SLAB = new ItemBlockVertSlab((BlockVertSlabBase)PURPUR_VERT_SLAB, (BlockVertSlabBase)PURPUR_VERT_SLAB, (BlockVertSlabBase)DOUBLE_PURPUR_VERT_SLAB,"purpurVerticalSlab","purpur_vertical_slab");
+
+    // ITEMBLOCKS HEDGE
+    public static final ItemBlock ITEMBLOCK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "hedge", "hedge");
+    /*
+    public static final ItemBlock ITEMBLOCK_OAK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "oakHedge", "hedge_oak");
+    public static final ItemBlock ITEMBLOCK_SPRUCE_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "spruceHedge", "hedge_spruce");
+    public static final ItemBlock ITEMBLOCK_BIRCH_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "birchHedge", "hedge_birch");
+    public static final ItemBlock ITEMBLOCK_JUNGLE_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "jungleHedge", "hedge_jungle");
+    public static final ItemBlock ITEMBLOCK_ACACIA_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "acaciaHedge", "hedge_acacia");
+    public static final ItemBlock ITEMBLOCK_DARK_OAK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "darkOakHedge", "hedge_dark_oak");
+    */
 }

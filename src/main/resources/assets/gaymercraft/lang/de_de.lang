@@ -19,7 +19,13 @@ tile.woodVerticalSlab2.acacia.name=Halber Akazienbretterblock
 tile.woodVerticalSlab2.big_oak.name=Halber Schwarzeichenbretterblock
 tile.stoneVerticalSlabNew.red_sandstone.name=Halber Roter Sandstein
 tile.purpurVerticalSlab.name=Halber Purpurner Block
-
+## Hedge
+tile.hedge.oak.name=Eichenhecke
+tile.hedge.spruce.name=Fichtenhecke
+tile.hedge.birch.name=Birkenhecke
+tile.hedge.jungle.name=Tropenbaumhecke
+tile.hedge.acacia.name=Akazienhecke
+tile.hedge.big_oak.name=Schwarzeichenhecke
 
 ### Items ###
 item.rainbowStar.loaded.name=Regenbogen-Stern
@@ -45,3 +51,7 @@ fluid.black_water=Schwarzes Wasser
 
 ### Entities ###
 entity.unicorn.name=Einhorn
+
+### Config ###
+gc.configgui.ctgy.coloredWater.tooltip=Einstellungen für das gefärbte Wasser
+gc.configgui.ctgy.unicorn.tooltip=Einstellungen für das Einhorn

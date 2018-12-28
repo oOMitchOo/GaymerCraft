@@ -29,4 +29,14 @@ public class ServerProxy extends CommonProxy {
     public void registerEntityRenderer() {
         // Nothing to see here. Go to ClientProxy!
     }
+
+    @Override
+    public void registerColoredBlocks() {
+        // Nothing to see here. Go to ClientProxy!
+    }
+
+    @Override
+    public void registerColoredItems() {
+        // Nothing to see here. Go to ClientProxy!
+    }
 }
