@@ -1,74 +1,20 @@
-package oomitchoo.gaymercraft.helper.handlers;
+package oomitchoo.gaymercraft.init;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
-import net.minecraft.world.World;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.world.GetCollisionBoxesEvent;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import oomitchoo.gaymercraft.GaymerCraft;
 import oomitchoo.gaymercraft.block.BlockColoredWater;
-import oomitchoo.gaymercraft.entity.EntityUnicorn;
-import oomitchoo.gaymercraft.init.ModBlocks;
-import oomitchoo.gaymercraft.init.ModItems;
-import oomitchoo.gaymercraft.item.ItemRainbowStar;
 import oomitchoo.gaymercraft.reference.Reference;
 
 /**
- * Created by oOMitchOo on 29.11.2018.
+ * Created by oOMitchOo on 30.12.2018.
  */
-@Mod.EventBusSubscriber
-public class RegistryHandler {
-
-    @SubscribeEvent
-    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-        Entity target = event.getTarget();
-        World world = event.getWorld();
-        Entity player = event.getEntityPlayer();
-        ItemStack heldItemStack = event.getEntityPlayer().getHeldItem(EnumHand.MAIN_HAND);
-
-        if(heldItemStack.getItem() instanceof ItemRainbowStar) {
-            if (!world.isRemote && event.getHand() == EnumHand.MAIN_HAND && target instanceof EntityHorse) {
-                // Lösung damit keine Items verloren gehen beim converten? Nicht-zahme Pferde haben keine Items am Körper.
-                if (!((EntityHorse) target).isTame() && heldItemStack.getMetadata() == 0) { // TODO: else Warnhinweis auf Spieler-Bildschirm
-                    // TODO: Irgendwie hilft das abfangen der Werte nicht. Das Unicorn hat trotzdem nicht dieselbe Ausrichtung wie das Pferd. Muss ich weiter testen.
-                    EntityUnicorn replaceWith = new EntityUnicorn(world);
-                    replaceWith.setLocationAndAngles(target.posX, target.posY, target.posZ, target.rotationYaw, target.rotationPitch);
-                    replaceWith.setRenderYawOffset(((EntityHorse) target).renderYawOffset);
-                    replaceWith.setRotationYawHead(target.getRotationYawHead());
-
-                    // TODO: Hier würde ich auch gerne das Alter setzen, aber forcedAge ist protected in EntityAgeable.
-                    replaceWith.setHorseTamed(true);
-
-                    target.setDead();
-                    world.spawnEntity(replaceWith);
-                    if(!event.getEntityPlayer().isCreative())
-                        heldItemStack.setItemDamage(1);
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onConfigChanged (ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.getModID().equalsIgnoreCase(Reference.MOD_ID)) {
-            // Resync configs
-            ConfigHandler.loadConfig();
-        }
-    }
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
+public class RegistryEvents {
 
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
@@ -139,21 +85,5 @@ public class RegistryHandler {
 
         // HEDGE BLOCK
         r.register(ModBlocks.BLOCK_HEDGE);
-    }
-
-    @SubscribeEvent
-    public static void onModelRegister(ModelRegistryEvent event) {
-        // ITEM-MODELS
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModItems.RAINBOW_STAR, 0, "_loaded", "inventory"); //Item item, int metaData, String regNameAddition, String id
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModItems.RAINBOW_STAR, 1, "_unloaded", "inventory");
-        // ITEMBLOCK-MODELS
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1, "inventory");
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2, "inventory");
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1, "inventory");
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2, "inventory");
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW, 0, "", "inventory");
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB, 0, "", "inventory");
-        // ITEMBLOCK MODELS HEDGE
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_HEDGE, "inventory");
     }
 }

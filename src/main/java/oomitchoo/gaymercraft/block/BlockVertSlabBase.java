@@ -10,11 +10,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentBase;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import oomitchoo.gaymercraft.helper.LogHelper;
 
 import java.util.Random;
 
@@ -36,7 +40,8 @@ public abstract class BlockVertSlabBase extends BlockBase {
         super(materialIn, mapColorIn, unlName, regName);
 
         this.fullBlock = this.isDouble();
-        this.setLightOpacity(90);
+        if (!this.isDouble())
+            setLightOpacity(0); // TODO: Change this, if I fixed the light issue with the vertical half slabs.
     }
 
     protected boolean canSilkHarvest()
@@ -44,6 +49,7 @@ public abstract class BlockVertSlabBase extends BlockBase {
         return false;
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         EnumFacing facing = this.getActualState(state, source, pos).getValue(FACING);
 
@@ -66,7 +72,8 @@ public abstract class BlockVertSlabBase extends BlockBase {
 
     public boolean isTopSolid(IBlockState state) { return ((BlockVertSlabBase)state.getBlock()).isDouble(); }
 
-    // Häuptsächlich zum platzieren von Knöpfen etc.
+    // Häuptsächlich zum Platzieren von Knöpfen etc.
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         if (((BlockVertSlabBase)state.getBlock()).isDouble())
         {
@@ -93,7 +100,7 @@ public abstract class BlockVertSlabBase extends BlockBase {
         return this.isDouble();
     }
 
-    // todo: Gucken, ob die Seiten der benachbarten Blöcke richtig gerendert (bzw. nicht gerendert) werden.
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
     {
@@ -113,29 +120,105 @@ public abstract class BlockVertSlabBase extends BlockBase {
         } else if (facing == EnumFacing.EAST && face == EnumFacing.WEST) { // this is for EAST and everything (there shouldn't be more) else.
             return true;
         } else {
-            return false; // todo: vlt sollte es standardmäßig true sein? Muss ich mir näher angucken.
+            return false;
         }
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, EnumFacing.SOUTH);
+        IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
 
-        if(this.isDouble()) { // When isDouble dann ist facing egal, also nehmen wir einfach SOUTH. (Wird sowieso Doppelblock-Modell erhalten)
+        // If placer is placing on a vertical slab, use its FACING.
+        IBlockState blockPlacingOn = worldIn.getBlockState(pos.offset(facing.getOpposite()));
+        if (blockPlacingOn.getBlock() instanceof BlockVertSlabBase && !blockPlacingOn.isFullBlock() && facing != blockPlacingOn.getValue(FACING).getOpposite())
+            return iblockstate.withProperty(FACING, blockPlacingOn.getValue(FACING));
+
+        if(this.isDouble()) { // This should never be called since there are only ItemBlocks for the NOT isDouble version.
             return iblockstate;
         } else {
-            switch (facing) { // Ansonsten abhängig welche Seite vom Block man anguckt.
+            switch (facing) { // Abhängig welche Seite vom Block man anguckt.
                 case NORTH:
-                    return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                    if (hitX < 0.75) {
+                        if (hitX < 0.25) {
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                        } else /* hitX between 0.25 and 0.75 */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                        }
+                    } else /* hitX >= 0.75 */ {
+                        return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                    }
                 case SOUTH:
-                    return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                    if (hitX < 0.75) {
+                        if (hitX < 0.25) {
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                        } else /* hitX between 0.25 and 0.75 */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                        }
+                    } else /* hitX >= 0.75 */ {
+                        return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                    }
                 case WEST:
-                    return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                    if (hitZ < 0.75) {
+                        if (hitZ < 0.25) {
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                        } else /* hitZ between 0.25 and 0.75 */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                        }
+                    } else /* hitZ >= 0.75 */ {
+                        return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                    }
                 case EAST:
-                    return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                    if (hitZ < 0.75) {
+                        if (hitZ < 0.25) {
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                        } else /* hitZ between 0.25 and 0.75 */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                        }
+                    } else /* hitZ >= 0.75 */ {
+                        return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                    }
                 case UP:
-                    return iblockstate.withProperty(FACING, placer.getHorizontalFacing().getOpposite()); // Und für UP/DOWN abhängig von der Ausrichtung des Platzierers.
+                    //  hitX and hitZ are between 0 and 1 and basically tell us which coordinate
+                    //  of the face (which the block is being placed on) is right-clicked by the player.
+                    //
+                    //  SOUTH and WEST: hitZ < hitX             |   SOUTH and EAST: hitZ < (1-hitX)
+                    //  NORTH and EAST: hitX < hitZ             |   NORTH and WEST: (1-hitX) < hitZ
+                    //
+                    //  NORTH: hitX < hitZ && (1-hitX) < hitZ   |   SOUTH: X < Z && (1-X) < Z
+                    //  WEST: hitZ < hitX && (1-hitX) < hitZ    |   EAST: hitX < hitZ && hitZ < (1-hitX)
+                {
+                    // else (look big comment section above)
+                    if (hitX < hitZ) {
+                        if ((1f-hitX) < hitZ) {
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                        } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                        }
+                    } else /* hitZ < hitX and unlikely event of hitX = hitZ */ {
+                        if ((1f-hitX) < hitZ) {
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                        } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                        }
+                    }
+                }
                 case DOWN:
-                    return iblockstate.withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+                {
+                    // Same as UP case.
+                    if (hitX < hitZ) {
+                        if ((1f-hitX) < hitZ) {
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                        } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                        }
+                    } else /* hitZ < hitX and unlikely event of hitX = hitZ */ {
+                        if ((1f-hitX) < hitZ) {
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                        } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                        }
+                    }
+                }
                 default:
                     return iblockstate; // Default ist SOUTH, aber sollte nie aufgerufen werden.
             }
@@ -152,16 +235,22 @@ public abstract class BlockVertSlabBase extends BlockBase {
         return this.isDouble();
     }
 
+    /**
+     * This basically determines, if a block touching this block on the @side (or facing WITH the @side???)
+     * gets rendered on the side that touches this block.
+     */
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
-        return super.shouldSideBeRendered(blockState, blockAccess, pos, side); // todo: FAAAAAAAAAAAAALSCH. Muss ich noch checken.
-        /*if (this.isDouble())
+        // super method should be good enough here. todo: check it maybe.
+        return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+        /* if (this.isDouble())
         {
             return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
         } else {
             return false;
-        }*/
+        }
+        */
     }
 
 

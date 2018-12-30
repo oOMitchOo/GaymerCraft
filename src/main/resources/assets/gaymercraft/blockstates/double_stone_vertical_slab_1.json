@@ -6,25 +6,25 @@
     }, "variants":
 {
     "inventory": { "model": "block/block" },
-    "facing=south,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone"},
-    "facing=west,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "y": 90},
-    "facing=north,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "y": 180},
-    "facing=east,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "y": 270},
-    "facing=up,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone"}, // See first comment.
+    "facing=south,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "uvlock": true },
+    "facing=west,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "y": 90, "uvlock": true },
+    "facing=north,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "y": 180, "uvlock": true },
+    "facing=east,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "y": 270, "uvlock": true },
+    "facing=up,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=stone": {"model": "gaymercraft:double_stone_vertical_slab_1_stone", "uvlock": true }, // See first comment.
 
-    "facing=south,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone"},
-    "facing=west,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "y": 90},
-    "facing=north,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "y": 180},
-    "facing=east,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "y": 270},
-    "facing=up,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone"}, // See first comment.
+    "facing=south,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "uvlock": true },
+    "facing=west,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "y": 90, "uvlock": true },
+    "facing=north,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "y": 180, "uvlock": true },
+    "facing=east,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "y": 270, "uvlock": true },
+    "facing=up,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=sandstone": {"model": "gaymercraft:double_stone_vertical_slab_1_sandstone", "uvlock": true }, // See first comment.
 
-    "facing=south,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone"},
-    "facing=west,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "y": 90},
-    "facing=north,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "y": 180},
-    "facing=east,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "y": 270},
-    "facing=up,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone"} // See first comment.
+    "facing=south,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "uvlock": true },
+    "facing=west,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "y": 90, "uvlock": true },
+    "facing=north,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "y": 180, "uvlock": true },
+    "facing=east,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "y": 270, "uvlock": true },
+    "facing=up,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=cobblestone": {"model": "gaymercraft:double_stone_vertical_slab_1_cobblestone", "uvlock": true } // See first comment.
 }
 }

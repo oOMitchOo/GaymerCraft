@@ -6,32 +6,32 @@
     }, "variants":
 {
     "inventory": { "model": "block/block" },
-    "facing=south,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick"},
-    "facing=west,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "y": 90},
-    "facing=north,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "y": 180},
-    "facing=east,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "y": 270},
-    "facing=up,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick"}, // See first comment.
+    "facing=south,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "uvlock": true },
+    "facing=west,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "y": 90, "uvlock": true },
+    "facing=north,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "y": 180, "uvlock": true },
+    "facing=east,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "y": 270, "uvlock": true },
+    "facing=up,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=brick": {"model": "gaymercraft:double_stone_vertical_slab_2_brick", "uvlock": true }, // See first comment.
 
-    "facing=south,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick"},
-    "facing=west,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "y": 90},
-    "facing=north,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "y": 180},
-    "facing=east,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "y": 270},
-    "facing=up,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick"}, // See first comment.
+    "facing=south,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "uvlock": true },
+    "facing=west,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "y": 90, "uvlock": true },
+    "facing=north,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "y": 180, "uvlock": true },
+    "facing=east,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "y": 270, "uvlock": true },
+    "facing=up,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=stone_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_stone_brick", "uvlock": true }, // See first comment.
 
-    "facing=south,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick"},
-    "facing=west,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "y": 90},
-    "facing=north,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "y": 180},
-    "facing=east,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "y": 270},
-    "facing=up,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick"}, // See first comment.
+    "facing=south,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "uvlock": true },
+    "facing=west,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "y": 90, "uvlock": true },
+    "facing=north,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "y": 180, "uvlock": true },
+    "facing=east,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "y": 270, "uvlock": true },
+    "facing=up,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=nether_brick": {"model": "gaymercraft:double_stone_vertical_slab_2_nether_brick", "uvlock": true }, // See first comment.
 
-    "facing=south,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz"},
-    "facing=west,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "y": 90},
-    "facing=north,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "y": 180},
-    "facing=east,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "y": 270},
-    "facing=up,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz"} // See first comment.
+    "facing=south,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "uvlock": true },
+    "facing=west,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "y": 90, "uvlock": true },
+    "facing=north,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "y": 180, "uvlock": true },
+    "facing=east,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "y": 270, "uvlock": true },
+    "facing=up,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=quartz": {"model": "gaymercraft:double_stone_vertical_slab_2_quartz", "uvlock": true } // See first comment.
 }
 }

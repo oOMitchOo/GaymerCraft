@@ -1,5 +1,7 @@
 package oomitchoo.gaymercraft.helper;
 
+import net.minecraftforge.fml.common.FMLLog;
+import oomitchoo.gaymercraft.reference.Reference;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
@@ -8,12 +10,9 @@ import org.apache.logging.log4j.Logger;
  */
 
 public class LogHelper {
-    private static Logger modLogger;
-
-    public static void setModLogger(Logger modLogger) {LogHelper.modLogger = modLogger;}
 
     public static void log(Level loglevel, Object object){
-        modLogger.log(loglevel, object);
+        FMLLog.log(Reference.MOD_ID, loglevel, String.valueOf(object));
     }
 
     public static void all(Object object){

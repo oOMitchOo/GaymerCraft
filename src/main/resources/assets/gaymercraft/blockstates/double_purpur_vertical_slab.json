@@ -6,11 +6,11 @@
     }, "variants":
 {
     "inventory": { "model": "block/block" },
-    "facing=south,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default"},
-    "facing=west,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "y": 90},
-    "facing=north,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "y": 180},
-    "facing=east,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "y": 270},
-    "facing=up,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default"}, // Just for error prevention. Block should never be oriented this way.
-    "facing=down,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default"} // See first comment.
+    "facing=south,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "uvlock": true },
+    "facing=west,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "y": 90, "uvlock": true },
+    "facing=north,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "y": 180, "uvlock": true },
+    "facing=east,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "y": 270, "uvlock": true },
+    "facing=up,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+    "facing=down,variant=default": {"model": "gaymercraft:double_purpur_vertical_slab_default", "uvlock": true } // See first comment.
 }
 }

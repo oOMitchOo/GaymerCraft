@@ -71,6 +71,7 @@ public abstract class BlockStoneVertSlab2 extends BlockVertSlabBase {
         items.add(new ItemStack(this, 1, EnumType.QUARTZ.getMetadata()));
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public IBlockState getStateFromMeta(int meta)
     {
         IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta & 3)); // 0,4,8,12=0:BRICK; 1,5,9,13=1:SMOOTHBRICK; 2,6,10,14=2:NETHERBRICK; 3,7,11,15=3:QUARTZ
@@ -89,6 +90,7 @@ public abstract class BlockStoneVertSlab2 extends BlockVertSlabBase {
         }
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public int getMetaFromState(IBlockState state)
     {
         int j = 0;

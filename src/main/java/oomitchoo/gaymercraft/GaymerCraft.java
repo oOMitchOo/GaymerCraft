@@ -32,9 +32,10 @@ public class GaymerCraft {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        LogHelper.setModLogger(event.getModLog());
         ConfigHandler.init(event.getSuggestedConfigurationFile());
 
+        // init.RegistryEvents are probably fired here.
+        // client.event.ModelRegistryEvents are probably fired here too.
         ModEntities.init();
         proxy.registerEntityRenderer();
 

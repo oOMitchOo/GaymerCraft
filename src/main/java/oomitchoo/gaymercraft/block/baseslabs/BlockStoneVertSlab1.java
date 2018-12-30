@@ -85,6 +85,7 @@ public abstract class BlockStoneVertSlab1 extends BlockVertSlabBase {
         items.add(new ItemStack(this, 1, EnumType.COBBLESTONE.getMetadata()));
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     @Override
     public IBlockState getStateFromMeta(int meta) // 0,3,6,9=STONE; 1,4,7,10=SAND; 2,5,8,11=COBBLESTONE
     {                                             // Also 0..2=NORTH; 3..5=SOUTH; 6..8=WEST; 9..11=EAST
@@ -104,6 +105,7 @@ public abstract class BlockStoneVertSlab1 extends BlockVertSlabBase {
         }
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     @Override
     public int getMetaFromState(IBlockState state)
     {

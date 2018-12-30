@@ -6,11 +6,11 @@
   }, "variants":
 {
   "inventory": { "model": "block/block" },
-  "facing=south,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone"},
-  "facing=west,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "y": 90},
-  "facing=north,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "y": 180},
-  "facing=east,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "y": 270},
-  "facing=up,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone"}, // Just for error prevention. Block should never be oriented this way.
-  "facing=down,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone"} // See first comment.
+  "facing=south,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "uvlock": true },
+  "facing=west,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "y": 90, "uvlock": true },
+  "facing=north,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "y": 180, "uvlock": true },
+  "facing=east,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "y": 270, "uvlock": true },
+  "facing=up,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
+  "facing=down,variant=red_sandstone": {"model": "gaymercraft:double_stone_vertical_slab_new_red_sandstone", "uvlock": true } // See first comment.
 }
 }

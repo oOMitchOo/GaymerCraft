@@ -49,6 +49,7 @@ public class ItemBlockVertSlab extends ItemBlock {
     /**
      * Called when a Block is right-clicked with this Item
      */
+    // TODO: Test the making of a double vertical slab more. It's sometimes a little buggy?
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -56,15 +57,13 @@ public class ItemBlockVertSlab extends ItemBlock {
         if (!itemstack.isEmpty() && player.canPlayerEdit(pos.offset(facing), facing, itemstack))
         {
             Comparable<?> comparable = this.singleSlab.getTypeForItem(itemstack); // 0 bis 3 wird zurückgegeben je nach Variante.
-            IBlockState iblockstate = worldIn.getBlockState(pos);
+            IBlockState iblockstate = worldIn.getBlockState(pos); // Das ist der Block an dem gesetzt wird (der right-clicked wird).
 
             if (iblockstate.getBlock() == this.singleSlab)
             {
                 IProperty<?> iproperty = this.singleSlab.getVariantProperty(); // getVariantProperty() Erhält Enum VARIANT.
                 Comparable<?> comparable1 = iblockstate.getValue(iproperty); // holt also den Value von VARIANT (STONE, SAND, WOOD, etc.)
                 EnumFacing blockslab$enumfacing = (EnumFacing)iblockstate.getValue(BlockVertSlabBase.FACING);
-
-                // BlockSlab.EnumBlockHalf blockslab$enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF);
 
                 if ((facing == EnumFacing.NORTH && blockslab$enumfacing == EnumFacing.NORTH) && comparable1 == comparable) {
                     IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.NORTH);

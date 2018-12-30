@@ -69,6 +69,7 @@ public abstract class BlockWoodVertSlab2 extends BlockVertSlabBase {
         items.add(new ItemStack(this, 1, EnumType.DARK_OAK.getMetadata()));
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public IBlockState getStateFromMeta(int meta)
     {
         IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta & 1)); // 0,4,8,12=0:STONE; 1,5,9,13=1:SAND; 2,6,10,14=2:WOOD; 3,7,11,15=3:COBBLESTONE
@@ -87,6 +88,7 @@ public abstract class BlockWoodVertSlab2 extends BlockVertSlabBase {
         }
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public int getMetaFromState(IBlockState state)
     {
         int j = 0;

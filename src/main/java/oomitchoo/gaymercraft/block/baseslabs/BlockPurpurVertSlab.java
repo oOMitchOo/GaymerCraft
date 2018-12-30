@@ -73,6 +73,7 @@ public abstract class BlockPurpurVertSlab extends BlockVertSlabBase {
         items.add(new ItemStack(this, 1, 0));
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -92,6 +93,7 @@ public abstract class BlockPurpurVertSlab extends BlockVertSlabBase {
         }
     }
 
+    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     @Override
     public int getMetaFromState(IBlockState state)
     {
@@ -103,7 +105,6 @@ public abstract class BlockPurpurVertSlab extends BlockVertSlabBase {
     @Override
     protected BlockStateContainer createBlockState()
     {
-        // return new BlockStateContainer(this, new IProperty[] {VARIANT, FACING});
         return new BlockStateContainer(this, new IProperty[] {VARIANT, FACING});
     }
 
