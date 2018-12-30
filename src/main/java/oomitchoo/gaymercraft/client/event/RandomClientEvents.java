@@ -36,7 +36,7 @@ public class RandomClientEvents {
                 BlockPos blockpos = target.getBlockPos();
                 IBlockState targetBlock = player.getEntityWorld().getBlockState(blockpos);
                 EnumFacing sideHit = target.sideHit;
-                if (player.world.getBlockState(blockpos.offset(sideHit)).getMaterial() == Material.AIR) { // check if block is unobstructed on that face the player is looking at.
+                if (targetBlock.getBlock().isReplaceable(player.world, blockpos.offset(sideHit))) { // check if block is unobstructed on that face the player is looking at.
                     if(targetBlock.getMaterial() != Material.AIR && !targetBlock.getBlock().isReplaceable(player.world, blockpos) && player.getEntityWorld().getWorldBorder().contains(blockpos)) {
                         if (targetBlock.getBlock() instanceof BlockVertSlabBase && !((BlockVertSlabBase) targetBlock.getBlock()).isDouble() && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING).getOpposite()) // todo: 1.13: get rid of the getOpposite().
                             GaymerCraft.proxy.drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());

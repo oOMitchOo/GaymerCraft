@@ -2,13 +2,13 @@
 {
   "modid": "gaymercraft",
   "name": "GaymerCraft",
-  "description": "A quick and dirty mod for vertical slabs and colored water. Other things will follow.",
+  "description": "Gaymercraft adds colored water, hedges, vertical slabs and unicorns to Minecraft.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["oOMitchOo"],
-  "credits": "All ideas for the mod came from KangOrchyd.",
+  "credits": "KangOrchyd",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
