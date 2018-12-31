@@ -47,7 +47,7 @@ public class GuiModConfig extends GuiConfig {
             // This GuiConfig object specifies the configID of the object and as such will force-save when it is closed. The parent
             // GuiConfig object's entryList will also be refreshed to reflect the changes.
             return new GuiConfig(this.owningScreen,
-                    (new ConfigElement(ConfigHandler.config.getCategory(Reference.Config.CATEGORY_COLORED_WATER))).getChildElements(), // ConfigHandler.config.getCategory("colored_water")).getChildElements()
+                    (new ConfigElement(ConfigHandler.config.getCategory(Reference.Config.CATEGORY_COLORED_WATER))).getChildElements(),
                     this.owningScreen.modID, Reference.Config.CATEGORY_COLORED_WATER, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
                     this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart,
                     GuiConfig.getAbridgedConfigPath(ConfigHandler.config.toString()));

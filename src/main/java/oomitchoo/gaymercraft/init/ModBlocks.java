@@ -3,9 +3,9 @@ package oomitchoo.gaymercraft.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
+import oomitchoo.gaymercraft.block.BlockColoredWater;
 import oomitchoo.gaymercraft.block.BlockHedge;
 import oomitchoo.gaymercraft.block.BlockVertSlabBase;
-import oomitchoo.gaymercraft.block.BlockColoredWater;
 import oomitchoo.gaymercraft.block.doubleslabs.*;
 import oomitchoo.gaymercraft.block.halfslabs.*;
 import oomitchoo.gaymercraft.item.ItemBlockHedge;
@@ -66,12 +66,4 @@ public class ModBlocks {
 
     // ITEMBLOCKS HEDGE
     public static final ItemBlock ITEMBLOCK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "hedge", "hedge");
-    /*
-    public static final ItemBlock ITEMBLOCK_OAK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "oakHedge", "hedge_oak");
-    public static final ItemBlock ITEMBLOCK_SPRUCE_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "spruceHedge", "hedge_spruce");
-    public static final ItemBlock ITEMBLOCK_BIRCH_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "birchHedge", "hedge_birch");
-    public static final ItemBlock ITEMBLOCK_JUNGLE_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "jungleHedge", "hedge_jungle");
-    public static final ItemBlock ITEMBLOCK_ACACIA_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "acaciaHedge", "hedge_acacia");
-    public static final ItemBlock ITEMBLOCK_DARK_OAK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "darkOakHedge", "hedge_dark_oak");
-    */
 }

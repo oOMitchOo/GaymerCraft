@@ -9,8 +9,8 @@ import oomitchoo.gaymercraft.reference.Reference;
 /**
  * Created by oOMitchOo on 21.11.2018.
  */
-public class BlockBase extends Block {
-    public BlockBase(Material materialIn, MapColor mapColorIn, String unlName, String regName) {
+class BlockBase extends Block {
+    BlockBase(Material materialIn, MapColor mapColorIn, String unlName, String regName) {
         super(materialIn, mapColorIn);
         this.setCreativeTab(Reference.creativeTab);
         this.setUnlocalizedName(unlName);

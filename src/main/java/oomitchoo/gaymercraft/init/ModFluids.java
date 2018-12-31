@@ -30,7 +30,7 @@ public class ModFluids {
     public static final Fluid FLUID_RED_WATER = setupFluid(new Fluid("red_water", new ResourceLocation(Reference.MOD_ID, "blocks/fluids/desat_hell"+ brightness +"_water_still"), new ResourceLocation(Reference.MOD_ID, "blocks/fluids/desat_hell"+ brightness +"_water_flow"), new ResourceLocation(Reference.MOD_ID, "blocks/fluids/desat_hell"+ brightness +"_water_overlay"), new Color(179, 49, 44)));
     public static final Fluid FLUID_BLACK_WATER = setupFluid(new Fluid("black_water", new ResourceLocation(Reference.MOD_ID, "blocks/fluids/desat_hell"+ brightness +"_water_still"), new ResourceLocation(Reference.MOD_ID, "blocks/fluids/desat_hell"+ brightness +"_water_flow"), new ResourceLocation(Reference.MOD_ID, "blocks/fluids/desat_hell"+ brightness +"_water_overlay"), new Color(30, 27, 27)));
 
-    public static Fluid setupFluid(Fluid fluid)
+    private static Fluid setupFluid(Fluid fluid)
     {
         FluidRegistry.addBucketForFluid(fluid);
         if(!FluidRegistry.registerFluid(fluid))

@@ -311,9 +311,10 @@ public class BlockHedge extends BlockBase{
     }
 
     @Override
-    @SideOnly(Side.CLIENT) // todo: check if this must be changed (dripping water on leave blocks).
+    @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {
+        // dripping water particle effects under the block, when it's raining.
         if (worldIn.isRainingAt(pos.up()) && !worldIn.getBlockState(pos.down()).isTopSolid() && rand.nextInt(15) == 1)
         {
             double d0 = (double)((float)pos.getX() + rand.nextFloat());

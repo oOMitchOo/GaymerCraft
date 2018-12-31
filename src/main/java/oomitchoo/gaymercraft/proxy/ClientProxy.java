@@ -4,7 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -107,12 +110,7 @@ public class ClientProxy extends CommonProxy{
         double d4 = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)partialTicks;
         double d5 = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)partialTicks;
 
-        if (!isVertSlab) {
-            if(!targetBlock.getBlock().isReplaceable(player.world, blockpos)) // TODO: Maybe handle an else statement (if it is replace, for example grass).
-                drawLinesOnTargetedBlockFace(sideHit, new AxisAlignedBB(0d, 0d, 0d, 1d, 1d, 1d).offset(blockpos).offset(-d3, -d4, -d5), 1.0F, 1.0F, 1.0F, 0.5F, true);
-        } else {
-            drawLinesOnTargetedBlockFace(sideHit, targetBlock.getSelectedBoundingBox(player.getEntityWorld(), blockpos).offset(-d3, -d4, -d5), 1.0F, 1.0F, 1.0F, 0.5F, false);
-        }
+        drawLinesOnTargetedBlockFace(sideHit, targetBlock.getSelectedBoundingBox(player.getEntityWorld(), blockpos).offset(-d3, -d4, -d5), 1.0F, 1.0F, 1.0F, 0.5F, !isVertSlab);
 
         GlStateManager.depthMask(true);
         GlStateManager.enableTexture2D();
@@ -135,29 +133,29 @@ public class ClientProxy extends CommonProxy{
         switch (face) {
 
             case DOWN:
-                drawQuadratOnUpOrDownFace(buffer, minY-offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfUpOrDownFace(buffer, minY-offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case UP:
-                drawQuadratOnUpOrDownFace(buffer, maxY+offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfUpOrDownFace(buffer, maxY+offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case NORTH:
-                drawQuadratOnNorthOrSouthFace(buffer, minZ-offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfNorthOrSouthFace(buffer, minZ-offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case SOUTH:
-                drawQuadratOnNorthOrSouthFace(buffer, maxZ+offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfNorthOrSouthFace(buffer, maxZ+offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case WEST:
-                drawQuadratOnWestOrEastFace(buffer, minX-offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfWestOrEastFace(buffer, minX-offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case EAST:
-                drawQuadratOnWestOrEastFace(buffer, maxX+offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfWestOrEastFace(buffer, maxX+offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
         }
 
         tessellator.draw();
     }
 
-    private static void drawQuadratOnUpOrDownFace(BufferBuilder buffer, double constantY, double minX, double minZ, double maxX, double maxZ, float red, float green, float blue, float alpha, boolean drawCross) {
+    private static void drawOutlinesOfUpOrDownFace(BufferBuilder buffer, double constantY, double minX, double minZ, double maxX, double maxZ, float red, float green, float blue, float alpha, boolean drawCross) {
         buffer.pos(minX, constantY, minZ).color(red, green, blue, 0.0F).endVertex(); // Anf-Punkt
         buffer.pos(minX, constantY, minZ).color(red, green, blue, alpha).endVertex();
 
@@ -172,7 +170,7 @@ public class ClientProxy extends CommonProxy{
             drawCrossOnUpOrDownFace(buffer, constantY, minX, minZ, maxX, maxZ, red, green, blue, alpha);
     }
 
-    private static void drawQuadratOnNorthOrSouthFace(BufferBuilder buffer, double constantZ, double minX, double minY, double maxX, double maxY, float red, float green, float blue, float alpha, boolean drawSections) {
+    private static void drawOutlinesOfNorthOrSouthFace(BufferBuilder buffer, double constantZ, double minX, double minY, double maxX, double maxY, float red, float green, float blue, float alpha, boolean drawSections) {
         buffer.pos(minX, minY, constantZ).color(red, green, blue, 0.0F).endVertex(); // Anf-Punkt
         buffer.pos(minX, minY, constantZ).color(red, green, blue, alpha).endVertex();
 
@@ -187,7 +185,7 @@ public class ClientProxy extends CommonProxy{
             drawThreeSectionsOnNorthOrSouthFace(buffer, constantZ, minX, minY, maxX, maxY, red, green, blue, alpha);
     }
 
-    private static void drawQuadratOnWestOrEastFace(BufferBuilder buffer, double constantX, double minZ, double minY, double maxZ, double maxY, float red, float green, float blue, float alpha, boolean drawSections) {
+    private static void drawOutlinesOfWestOrEastFace(BufferBuilder buffer, double constantX, double minZ, double minY, double maxZ, double maxY, float red, float green, float blue, float alpha, boolean drawSections) {
         buffer.pos(constantX, minY, minZ).color(red, green, blue, 0.0F).endVertex(); // Anf-Punkt
         buffer.pos(constantX, minY, minZ).color(red, green, blue, alpha).endVertex();
 
@@ -211,19 +209,19 @@ public class ClientProxy extends CommonProxy{
     }
 
     private static void drawThreeSectionsOnNorthOrSouthFace (BufferBuilder buffer, double constantZ, double minX, double minY, double maxX, double maxY, float red, float green, float blue, float alpha) {
-        buffer.pos(minX+0.25, minY, constantZ).color(red, green, blue, 0.0F).endVertex(); // Vertikal-Balken
-        buffer.pos(minX+0.25, maxY, constantZ).color(red, green, blue, alpha).endVertex();
-        buffer.pos(minX+0.75, maxY, constantZ).color(red, green, blue, 0.0F).endVertex();
-        buffer.pos(minX+0.75, minY, constantZ).color(red, green, blue, alpha).endVertex();
+        buffer.pos(minX+((maxX-minX)*0.25), minY, constantZ).color(red, green, blue, 0.0F).endVertex(); // Vertikal-Balken
+        buffer.pos(minX+((maxX-minX)*0.25), maxY, constantZ).color(red, green, blue, alpha).endVertex();
+        buffer.pos(minX+((maxX-minX)*0.75), maxY, constantZ).color(red, green, blue, 0.0F).endVertex();
+        buffer.pos(minX+((maxX-minX)*0.75), minY, constantZ).color(red, green, blue, alpha).endVertex();
 
         buffer.pos(minX, minY, constantZ).color(red, green, blue, 0.0F).endVertex();
     }
 
     private static void drawThreeSectionsOnWestOrEastFace (BufferBuilder buffer, double constantX, double minZ, double minY, double maxZ, double maxY, float red, float green, float blue, float alpha) {
-        buffer.pos(constantX, minY, minZ+0.25).color(red, green, blue, 0.0F).endVertex(); // Vertikal-Balken
-        buffer.pos(constantX, maxY, minZ+0.25).color(red, green, blue, alpha).endVertex();
-        buffer.pos(constantX, maxY, minZ+0.75).color(red, green, blue, 0.0F).endVertex();
-        buffer.pos(constantX, minY, minZ+0.75).color(red, green, blue, alpha).endVertex();
+        buffer.pos(constantX, minY, minZ+((maxZ-minZ)*0.25)).color(red, green, blue, 0.0F).endVertex(); // Vertikal-Balken
+        buffer.pos(constantX, maxY, minZ+((maxZ-minZ)*0.25)).color(red, green, blue, alpha).endVertex();
+        buffer.pos(constantX, maxY, minZ+((maxZ-minZ)*0.75)).color(red, green, blue, 0.0F).endVertex();
+        buffer.pos(constantX, minY, minZ+((maxZ-minZ)*0.75)).color(red, green, blue, alpha).endVertex();
 
         buffer.pos(constantX, minY, minZ).color(red, green, blue, 0.0F).endVertex();
     }

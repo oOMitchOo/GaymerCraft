@@ -6,8 +6,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import oomitchoo.gaymercraft.helper.handlers.ConfigHandler;
 import oomitchoo.gaymercraft.helper.LogHelper;
+import oomitchoo.gaymercraft.helper.handlers.ConfigHandler;
 import oomitchoo.gaymercraft.init.ModEntities;
 import oomitchoo.gaymercraft.proxy.IProxy;
 import oomitchoo.gaymercraft.reference.Reference;
@@ -46,7 +46,7 @@ public class GaymerCraft {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        // All blocks should be registered by now (registered in preInit). This registers a color overlay method (for the hedge) for the client. The Block Models must have a tintindex for this to work.
+        // All blocks should be registered by now (registered in preInit). This registers a color overlay method (for the hedge) for the client. The Block Models must have a tintindex > -1 for this to work.
         GaymerCraft.proxy.registerColoredBlocks();
         // Aaaand color overlay for the item of the block above.
         GaymerCraft.proxy.registerColoredItems();

@@ -1,18 +1,14 @@
 package oomitchoo.gaymercraft.entity;
 
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.crash.CrashReport;
-import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.passive.*;
-import net.minecraft.init.Blocks;
+import net.minecraft.entity.passive.AbstractChestHorse;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.util.*;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import oomitchoo.gaymercraft.reference.Reference;

@@ -17,11 +17,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelUnicorn extends ModelBase {
     private final ModelRenderer head;
-    // TODO: HIER HORN
+    // START horn
     private final ModelRenderer hornThick;
     private final ModelRenderer hornMiddle;
     private final ModelRenderer hornThin;
-    // Ende Horn
+    // END horn
     private final ModelRenderer upperMouth;
     private final ModelRenderer lowerMouth;
     private final ModelRenderer horseLeftEar;
@@ -127,7 +127,7 @@ public class ModelUnicorn extends ModelBase {
         this.head.addBox(-2.5F, -10.0F, -1.5F, 5, 5, 7);
         this.head.setRotationPoint(0.0F, 4.0F, -10.0F);
         this.head.rotateAngleX = 0.5235988F;
-        // TODO: HIER HORN-BOX, ROTATIONSPKT., ROTATIONSWINKEL
+        // START horn
         this.hornThick = new ModelRenderer(this, 68, 58);
         this.hornThick.addBox(-1.5F, -11.5F, 0.0F, 3, 2, 3);
         this.hornThick.setRotationPoint(0.0F, 4.0F, -10.0F);
@@ -140,7 +140,7 @@ public class ModelUnicorn extends ModelBase {
         this.hornThin.addBox(-0.5F, -18.5F, 1.0F, 1, 4, 1);
         this.hornThin.setRotationPoint(0.0F, 4.0F, -10.0F);
         this.hornThin.rotateAngleX = 0.5235988F;
-        // Ende Horn
+        // END horn
         this.upperMouth = new ModelRenderer(this, 24, 18);
         this.upperMouth.addBox(-2.0F, -10.0F, -7.0F, 4, 3, 6);
         this.upperMouth.setRotationPoint(0.0F, 3.95F, -10.0F);
@@ -313,22 +313,14 @@ public class ModelUnicorn extends ModelBase {
             }
         }
 
-        //if (flag2) // Wenn es eine Truhe haben kann.
-        //{
-            //this.muleLeftEar.render(scale);
-            //this.muleRightEar.render(scale);
-        //}
-        //else
-        //{
-            this.horseLeftEar.render(scale);
-            this.horseRightEar.render(scale);
-        //}
+        this.horseLeftEar.render(scale);
+        this.horseRightEar.render(scale);
 
-        // TODO: HIER HORN RENDERN
+        // START horn rendering
         this.hornThick.render(scale);
         this.hornMiddle.render(scale);
         this.hornThin.render(scale);
-        // Ende horn render
+        // END horn rendering
         this.head.render(scale);
 
         if (flag) // Wenn das Pferd noch ein Fohlen ist.

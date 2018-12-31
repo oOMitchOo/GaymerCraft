@@ -1,11 +1,9 @@
 package oomitchoo.gaymercraft.helper.handlers;
 
 import net.minecraftforge.common.config.Configuration;
-import oomitchoo.gaymercraft.helper.LogHelper;
 import oomitchoo.gaymercraft.reference.Reference;
 
 import java.io.File;
-import java.math.RoundingMode;
 
 /**
  * Created by oOMitchOo on 07.12.2018.

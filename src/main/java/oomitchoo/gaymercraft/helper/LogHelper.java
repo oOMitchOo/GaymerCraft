@@ -3,7 +3,6 @@ package oomitchoo.gaymercraft.helper;
 import net.minecraftforge.fml.common.FMLLog;
 import oomitchoo.gaymercraft.reference.Reference;
 import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
 
 /**
  * Created by oOMitchOo on 14.10.2016.

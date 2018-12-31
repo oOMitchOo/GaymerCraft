@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import oomitchoo.gaymercraft.block.BlockHedge;
 import oomitchoo.gaymercraft.reference.Reference;
 
 /**
