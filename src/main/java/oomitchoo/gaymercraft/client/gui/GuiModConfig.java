@@ -7,7 +7,7 @@ import net.minecraftforge.fml.client.config.DummyConfigElement.DummyCategoryElem
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.GuiConfigEntries;
 import net.minecraftforge.fml.client.config.IConfigElement;
-import oomitchoo.gaymercraft.helper.handlers.ConfigHandler;
+import oomitchoo.gaymercraft.common.config.ConfigHandler;
 import oomitchoo.gaymercraft.reference.Reference;
 
 import java.util.ArrayList;

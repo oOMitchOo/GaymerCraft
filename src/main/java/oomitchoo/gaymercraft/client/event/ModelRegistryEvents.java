@@ -1,10 +1,17 @@
 package oomitchoo.gaymercraft.client.event;
 
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import oomitchoo.gaymercraft.GaymerCraft;
+import oomitchoo.gaymercraft.block.baseslabs.BlockStoneVertSlab1;
+import oomitchoo.gaymercraft.block.baseslabs.BlockStoneVertSlab2;
+import oomitchoo.gaymercraft.block.baseslabs.BlockWoodVertSlab1;
+import oomitchoo.gaymercraft.block.baseslabs.BlockWoodVertSlab2;
 import oomitchoo.gaymercraft.init.ModBlocks;
 import oomitchoo.gaymercraft.init.ModItems;
 import oomitchoo.gaymercraft.reference.Reference;
@@ -15,20 +22,37 @@ import oomitchoo.gaymercraft.reference.Reference;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MOD_ID)
 public class ModelRegistryEvents {
 
-    // todo: Needs some tidy up. I don't think, I need to use a proxy here, since it already is in the client package (plus EventBusSubscriber value is Side.Client).
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
         // ITEM-MODELS
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModItems.RAINBOW_STAR, 0, "_loaded", "inventory");
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModItems.RAINBOW_STAR, 1, "_unloaded", "inventory");
-        // ITEMBLOCK-MODELS
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1, "inventory");
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2, "inventory");
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1, "inventory");
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2, "inventory");
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW, 0, "", "inventory");
-        GaymerCraft.proxy.registerItemRendererNoSubt(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB, 0, "", "inventory");
+        registerItemRenderer(ModItems.RAINBOW_STAR, 0, "_loaded");
+        registerItemRenderer(ModItems.RAINBOW_STAR, 1, "_unloaded");
+
+        // ITEMBLOCK-MODELS VERT SLABS
+        for (BlockStoneVertSlab1.EnumType blockslabs$enumtype : BlockStoneVertSlab1.EnumType.values()) {
+            registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+        }
+        for (BlockStoneVertSlab2.EnumType blockslabs$enumtype : BlockStoneVertSlab2.EnumType.values()) {
+            registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+        }
+        for (BlockWoodVertSlab1.EnumType blockslabs$enumtype : BlockWoodVertSlab1.EnumType.values()) {
+            registerItemRenderer(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+        }
+        for (BlockWoodVertSlab2.EnumType blockslabs$enumtype : BlockWoodVertSlab2.EnumType.values()) {
+            registerItemRenderer(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+        }
+        registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW, 0, "");
+        registerItemRenderer(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB, 0, "");
+
         // ITEMBLOCK MODELS HEDGE
-        GaymerCraft.proxy.registerItemRendererWithSubt(ModBlocks.ITEMBLOCK_HEDGE, "inventory");
+        for (BlockPlanks.EnumType blockleaves$enumtype : BlockPlanks.EnumType.values()) {
+            registerItemRenderer(ModBlocks.ITEMBLOCK_HEDGE, blockleaves$enumtype.getMetadata(), "_"+blockleaves$enumtype.getName());
+        }
+    }
+
+    // ================= HELPING METHODS ============================================================================================
+
+    private static void registerItemRenderer(Item item, int metaData, String regNameAddition) {
+        ModelLoader.setCustomModelResourceLocation(item, metaData, new ModelResourceLocation(item.getRegistryName()+regNameAddition, "inventory"));
     }
 }

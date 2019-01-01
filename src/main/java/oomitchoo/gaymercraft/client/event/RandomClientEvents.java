@@ -13,11 +13,12 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import oomitchoo.gaymercraft.GaymerCraft;
 import oomitchoo.gaymercraft.block.BlockVertSlabBase;
-import oomitchoo.gaymercraft.helper.handlers.ConfigHandler;
+import oomitchoo.gaymercraft.common.config.ConfigHandler;
 import oomitchoo.gaymercraft.item.ItemBlockVertSlab;
 import oomitchoo.gaymercraft.reference.Reference;
+
+import static oomitchoo.gaymercraft.client.renderer.RenderGlobalModded.drawLinesForVertSlabPlacement;
 
 /**
  * Created by oOMitchOo on 30.12.2018.
@@ -25,7 +26,6 @@ import oomitchoo.gaymercraft.reference.Reference;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MOD_ID)
 public class RandomClientEvents {
 
-    // todo: I should probably get rid of the proxy, since this already is in the client package (plus EventBusSubscriber value is Side.Client).
     @SubscribeEvent
     public static void onDrawBlockHighlightEvent (DrawBlockHighlightEvent event) {
         EntityPlayer player = event.getPlayer();
@@ -43,10 +43,12 @@ public class RandomClientEvents {
                     if(targetBlock.getMaterial() != Material.AIR && !targetBlock.getBlock().isReplaceable(player.world, blockpos) && player.getEntityWorld().getWorldBorder().contains(blockpos)) {
                         // If it is a vert half slab (and the face hit isn't the one full face oriented out of the blockspace), set the boolean in the method (isVertSlab) true.
                         if (targetBlock.getBlock() instanceof BlockVertSlabBase && !((BlockVertSlabBase) targetBlock.getBlock()).isDouble() && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING).getOpposite()) // todo: 1.13: get rid of the getOpposite().
-                            GaymerCraft.proxy.drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());
+                            drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());
+                            // GaymerCraft.proxy.drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());
                         // If it isn't a vert half slab, only draw the lines on the block face, if it is solid face and set the boolean (isVertSlab) to false.
                         else if (targetBlock.getBlockFaceShape(player.world, blockpos, sideHit) == BlockFaceShape.SOLID)
-                            GaymerCraft.proxy.drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, false, event.getPartialTicks());
+                            drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, false, event.getPartialTicks());
+                            //GaymerCraft.proxy.drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, false, event.getPartialTicks());
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package oomitchoo.gaymercraft.helper.handlers;
+package oomitchoo.gaymercraft.common.config;
 
 import net.minecraftforge.common.config.Configuration;
 import oomitchoo.gaymercraft.reference.Reference;
