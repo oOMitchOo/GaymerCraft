@@ -63,15 +63,22 @@ public class BlockColoredWater extends BlockFluidClassic {
     @Override
     public float getFilledPercentage(IBlockAccess world, BlockPos pos)
     {
-        IBlockState blockAbove = world.getBlockState(pos.up());
-        // Checks if the above Block is a Forge FluidBlock and returns 1 if true... this means, that the ForgeHooks method isInsideOfMaterial() correctly says that the whole block space is filled with a fluid.
-        if (isFluid(blockAbove)) {
-            return 1f;
-        }
-
-        int quantaRemaining = getQuantaValue(world, pos); // quantaPerBlock - Level .... or -1 if this is not a fluid block / 0 if it is Air.
-        float remaining = (quantaRemaining + 1f) / (quantaPerBlockFloat + 1f); // I don't get why + 1f on both. So that, if quantaRemaining is 0, we still have 0.11 (when quantaPerBlockFloat is 8 for example)
+        int quantaRemaining = getEffectiveQuantaTEMP(world, pos);
+        float remaining = (quantaRemaining + 1f) / (quantaPerBlockFloat + 1f);
         return remaining * (density > 0 ? 1 : -1);
+    }
+
+    // Helping method, which gets implemented in a later Forge version (without the -TEMP postfix).
+    final int getEffectiveQuantaTEMP(IBlockAccess world, BlockPos pos)
+    {
+        int quantaValue = getQuantaValue(world, pos);
+        return quantaValue > 0 && quantaValue < quantaPerBlock && hasVerticalFlow(world, pos) ? quantaPerBlock : quantaValue;
+    }
+
+    // Had to copy this method, because it has private access in BlockFluidBase
+    final boolean hasVerticalFlow(IBlockAccess world, BlockPos pos)
+    {
+        return world.getBlockState(pos.down(densityDir)).getBlock() == this;
     }
 
     // ======================= END Forge method fixes =========================================================
