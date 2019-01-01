@@ -35,7 +35,7 @@ public abstract class BlockWoodVertSlab2 extends BlockVertSlabBase {
         this.setSoundType(SoundType.WOOD);
 
         IBlockState iblockstate = this.blockState.getBaseState();
-        this.setDefaultState(iblockstate.withProperty(VARIANT, BlockWoodVertSlab2.EnumType.ACACIA).withProperty(FACING, EnumFacing.SOUTH));
+        this.setDefaultState(iblockstate.withProperty(VARIANT, BlockWoodVertSlab2.EnumType.ACACIA).withProperty(FACING, EnumFacing.NORTH));
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
@@ -69,26 +69,25 @@ public abstract class BlockWoodVertSlab2 extends BlockVertSlabBase {
         items.add(new ItemStack(this, 1, EnumType.DARK_OAK.getMetadata()));
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
     public IBlockState getStateFromMeta(int meta)
     {
         IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta & 1)); // 0,4,8,12=0:STONE; 1,5,9,13=1:SAND; 2,6,10,14=2:WOOD; 3,7,11,15=3:COBBLESTONE
 
         switch (meta / 2) { // Für 0..1 = 0 ; für 2..3 = 1 ; für 4..5 = 2 ; für 6..7 = 3 usw.
             case 0:
-                return iblockstate.withProperty(FACING, EnumFacing.NORTH);
-            case 1:
                 return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+            case 1:
+                return iblockstate.withProperty(FACING, EnumFacing.NORTH);
             case 2:
-                return iblockstate.withProperty(FACING, EnumFacing.WEST);
-            case 3:
                 return iblockstate.withProperty(FACING, EnumFacing.EAST);
+            case 3:
+                return iblockstate.withProperty(FACING, EnumFacing.WEST);
             default:
                 return iblockstate;
         }
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    // TODO: 1.13: Combine this with EnumFacing.VALUE.getHorizontalIndex(). Change getStateFromMeta() then too.
     public int getMetaFromState(IBlockState state)
     {
         int j = 0;
@@ -97,11 +96,11 @@ public abstract class BlockWoodVertSlab2 extends BlockVertSlabBase {
         // Dann je nach Ausrichtung NORTH=+0:0,1; SOUTH=+2:2,3; WEST=+4:4,5; EAST=+6:6,7
 
         // Folgende if-statements könnte man auch mit dem jeweiligen Index der Richtungen lösen, so liest es sich aber besser.
-        if (state.getValue(FACING) == EnumFacing.SOUTH) { // NORTH wird nicht gecheckt, denn in dem Fall muss j ja sowieso nicht geändert werden.
+        if (state.getValue(FACING) == EnumFacing.NORTH) { // SOUTH wird nicht gecheckt, denn in dem Fall muss j ja sowieso nicht geändert werden.
             j = j+2;
-        } else if (state.getValue(FACING) == EnumFacing.WEST) {
-            j = j+4;
         } else if (state.getValue(FACING) == EnumFacing.EAST) {
+            j = j+4;
+        } else if (state.getValue(FACING) == EnumFacing.WEST) {
             j = j+6;
         }
 
@@ -110,7 +109,7 @@ public abstract class BlockWoodVertSlab2 extends BlockVertSlabBase {
 
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[]{VARIANT, FACING});
+        return new BlockStateContainer(this, new IProperty[]{FACING, VARIANT});
     }
 
     public int damageDropped(IBlockState state)

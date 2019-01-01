@@ -13,8 +13,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -40,12 +38,13 @@ public abstract class BlockVertSlabBase extends BlockBase {
             setLightOpacity(0); // TODO: Change this, if I fixed the light issue with the vertical half slabs.
     }
 
+    @Override
     protected boolean canSilkHarvest()
     {
         return false;
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         EnumFacing facing = this.getActualState(state, source, pos).getValue(FACING);
 
@@ -53,13 +52,13 @@ public abstract class BlockVertSlabBase extends BlockBase {
             return FULL_BLOCK_AABB;
         } else {
             switch (facing) {
-                case NORTH:
-                    return VERT_NSWE_HALF_SLAB_BB[0];
                 case SOUTH:
+                    return VERT_NSWE_HALF_SLAB_BB[0];
+                case NORTH:
                     return VERT_NSWE_HALF_SLAB_BB[1];
-                case WEST:
-                    return VERT_NSWE_HALF_SLAB_BB[2];
                 case EAST:
+                    return VERT_NSWE_HALF_SLAB_BB[2];
+                case WEST:
                     return VERT_NSWE_HALF_SLAB_BB[3];
                 default: return FULL_BLOCK_AABB; // This shouldn't happen.
             }
@@ -69,22 +68,12 @@ public abstract class BlockVertSlabBase extends BlockBase {
     public boolean isTopSolid(IBlockState state) { return ((BlockVertSlabBase)state.getBlock()).isDouble(); }
 
     // Häuptsächlich zum Platzieren von Knöpfen etc.
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         if (((BlockVertSlabBase)state.getBlock()).isDouble())
         {
             return BlockFaceShape.SOLID;
-        } else if (face == EnumFacing.NORTH && state.getValue(FACING) == EnumFacing.SOUTH)
-        {
-            return BlockFaceShape.SOLID;
-        } else if (face == EnumFacing.SOUTH && state.getValue(FACING) == EnumFacing.NORTH)
-        {
-            return BlockFaceShape.SOLID;
-        } else if (face == EnumFacing.WEST && state.getValue(FACING) == EnumFacing.EAST)
-        {
-            return BlockFaceShape.SOLID;
-        } else if (face == EnumFacing.EAST && state.getValue(FACING) == EnumFacing.WEST)
-        {
+        } else if (face == state.getValue(FACING)) {
             return BlockFaceShape.SOLID;
         } else {
             return BlockFaceShape.UNDEFINED;
@@ -96,7 +85,8 @@ public abstract class BlockVertSlabBase extends BlockBase {
         return this.isDouble();
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    // Checks if a face (of this block) can block the rendering of the faces of adjacent blocks.
+    // This is done for every @face of the blockspace this blocks occupies and it is @state sensitive.
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
     {
@@ -107,26 +97,20 @@ public abstract class BlockVertSlabBase extends BlockBase {
             return true;
 
         EnumFacing facing = state.getValue(FACING);
-        if (facing == EnumFacing.NORTH && face == EnumFacing.SOUTH) {
-            return true;
-        } else if (facing == EnumFacing.SOUTH && face == EnumFacing.NORTH) {
-            return true;
-        } else if (facing == EnumFacing.WEST && face == EnumFacing.EAST) {
-            return true;
-        } else if (facing == EnumFacing.EAST && face == EnumFacing.WEST) { // this is for EAST and everything (there shouldn't be more) else.
+        if (facing == face) {
             return true;
         } else {
             return false;
         }
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    @Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
 
         // If placer is placing on a vertical slab, use its FACING.
         IBlockState blockPlacingOn = worldIn.getBlockState(pos.offset(facing.getOpposite()));
-        if (blockPlacingOn.getBlock() instanceof BlockVertSlabBase && !blockPlacingOn.isFullBlock() && facing != blockPlacingOn.getValue(FACING).getOpposite())
+        if (blockPlacingOn.getBlock() instanceof BlockVertSlabBase && !blockPlacingOn.isFullBlock() && facing != blockPlacingOn.getValue(FACING))
             return iblockstate.withProperty(FACING, blockPlacingOn.getValue(FACING));
 
         if(this.isDouble()) { // This should never be called since there are only ItemBlocks for the NOT isDouble version.
@@ -136,65 +120,65 @@ public abstract class BlockVertSlabBase extends BlockBase {
                 case NORTH:
                     if (hitX < 0.75) {
                         if (hitX < 0.25) {
-                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
                         } else /* hitX between 0.25 and 0.75 */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
                         }
                     } else /* hitX >= 0.75 */ {
-                        return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                        return iblockstate.withProperty(FACING, EnumFacing.EAST);
                     }
                 case SOUTH:
                     if (hitX < 0.75) {
                         if (hitX < 0.25) {
-                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
                         } else /* hitX between 0.25 and 0.75 */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
                         }
                     } else /* hitX >= 0.75 */ {
-                        return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                        return iblockstate.withProperty(FACING, EnumFacing.EAST);
                     }
                 case WEST:
                     if (hitZ < 0.75) {
                         if (hitZ < 0.25) {
-                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
-                        } else /* hitZ between 0.25 and 0.75 */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
-                        }
-                    } else /* hitZ >= 0.75 */ {
-                        return iblockstate.withProperty(FACING, EnumFacing.NORTH);
-                    }
-                case EAST:
-                    if (hitZ < 0.75) {
-                        if (hitZ < 0.25) {
-                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
                         } else /* hitZ between 0.25 and 0.75 */ {
                             return iblockstate.withProperty(FACING, EnumFacing.EAST);
                         }
                     } else /* hitZ >= 0.75 */ {
-                        return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                        return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                    }
+                case EAST:
+                    if (hitZ < 0.75) {
+                        if (hitZ < 0.25) {
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                        } else /* hitZ between 0.25 and 0.75 */ {
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                        }
+                    } else /* hitZ >= 0.75 */ {
+                        return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
                     }
                 case UP:
                     //  hitX and hitZ are between 0 and 1 and basically tell us which coordinate
                     //  of the face (which the block is being placed on) is right-clicked by the player.
                     //
-                    //  SOUTH and WEST: hitZ < hitX             |   SOUTH and EAST: hitZ < (1-hitX)
-                    //  NORTH and EAST: hitX < hitZ             |   NORTH and WEST: (1-hitX) < hitZ
+                    //  SOUTH and WEST: hitX < hitZ             |   SOUTH and EAST: (1-hitX) < hitZ
+                    //  NORTH and EAST: hitZ < hitX             |   NORTH and WEST: hitZ < (1-hitX)
                     //
-                    //  NORTH: hitX < hitZ && (1-hitX) < hitZ   |   SOUTH: X < Z && (1-X) < Z
-                    //  WEST: hitZ < hitX && (1-hitX) < hitZ    |   EAST: hitX < hitZ && hitZ < (1-hitX)
+                    //  NORTH: hitZ < hitX && hitZ < (1-hitX)   |   SOUTH: hitX < hitZ && (1-hitX) < hitZ
+                    //  WEST: hitX < hitZ && hitZ < (1-hitX)    |   EAST: hitZ < hitX && (1-hitX) < hitZ
                 {
                     // else (look big comment section above)
                     if (hitX < hitZ) {
                         if ((1f-hitX) < hitZ) {
-                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
                         } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
                         }
                     } else /* hitZ < hitX and unlikely event of hitX = hitZ */ {
                         if ((1f-hitX) < hitZ) {
-                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
                         } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
                         }
                     }
                 }
@@ -203,51 +187,33 @@ public abstract class BlockVertSlabBase extends BlockBase {
                     // Same as UP case.
                     if (hitX < hitZ) {
                         if ((1f-hitX) < hitZ) {
-                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
                         } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
+                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
                         }
                     } else /* hitZ < hitX and unlikely event of hitX = hitZ */ {
                         if ((1f-hitX) < hitZ) {
-                            return iblockstate.withProperty(FACING, EnumFacing.WEST);
+                            return iblockstate.withProperty(FACING, EnumFacing.EAST);
                         } else /* hitZ < (1f-hitX) and unlikely event of hitX = hitZ */ {
-                            return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+                            return iblockstate.withProperty(FACING, EnumFacing.NORTH);
                         }
                     }
                 }
                 default:
-                    return iblockstate; // Default ist SOUTH, aber sollte nie aufgerufen werden.
+                    return iblockstate; // Default ist NORTH, aber sollte nie aufgerufen werden.
             }
         }
     }
 
+    @Override
     public int quantityDropped(Random random)
     {
         return this.isDouble() ? 2 : 1;
     }
 
+    @Override
     public boolean isFullCube(IBlockState state)
     {
         return this.isDouble();
     }
-
-    /**
-     * This basically determines, if a block touching this block on the @side (or facing WITH the @side???)
-     * gets rendered on the side that touches this block.
-     */
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-    {
-        // super method should be good enough here. todo: check it maybe.
-        return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-        /* if (this.isDouble())
-        {
-            return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-        } else {
-            return false;
-        }
-        */
-    }
-
-
 }

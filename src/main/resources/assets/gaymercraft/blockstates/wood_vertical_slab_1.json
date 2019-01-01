@@ -6,32 +6,24 @@
   }, "variants":
 {
   "inventory": { "model": "block/block" },
-  "facing=south,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "uvlock": true },
-  "facing=west,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "y": 90, "uvlock": true },
-  "facing=north,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "y": 180, "uvlock": true },
-  "facing=east,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "y": 270, "uvlock": true },
-  "facing=up,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
-  "facing=down,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "uvlock": true }, // See first comment.
+  "facing=north,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "uvlock": true },
+  "facing=east,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "y": 90, "uvlock": true },
+  "facing=south,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "y": 180, "uvlock": true },
+  "facing=west,variant=oak": {"model": "gaymercraft:wood_vertical_slab_1_oak", "y": 270, "uvlock": true },
 
-  "facing=south,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "uvlock": true },
-  "facing=west,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "y": 90, "uvlock": true },
-  "facing=north,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "y": 180, "uvlock": true },
-  "facing=east,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "y": 270, "uvlock": true },
-  "facing=up,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
-  "facing=down,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "uvlock": true }, // See first comment.
+  "facing=north,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "uvlock": true },
+  "facing=east,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "y": 90, "uvlock": true },
+  "facing=south,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "y": 180, "uvlock": true },
+  "facing=west,variant=spruce": {"model": "gaymercraft:wood_vertical_slab_1_spruce", "y": 270, "uvlock": true },
 
-  "facing=south,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "uvlock": true },
-  "facing=west,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "y": 90, "uvlock": true },
-  "facing=north,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "y": 180, "uvlock": true },
-  "facing=east,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "y": 270, "uvlock": true },
-  "facing=up,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
-  "facing=down,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "uvlock": true }, // See first comment.
+  "facing=north,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "uvlock": true },
+  "facing=east,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "y": 90, "uvlock": true },
+  "facing=south,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "y": 180, "uvlock": true },
+  "facing=west,variant=birch": {"model": "gaymercraft:wood_vertical_slab_1_birch", "y": 270, "uvlock": true },
 
-  "facing=south,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "uvlock": true },
-  "facing=west,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "y": 90, "uvlock": true },
-  "facing=north,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "y": 180, "uvlock": true },
-  "facing=east,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "y": 270, "uvlock": true },
-  "facing=up,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "uvlock": true }, // Just for error prevention. Block should never be oriented this way.
-  "facing=down,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "uvlock": true } // See first comment.
+  "facing=north,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "uvlock": true },
+  "facing=east,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "y": 90, "uvlock": true },
+  "facing=south,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "y": 180, "uvlock": true },
+  "facing=west,variant=jungle": {"model": "gaymercraft:wood_vertical_slab_1_jungle", "y": 270, "uvlock": true }
 }
 }

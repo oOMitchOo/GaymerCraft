@@ -35,7 +35,7 @@ public abstract class BlockStoneVertSlabNew extends BlockVertSlabBase {
         this.setSoundType(SoundType.STONE);
 
         IBlockState iblockstate = this.blockState.getBaseState();
-        this.setDefaultState(iblockstate.withProperty(VARIANT, BlockStoneSlabNew.EnumType.RED_SANDSTONE).withProperty(FACING, EnumFacing.SOUTH));
+        this.setDefaultState(iblockstate.withProperty(VARIANT, BlockStoneSlabNew.EnumType.RED_SANDSTONE).withProperty(FACING, EnumFacing.NORTH));
     }
 
     @Override
@@ -72,7 +72,7 @@ public abstract class BlockStoneVertSlabNew extends BlockVertSlabBase {
         items.add(new ItemStack(this, 1, 0));
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    // TODO: 1.13: Change the facings, 0: south, 1: west, 2: north, 3: east (see getMetaFromState())
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -80,25 +80,35 @@ public abstract class BlockStoneVertSlabNew extends BlockVertSlabBase {
 
         switch (meta) {
             case 0:
-                return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
-            case 1:
-                return iblockstate.withProperty(FACING, EnumFacing.WEST);
-            case 2:
                 return iblockstate.withProperty(FACING, EnumFacing.NORTH);
-            case 3:
+            case 1:
                 return iblockstate.withProperty(FACING, EnumFacing.EAST);
+            case 2:
+                return iblockstate.withProperty(FACING, EnumFacing.SOUTH);
+            case 3:
+                return iblockstate.withProperty(FACING, EnumFacing.WEST);
             default:
                 return iblockstate;
         }
     }
 
-    // TODO: 1.13: Change the facings, when I fix the blogstates of the vertical slabs.
+    // TODO: 1.13: Use "j = state.getValue(FACING).getHorizontalIndex();" instead to get the meta-value.
     @Override
     public int getMetaFromState(IBlockState state)
     {
         int j = 0;
-        j = state.getValue(FACING).getHorizontalIndex();
-        return j;
+        switch (state.getValue(FACING)) {
+            case NORTH:
+                return 0;
+            case EAST:
+                return 1;
+            case SOUTH:
+                return 2;
+            case WEST:
+                return 3;
+            default:
+                return 0;
+        }
     }
 
     @Override
@@ -110,7 +120,7 @@ public abstract class BlockStoneVertSlabNew extends BlockVertSlabBase {
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {VARIANT, FACING});
+        return new BlockStateContainer(this, new IProperty[] {FACING, VARIANT});
     }
 
     @Override

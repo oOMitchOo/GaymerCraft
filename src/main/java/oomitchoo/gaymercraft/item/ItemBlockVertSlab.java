@@ -65,22 +65,7 @@ public class ItemBlockVertSlab extends ItemBlock {
                 Comparable<?> comparable1 = iblockstate.getValue(iproperty); // holt also den Value von VARIANT (STONE, SAND, WOOD, etc.)
                 EnumFacing blockslab$enumfacing = (EnumFacing)iblockstate.getValue(BlockVertSlabBase.FACING);
 
-                if ((facing == EnumFacing.NORTH && blockslab$enumfacing == EnumFacing.NORTH) && comparable1 == comparable) {
-                    IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.NORTH);
-                    AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
-                    if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
-                    {
-                        SoundType soundtype = this.doubleSlab.getSoundType(iblockstate1, worldIn, pos, player);
-                        worldIn.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
-                        itemstack.shrink(1);
-
-                        if (player instanceof EntityPlayerMP)
-                        {
-                            CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, itemstack);
-                        }
-                    }
-                    return EnumActionResult.SUCCESS;
-                } else if ((facing == EnumFacing.SOUTH && blockslab$enumfacing == EnumFacing.SOUTH) && comparable1 == comparable) {
+                if ((facing == EnumFacing.NORTH && blockslab$enumfacing == EnumFacing.SOUTH) && comparable1 == comparable) {
                     IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.SOUTH);
                     AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
@@ -95,8 +80,8 @@ public class ItemBlockVertSlab extends ItemBlock {
                         }
                     }
                     return EnumActionResult.SUCCESS;
-                } else if ((facing == EnumFacing.WEST && blockslab$enumfacing == EnumFacing.WEST) && comparable1 == comparable) {
-                    IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.WEST);
+                } else if ((facing == EnumFacing.SOUTH && blockslab$enumfacing == EnumFacing.NORTH) && comparable1 == comparable) {
+                    IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.NORTH);
                     AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
                     {
@@ -110,8 +95,23 @@ public class ItemBlockVertSlab extends ItemBlock {
                         }
                     }
                     return EnumActionResult.SUCCESS;
-                } else if ((facing == EnumFacing.EAST && blockslab$enumfacing == EnumFacing.EAST) && comparable1 == comparable) {
+                } else if ((facing == EnumFacing.WEST && blockslab$enumfacing == EnumFacing.EAST) && comparable1 == comparable) {
                     IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.EAST);
+                    AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
+                    if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
+                    {
+                        SoundType soundtype = this.doubleSlab.getSoundType(iblockstate1, worldIn, pos, player);
+                        worldIn.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+                        itemstack.shrink(1);
+
+                        if (player instanceof EntityPlayerMP)
+                        {
+                            CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, itemstack);
+                        }
+                    }
+                    return EnumActionResult.SUCCESS;
+                } else if ((facing == EnumFacing.EAST && blockslab$enumfacing == EnumFacing.WEST) && comparable1 == comparable) {
+                    IBlockState iblockstate1 = this.makeState(iproperty, comparable1).withProperty(BlockVertSlabBase.FACING, EnumFacing.WEST);
                     AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
                     if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
                     {
