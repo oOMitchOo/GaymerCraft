@@ -41,9 +41,13 @@ public class RandomClientEvents {
                 if (targetBlock.getBlock().isReplaceable(player.world, blockpos.offset(sideHit))) {
                     // Some checks on the block we want to draw the helping lines on, before it happens
                     if(targetBlock.getMaterial() != Material.AIR && !targetBlock.getBlock().isReplaceable(player.world, blockpos) && player.getEntityWorld().getWorldBorder().contains(blockpos)) {
-                        // If it is a vert half slab (and the face hit isn't the one full face oriented out of the blockspace), set the boolean in the method (isVertSlab) true.
-                        if (targetBlock.getBlock() instanceof BlockVertSlabBase && !((BlockVertSlabBase) targetBlock.getBlock()).isDouble() && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING))
-                            drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());
+                        // If it is a vert half slab, set the boolean in the method (isVertSlab) true.
+                        if (targetBlock.getBlock() instanceof BlockVertSlabBase && !((BlockVertSlabBase) targetBlock.getBlock()).isDouble() && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING) && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING).getOpposite()) {
+                            EnumFacing vertSlabFacing = targetBlock.getValue(BlockVertSlabBase.FACING);
+                            // but only for the half sized faces.
+                            if (sideHit != vertSlabFacing && sideHit != vertSlabFacing.getOpposite())
+                                drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());
+                        }
                         // If it isn't a vert half slab, only draw the lines on the block face, if it is solid face and set the boolean (isVertSlab) to false.
                         else if (targetBlock.getBlockFaceShape(player.world, blockpos, sideHit) == BlockFaceShape.SOLID)
                             drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, false, event.getPartialTicks());

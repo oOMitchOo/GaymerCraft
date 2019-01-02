@@ -105,18 +105,22 @@ public abstract class BlockVertSlabBase extends BlockBase {
     }
 
     @Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facePlacingOn, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+        IBlockState iblockstate = super.getStateForPlacement(worldIn, pos, facePlacingOn, hitX, hitY, hitZ, meta, placer);
 
         // If placer is placing on a vertical slab, use its FACING.
-        IBlockState blockPlacingOn = worldIn.getBlockState(pos.offset(facing.getOpposite()));
-        if (blockPlacingOn.getBlock() instanceof BlockVertSlabBase && !blockPlacingOn.isFullBlock() && facing != blockPlacingOn.getValue(FACING))
-            return iblockstate.withProperty(FACING, blockPlacingOn.getValue(FACING));
+        IBlockState blockPlacingOn = worldIn.getBlockState(pos.offset(facePlacingOn.getOpposite()));
+        if (blockPlacingOn.getBlock() instanceof BlockVertSlabBase && !blockPlacingOn.isFullBlock()) {
+            EnumFacing vertSlabFacing = blockPlacingOn.getValue(FACING);
+            // but only for the half sized faces
+            if (facePlacingOn != vertSlabFacing && facePlacingOn != vertSlabFacing.getOpposite())
+                return iblockstate.withProperty(FACING, blockPlacingOn.getValue(FACING));
+        }
 
         if(this.isDouble()) { // This should never be called since there are only ItemBlocks for the NOT isDouble version.
             return iblockstate;
         } else {
-            switch (facing) { // Abhängig welche Seite vom Block man anguckt.
+            switch (facePlacingOn) { // Abhängig welche Seite vom Block man anguckt.
                 case NORTH:
                     if (hitX < 0.75) {
                         if (hitX < 0.25) {
