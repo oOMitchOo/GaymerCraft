@@ -408,7 +408,7 @@ public class ModelUnicorn extends ModelBase {
         this.head.rotateAngleY = f6 * f3 * 0.017453292F + (1.0F - Math.max(f6, f5)) * this.head.rotateAngleY;
         this.head.rotationPointY = f6 * -6.0F + f5 * 11.0F + (1.0F - Math.max(f6, f5)) * this.head.rotationPointY;
         this.head.rotationPointZ = f6 * -1.0F + f5 * -10.0F + (1.0F - Math.max(f6, f5)) * this.head.rotationPointZ;
-        // TODO: HIER HORN-ROTATIONS-WINKEL abh. vom Kopf.
+        // START Horn rotation
         this.hornThick.rotationPointY = this.head.rotationPointY;
         this.hornThick.rotationPointZ = this.head.rotationPointZ;
         this.hornThick.rotateAngleX = this.head.rotateAngleX;
@@ -421,7 +421,7 @@ public class ModelUnicorn extends ModelBase {
         this.hornThin.rotationPointZ = this.head.rotationPointZ;
         this.hornThin.rotateAngleX = this.head.rotateAngleX;
         this.hornThin.rotateAngleY = this.head.rotateAngleY;
-        // Ende Horn Rot.Winkel
+        // END Horn rotation
         this.tailBase.rotationPointY = f6 * 9.0F + f7 * this.tailBase.rotationPointY;
         this.tailMiddle.rotationPointZ = f6 * 18.0F + f7 * this.tailMiddle.rotationPointZ;
         this.muleRightChest.rotationPointY = f6 * 5.5F + f7 * this.muleRightChest.rotationPointY;

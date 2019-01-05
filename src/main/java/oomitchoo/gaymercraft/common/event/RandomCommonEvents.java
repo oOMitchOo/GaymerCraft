@@ -27,7 +27,7 @@ public class RandomCommonEvents {
 
         if(heldItemStack.getItem() instanceof ItemRainbowStar) {
             if (!world.isRemote && event.getHand() == EnumHand.MAIN_HAND && target instanceof EntityHorse) {
-                // Lösung damit keine Items verloren gehen beim converten? Nicht-zahme Pferde haben keine Items am Körper.
+                // Lösung damit keine Items (aus Truhen am Pferd) verloren gehen beim converten? Nicht-zahme Pferde haben keine Items am Körper.
                 if (!((EntityHorse) target).isTame() && heldItemStack.getMetadata() == 0) { // TODO: else Warnhinweis auf Spieler-Bildschirm
                     // TODO: Irgendwie hilft das abfangen der Werte nicht. Das Unicorn hat trotzdem nicht dieselbe Ausrichtung wie das Pferd. Muss ich weiter testen.
                     EntityUnicorn replaceWith = new EntityUnicorn(world);
@@ -35,8 +35,9 @@ public class RandomCommonEvents {
                     replaceWith.setRenderYawOffset(((EntityHorse) target).renderYawOffset);
                     replaceWith.setRotationYawHead(target.getRotationYawHead());
 
-                    // TODO: Hier würde ich auch gerne das Alter setzen, aber forcedAge ist protected in EntityAgeable.
+                    // TODO: Hier würde ich auch gerne das Alter setzen, aber forcedAge ist protected in EntityAgeable. Ich kann also das Alter von @target nicht holen.
                     replaceWith.setHorseTamed(true);
+                    replaceWith.setRandomUnicornVariant();
 
                     target.setDead();
                     world.spawnEntity(replaceWith);
