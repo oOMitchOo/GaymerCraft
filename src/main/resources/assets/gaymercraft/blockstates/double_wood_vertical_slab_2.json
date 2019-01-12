@@ -6,14 +6,14 @@
     }, "variants":
 {
     "inventory": { "model": "block/block" },
+    "facing=south,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "uvlock": true },
+    "facing=west,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "uvlock": true },
     "facing=north,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "uvlock": true },
-    "facing=east,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "y": 90, "uvlock": true },
-    "facing=south,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "y": 180, "uvlock": true },
-    "facing=west,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "y": 270, "uvlock": true },
+    "facing=east,variant=acacia": {"model": "gaymercraft:double_wood_vertical_slab_2_acacia", "uvlock": true },
 
+    "facing=south,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "uvlock": true },
+    "facing=west,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "uvlock": true },
     "facing=north,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "uvlock": true },
-    "facing=east,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "y": 90, "uvlock": true },
-    "facing=south,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "y": 180, "uvlock": true },
-    "facing=west,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "y": 270, "uvlock": true }
+    "facing=east,variant=dark_oak": {"model": "gaymercraft:double_wood_vertical_slab_2_dark_oak", "uvlock": true }
 }
 }

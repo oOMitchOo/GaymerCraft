@@ -111,7 +111,7 @@ public abstract class BlockStoneVertSlab1 extends BlockVertSlabBase {
         int j = 0;
         j = ((EnumType)state.getValue(VARIANT)).getMetadata();
         // Erst Variant und somit j zw. 0 und 2
-        // Dann je nach Ausrichtung NORTH=+0:0,1,2; SOUTH=+3:3,4,5; WEST=+6:6,7,8; EAST=+9:9,10,11
+        // Dann je nach Ausrichtung SOUTH=+0:0,1,2; NORTH=+3:3,4,5; EAST=+6:6,7,8; WEST=+9:9,10,11
 
         // Folgende if-statements könnte man auch mit dem jeweiligen Index der Richtungen lösen, so liest es sich aber besser.
         if (state.getValue(FACING) == EnumFacing.NORTH) { // SOUTH wird nicht gecheckt, denn in dem Fall muss j ja sowieso nicht geändert werden.
@@ -134,7 +134,6 @@ public abstract class BlockStoneVertSlab1 extends BlockVertSlabBase {
     @Override
     protected BlockStateContainer createBlockState()
     {
-        // return new BlockStateContainer(this, new IProperty[] {VARIANT, FACING});
         return new BlockStateContainer(this, new IProperty[] {FACING, VARIANT});
     }
 

@@ -6,19 +6,19 @@
   }, "variants":
 {
   "inventory": { "model": "block/block" },
-  "facing=north,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "uvlock": true },
-  "facing=east,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "y": 90, "uvlock": true },
-  "facing=south,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "y": 180, "uvlock": true },
-  "facing=west,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "y": 270, "uvlock": true },
+  "facing=south,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "uvlock": true },
+  "facing=west,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "y": 90, "uvlock": true },
+  "facing=north,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "y": 180, "uvlock": true },
+  "facing=east,variant=stone": {"model": "gaymercraft:stone_vertical_slab_1_stone", "y": 270, "uvlock": true },
 
-  "facing=north,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "uvlock": true },
-  "facing=east,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "y": 90, "uvlock": true },
-  "facing=south,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "y": 180, "uvlock": true },
-  "facing=west,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "y": 270, "uvlock": true },
+  "facing=south,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "uvlock": true },
+  "facing=west,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "y": 90, "uvlock": true },
+  "facing=north,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "y": 180, "uvlock": true },
+  "facing=east,variant=sandstone": {"model": "gaymercraft:stone_vertical_slab_1_sandstone", "y": 270, "uvlock": true },
 
-  "facing=north,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "uvlock": true },
-  "facing=east,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "y": 90, "uvlock": true },
-  "facing=south,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "y": 180, "uvlock": true },
-  "facing=west,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "y": 270, "uvlock": true }
+  "facing=south,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "uvlock": true },
+  "facing=west,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "y": 90, "uvlock": true },
+  "facing=north,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "y": 180, "uvlock": true },
+  "facing=east,variant=cobblestone": {"model": "gaymercraft:stone_vertical_slab_1_cobblestone", "y": 270, "uvlock": true }
 }
 }

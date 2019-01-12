@@ -1,6 +1,7 @@
 package oomitchoo.gaymercraft.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.FaceBakery;
 import net.minecraftforge.fluids.Fluid;
 
 /**
@@ -11,4 +12,7 @@ public interface IProxy {
     void registerEntityRenderer();
     void registerColoredBlocks();
     void registerColoredItems();
+    void registerCustomModelLoader();
+    FaceBakery getFaceBakery();
+    void testingStuff();
 }

@@ -55,3 +55,70 @@ entity.unicorn.name=Einhorn
 ### Config ###
 gc.configgui.ctgy.coloredWater.tooltip=Einstellungen für das gefärbte Wasser
 gc.configgui.ctgy.unicorn.tooltip=Einstellungen für das Einhorn
+gc.configgui.ctgy.alpha.tooltip=§4AUF EIGENE GEWÄHR!!!
+
+### Debugging ###
+item.debugTool.name=Debug Tool
+
+#########################################################
+###                  MOD SUPPORT                      ###
+#########################################################
+
+### Botania ###
+## Slab0
+tile.botaniaSlab0.livingwood.name=Halbes Lebeholz
+tile.botaniaSlab0.livingwoodPlanks.name=Halber Lebeholz-Bretterblock
+tile.botaniaSlab0.dreamwood.name=Halbes Traumholz
+tile.botaniaSlab0.dreamwoodPlanks.name=Halber Traumholz-Bretterblock
+## Slab1
+tile.botaniaSlab1.livingrock.name=Halber Lebestein
+tile.botaniaSlab1.linvingrockBrick.name=Halber Lebeziegel
+tile.botaniaSlab1.yellowPavement.name=Vertikaler Gelber Pflasterstein
+tile.botaniaSlab1.greenPavement.name=Vertikaler Grüner Pflasterstein
+## Slab2
+tile.botaniaSlab2.smokeyQuartz.name=Halber Schwarzer Quartz-Block
+tile.botaniaSlab2.manaQuartz.name=Halber Mana-Quartz-Block
+tile.botaniaSlab2.blazeQuartz.name=Halber Lohe-Quartz-Block
+tile.botaniaSlab2.lavenderQuartz.name=Halber Lavender-Quartz-Block
+## Slab3
+tile.botaniaSlab3.redquartz.name=Halber Rotquartz-Block
+tile.botaniaSlab3.elvenQuartz.name=Halber Elfen-Quartz-Block
+tile.botaniaSlab3.sunnyQuartz.name=Halber Sonnen-Quartz-Block
+tile.botaniaSlab3.shimmerrock.name=Halber Schimmerstein
+## Slab4
+tile.botaniaSlab4.forestStone.name=Halber Metamorpher Wald-Stein
+tile.botaniaSlab4.plainsStone.name=Halber Metamorpher Ebenen-Stein
+tile.botaniaSlab4.mountainStone.name=Halber Metamorpher Gebirgs-Stein
+tile.botaniaSlab4.fungalStone.name=Halber Metamorpher Pilzland-Stein
+## Slab5
+tile.botaniaSlab5.swampStone.name=Halber Metamorpher Sumpf-Stein
+tile.botaniaSlab5.desertStone.name=Halber Metamorpher Wüsten-Stein
+tile.botaniaSlab5.taigaStone.name=Halber Metamorpher Taiga-Stein
+tile.botaniaSlab5.mesaStone.name=Halber Metamorpher Tafelgebirgs-Stein
+## Slab6
+tile.botaniaSlab6.forestCobblestone.name=Halber Metamorpher Wald-Bruchstein
+tile.botaniaSlab6.plainsCobblestone.name=Halber Metamorpher Ebenen-Bruchstein
+tile.botaniaSlab6.mountainCobblestone.name=Halber Metamorpher Gebirgs-Bruchstein
+tile.botaniaSlab6.fungalCobblestone.name=Halber Metamorpher Pilzland-Bruchstein
+## Slab7
+tile.botaniaSlab7.swampCobblestone.name=Halber Metamorpher Sumpf-Bruchstein
+tile.botaniaSlab7.desertCobblestone.name=Halber Metamorpher Wüsten-Bruchstein
+tile.botaniaSlab7.taigaCobblestone.name=Halber Metamorpher Taiga-Bruchstein
+tile.botaniaSlab7.mesaCobblestone.name=Halber Metamorpher Tafelgebirgs-Bruchstein
+## Slab8
+tile.botaniaSlab8.forestBrick.name=Halber Metamorpher Wald-Steinziegel
+tile.botaniaSlab8.plainsBrick.name=Halber Metamorpher Ebenen-Steinziegel
+tile.botaniaSlab8.mountainBrick.name=Halber Metamorpher Gebirgs-Steinziegel
+tile.botaniaSlab8.fungalBrick.name=Halber Metamorpher Pilzland-Steinziegel
+## Slab9
+tile.botaniaSlab9.swampBrick.name=Halber Metamorpher Sumpf-Steinziegel
+tile.botaniaSlab9.desertBrick.name=Halber Metamorpher Wüsten-Steinziegel
+tile.botaniaSlab9.taigaBrick.name=Halber Metamorpher Taiga-Steinziegel
+tile.botaniaSlab9.mesaBrick.name=Halber Metamorpher Tafelgebirgs-Steinziegel
+## Slab10
+tile.botaniaSlab10.whitePavement.name=Vertikaler Weißer Pflasterstein
+tile.botaniaSlab10.blackPavement.name=Vertikaler Schwarzer Pflasterstein
+tile.botaniaSlab10.bluePavement.name=Vertikaler Blauer Pflasterstein
+tile.botaniaSlab10.redPavement.name=Vertikaler Roter Pflasterstein
+## Slab11
+tile.botaniaSlab11.shimmerwoodPlanks.name=Halber Schimmerholz-Bretterblock

@@ -19,9 +19,11 @@ public class ConfigHandler {
     }
 
     public static void loadConfig () {
+        // ============ Colored Water Config ============
         Reference.Config.configColoredWaterBrightness = config.get(Reference.Config.CATEGORY_COLORED_WATER,"Brightness", 60, "Sets the brightness of the water. Only multiples of 10 within range are allowed (0, 10, 20, .., 100), any other number gets round up/down to nearest allowed one. Needs a MC restart.", 0, 100).getInt(60);
         Reference.Config.configColoredWaterBrightness = setBrightnessToAllowed(Reference.Config.configColoredWaterBrightness);
 
+        // ============ Unicorn Config ============
         Reference.Config.configUnicornLoveAmount = config.get(Reference.Config.CATEGORY_UNICORN, "LoveForYou", 5, "Sets the amount of heart particles around a unicorn. The number translates to the chance (in %) for 1 heart per tick. Can be modified while playing.", 0, 100).getInt(1);
 
         Reference.Config.configUnicornMaxHealth = config.get(Reference.Config.CATEGORY_UNICORN, "MaxHealth", 30D, "Sets the max health for the unicorn. Multiples of 0.5 within range are allowed (15, 15.5, 16 .., 30). SP: Can be modified while playing but applies only to newly spawned unicorns. MP: Restart Server.", 15D, 30D).getDouble(30D);
@@ -35,6 +37,9 @@ public class ConfigHandler {
 
         Reference.Config.configUnicornArmor = (double)config.get(Reference.Config.CATEGORY_UNICORN, "Armor", 11, "Sets the armor for the unicorn. Can't surpass a vanilla horse. SP: Can be modified while playing but applies only to newly spawned unicorns. MP: Restart Server.", 0, 11).getInt(11);
         Reference.Config.configUnicornArmor = (double)setIntToAllowed((int)Reference.Config.configUnicornArmor, 11, 0, 11);
+
+        // ============ Alpha Features Config ============
+        Reference.Config.configBotaniaSupportEnabled = config.get(Reference.Config.CATEGORY_ALPHA, "BotaniaSupport", false, "Enables the mod support for Botania. This uses a custom model manager for the vertical slabs, which wasn't tested enough. Needs a MC restart. §4Use at own risk!").getBoolean(false);
 
         if (config.hasChanged()) {
             config.save();

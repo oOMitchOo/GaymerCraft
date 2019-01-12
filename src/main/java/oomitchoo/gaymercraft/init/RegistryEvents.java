@@ -15,23 +15,6 @@ import oomitchoo.gaymercraft.reference.Reference;
  */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class RegistryEvents {
-
-    @SubscribeEvent
-    public static void onItemRegister(RegistryEvent.Register<Item> event) {
-        IForgeRegistry<Item> r = event.getRegistry();
-        // ITEMS
-        r.register(ModItems.RAINBOW_STAR);
-        // ITEMBLOCKS VERT SLABS
-        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1);
-        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2);
-        r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1);
-        r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2);
-        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW);
-        r.register(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB);
-        // ITEMBLOCKS HEDGE
-        r.register(ModBlocks.ITEMBLOCK_HEDGE);
-    }
-
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> r = event.getRegistry();
@@ -85,5 +68,27 @@ public class RegistryEvents {
 
         // HEDGE BLOCK
         r.register(ModBlocks.BLOCK_HEDGE);
+    }
+
+    // The order of the items in these registry events determine the order in for example JEI.
+    @SubscribeEvent
+    public static void onItemRegister(RegistryEvent.Register<Item> event) {
+        IForgeRegistry<Item> r = event.getRegistry();
+        // ITEMS
+        r.register(ModItems.RAINBOW_STAR);
+        // ITEMBLOCKS HEDGE
+        r.register(ModBlocks.ITEMBLOCK_HEDGE);
+        // ITEMBLOCKS VERT SLABS
+        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1);
+        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2);
+        r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1);
+        r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2);
+        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW);
+        r.register(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB);
+
+        // ============================ TESTING / DEBUGGING HELPER ============================
+
+        if (Reference.isDevEnvironment)
+            r.register(ModItems.DEBUG_TOOL);
     }
 }

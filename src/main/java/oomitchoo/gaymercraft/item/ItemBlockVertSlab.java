@@ -27,15 +27,21 @@ import oomitchoo.gaymercraft.reference.Reference;
 public class ItemBlockVertSlab extends ItemBlock {
     private final BlockVertSlabBase singleSlab;
     private final BlockVertSlabBase doubleSlab;
+    private final int numberOfVariants;
 
-    public ItemBlockVertSlab(Block block, BlockVertSlabBase singleSlab, BlockVertSlabBase doubleSlab, String unlName, String regName){
+    public ItemBlockVertSlab(Block block, BlockVertSlabBase singleSlab, BlockVertSlabBase doubleSlab, int numberOfVariants, String unlName, String regName){
         super(block);
         this.singleSlab = singleSlab;
         this.doubleSlab = doubleSlab;
+        this.numberOfVariants = numberOfVariants;
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
         this.setUnlocalizedName(unlName);
         this.setRegistryName(Reference.MOD_ID, regName);
+    }
+
+    public int getNumberOfVariants() {
+        return this.numberOfVariants;
     }
 
     @Override

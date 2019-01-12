@@ -30,24 +30,29 @@ public class ModelRegistryEvents {
 
         // ITEMBLOCK-MODELS VERT SLABS
         for (BlockStoneVertSlab1.EnumType blockslabs$enumtype : BlockStoneVertSlab1.EnumType.values()) {
-            registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+            registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1, blockslabs$enumtype.getMetadata(), "_" + blockslabs$enumtype.getName());
         }
         for (BlockStoneVertSlab2.EnumType blockslabs$enumtype : BlockStoneVertSlab2.EnumType.values()) {
-            registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+            registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2, blockslabs$enumtype.getMetadata(), "_" + blockslabs$enumtype.getName());
         }
         for (BlockWoodVertSlab1.EnumType blockslabs$enumtype : BlockWoodVertSlab1.EnumType.values()) {
-            registerItemRenderer(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+            registerItemRenderer(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1, blockslabs$enumtype.getMetadata(), "_" + blockslabs$enumtype.getName());
         }
         for (BlockWoodVertSlab2.EnumType blockslabs$enumtype : BlockWoodVertSlab2.EnumType.values()) {
-            registerItemRenderer(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2, blockslabs$enumtype.getMetadata(), "_"+blockslabs$enumtype.getName());
+            registerItemRenderer(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2, blockslabs$enumtype.getMetadata(), "_" + blockslabs$enumtype.getName());
         }
         registerItemRenderer(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW, 0, "");
         registerItemRenderer(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB, 0, "");
 
         // ITEMBLOCK MODELS HEDGE
         for (BlockPlanks.EnumType blockleaves$enumtype : BlockPlanks.EnumType.values()) {
-            registerItemRenderer(ModBlocks.ITEMBLOCK_HEDGE, blockleaves$enumtype.getMetadata(), "_"+blockleaves$enumtype.getName());
+            registerItemRenderer(ModBlocks.ITEMBLOCK_HEDGE, blockleaves$enumtype.getMetadata(), "_" + blockleaves$enumtype.getName());
         }
+
+        // ============================ TESTING / DEBUGGING HELPER ============================
+
+        if (Reference.isDevEnvironment)
+            registerItemRenderer(ModItems.DEBUG_TOOL, 0, "");
     }
 
     // ================= HELPING METHODS ============================================================================================

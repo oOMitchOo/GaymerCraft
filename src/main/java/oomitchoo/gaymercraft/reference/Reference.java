@@ -12,20 +12,31 @@ public class Reference {
     public static final String MC_VERSION = "1.12.2";
     public static final String CLIENT_PROXY_CLASS = "oomitchoo.gaymercraft.proxy.ClientProxy";
     public static final String SERVER_PROXY_CLASS = "oomitchoo.gaymercraft.proxy.ServerProxy";
-    public static final String DEPENDENCIES = ""; //required-after:botania@[r1.10-356,) <- for vertical slabs in Botania.
+    public static final String DEPENDENCIES = "after:botania@[r1.10-347,)";
     public static final String GUI_FACTORY_CLASS = "oomitchoo.gaymercraft.client.gui.GuiFactory";
 
     public static final ModCreativeTab creativeTab = new ModCreativeTab();
 
+    public static boolean isDevEnvironment = false;
+
+    public static class ModSupport {
+        public static boolean isBotaniaLoaded = false;
+    }
+
     public static class Config {
         public static final String CATEGORY_COLORED_WATER = "colored_water";
         public static final String CATEGORY_UNICORN = "unicorn";
+        public static final String CATEGORY_ALPHA = "alpha";
 
+        // colored_water
         public static int configColoredWaterBrightness = 60;
+        // unicorn
         public static int configUnicornLoveAmount = 1;
         public static double configUnicornMaxHealth = 30D;
         public static double configUnicornMovementSpeed = 0.3375D;
         public static double configUnicornJumpStrength = 1.0D;
         public static double configUnicornArmor = 11D;
+        // alpha
+        public static boolean configBotaniaSupportEnabled = false;
     }
 }

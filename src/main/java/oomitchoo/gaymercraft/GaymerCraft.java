@@ -1,5 +1,6 @@
 package oomitchoo.gaymercraft;
 
+import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -11,6 +12,8 @@ import oomitchoo.gaymercraft.helper.LogHelper;
 import oomitchoo.gaymercraft.init.ModEntities;
 import oomitchoo.gaymercraft.proxy.IProxy;
 import oomitchoo.gaymercraft.reference.Reference;
+
+import static net.minecraftforge.fml.common.Loader.isModLoaded;
 
 /**
  * Created by oOMitchOo on 21.11.2018.
@@ -32,13 +35,22 @@ public class GaymerCraft {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        if ((Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment"))
+            Reference.isDevEnvironment = true;
+
         ConfigHandler.init(event.getSuggestedConfigurationFile());
 
+        if(isModLoaded("botania") && Reference.Config.configBotaniaSupportEnabled) { // TODO: isBotaniaLoaded is more like isBotaniaLoadedAndSupported for now.
+            Reference.ModSupport.isBotaniaLoaded = true;
+            oomitchoo.gaymercraft.init.modsupport.botania.ModBlocks.init();
+        }
+
+        if (Reference.ModSupport.isBotaniaLoaded)
+            proxy.registerCustomModelLoader(); // This also makes a new FaceBakery.
         // init.RegistryEvents are probably fired here.
         // client.event.ModelRegistryEvents are probably fired here too.
         ModEntities.init();
         proxy.registerEntityRenderer();
-
 
         LogHelper.info("Pre Initialization of GaymerCraft Complete!");
     }
@@ -56,7 +68,8 @@ public class GaymerCraft {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
+        if (Reference.isDevEnvironment)
+            proxy.testingStuff();
         LogHelper.info("Post Initialization of GaymerCraft Complete!");
     }
 }

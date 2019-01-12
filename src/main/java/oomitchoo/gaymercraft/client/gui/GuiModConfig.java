@@ -31,6 +31,7 @@ public class GuiModConfig extends GuiConfig {
         List<IConfigElement> list = new ArrayList<IConfigElement>();
         list.add(new DummyCategoryElement("Colored Water", "gc.configgui.ctgy.coloredWater", ColoredWaterEntry.class));
         list.add(new DummyCategoryElement("Unicorn", "gc.configgui.ctgy.unicorn", UnicornEntry.class));
+        list.add(new DummyCategoryElement("Alpha Features", "gc.configgui.ctgy.alpha", AlphaEntry.class));
         return list;
     }
 
@@ -69,6 +70,26 @@ public class GuiModConfig extends GuiConfig {
             return new GuiConfig(this.owningScreen,
                     (new ConfigElement(ConfigHandler.config.getCategory(Reference.Config.CATEGORY_UNICORN))).getChildElements(),
                     this.owningScreen.modID, Reference.Config.CATEGORY_UNICORN, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
+                    this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart,
+                    GuiConfig.getAbridgedConfigPath(ForgeModContainer.getConfig().toString()));
+        }
+    }
+
+    public static class AlphaEntry extends GuiConfigEntries.CategoryEntry
+    {
+        public AlphaEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop)
+        {
+            super(owningScreen, owningEntryList, prop);
+        }
+
+        @Override
+        protected GuiScreen buildChildScreen()
+        {
+            // This GuiConfig object specifies the configID of the object and as such will force-save when it is closed. The parent
+            // GuiConfig object's entryList will also be refreshed to reflect the changes.
+            return new GuiConfig(this.owningScreen,
+                    (new ConfigElement(ConfigHandler.config.getCategory(Reference.Config.CATEGORY_ALPHA))).getChildElements(),
+                    this.owningScreen.modID, Reference.Config.CATEGORY_ALPHA, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
                     this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart,
                     GuiConfig.getAbridgedConfigPath(ForgeModContainer.getConfig().toString()));
         }
