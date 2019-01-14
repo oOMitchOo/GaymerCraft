@@ -1,0 +1,15 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_cob_vert_slabs",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "botania:biomestonea9slab",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:modsupport/botania/slab6",
+    "data": 1
+  }
+}

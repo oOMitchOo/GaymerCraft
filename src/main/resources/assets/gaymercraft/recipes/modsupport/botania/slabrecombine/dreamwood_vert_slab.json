@@ -1,0 +1,19 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_woo_full_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS"],
+  "key": {
+    "S": [
+      {
+        "item": "gaymercraft:modsupport/botania/slab0",
+        "data": 2
+      }
+    ]
+  },
+  "result": {
+    "item": "botania:dreamwood",
+    "data": 0
+  }
+}

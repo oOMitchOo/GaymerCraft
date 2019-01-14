@@ -1,0 +1,22 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_qua_vert_slabs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "botania:quartztypered",
+        "data": 0
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:modsupport/botania/slab3",
+    "data": 0,
+    "count": 6
+  }
+}

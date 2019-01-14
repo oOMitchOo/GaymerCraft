@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "vert_wooden_slab",
   "ingredients": [
     {
       "item": "minecraft:wooden_slab",

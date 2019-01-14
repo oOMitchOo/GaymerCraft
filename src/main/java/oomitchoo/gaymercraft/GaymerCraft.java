@@ -40,7 +40,8 @@ public class GaymerCraft {
 
         ConfigHandler.init(event.getSuggestedConfigurationFile());
 
-        if(isModLoaded("botania") && Reference.Config.configBotaniaSupportEnabled) { // TODO: isBotaniaLoaded is more like isBotaniaLoadedAndSupported for now.
+        if(isModLoaded("botania") && Reference.Config.configBotaniaSupportEnabled) {
+            // TODO: isBotaniaLoaded is more like isBotaniaLoadedAndSupported for now. Change later...
             Reference.ModSupport.isBotaniaLoaded = true;
             oomitchoo.gaymercraft.init.modsupport.botania.ModBlocks.init();
         }

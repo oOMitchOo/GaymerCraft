@@ -1,0 +1,15 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_woo_hor_slabs",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "gaymercraft:modsupport/botania/slab0",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "botania:livingwood1slab",
+    "data": 0
+  }
+}

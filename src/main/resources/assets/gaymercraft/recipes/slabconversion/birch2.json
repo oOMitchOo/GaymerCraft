@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "wooden_slab",
   "ingredients": [
     {
       "item": "gaymercraft:wood_vertical_slab_1",

@@ -1,15 +1,33 @@
 {
-  "type": "forge:ore_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:water_bucket",
-      "data": 0
-    },
-    {
-      "type": "forge:ore_dict",
-      "ore": "dyeOrange"
-    }
-  ],
+  "type": "forge:ore_shaped",
+  "group": "colored_water",
+  "pattern": [
+    " D ",
+    "IWI",
+    " I "  ],
+  "key": {
+    "D": [
+      {
+        "type": "forge:ore_dict",
+        "ore": "dyeOrange"
+      }
+    ],
+    "I": [
+      {
+        "type": "forge:ore_dict",
+        "ore": "ingotIron"
+      }
+    ],
+    "W": [
+      {
+        "type": "minecraft:item_nbt",
+        "item": "minecraft:potion",
+        "nbt": {
+          "Potion": "minecraft:water"
+        }
+      }
+    ]
+  },
   "result": {
     "item": "forge:bucketfilled",
     "nbt": {

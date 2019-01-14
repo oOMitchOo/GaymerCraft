@@ -1,0 +1,22 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_pav_vert_slabs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "botania:pavement",
+        "data": 1
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:modsupport/botania/slab10",
+    "data": 1,
+    "count": 6
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_woo_vert_slabs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "botania:shimmerwoodplanks",
+        "data": 0
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:modsupport/botania/slab11",
+    "data": 0,
+    "count": 6
+  }
+}

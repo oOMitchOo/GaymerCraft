@@ -1,0 +1,5 @@
+{
+  "conditions": {
+    "is_botania_loaded": "oomitchoo.gaymercraft.common.crafting.ConditionBotaniaLoaded"
+  }
+}

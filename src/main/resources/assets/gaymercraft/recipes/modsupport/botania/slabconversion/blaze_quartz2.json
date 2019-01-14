@@ -1,0 +1,15 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_qua_hor_slabs",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "gaymercraft:modsupport/botania/slab2",
+      "data": 2
+    }
+  ],
+  "result": {
+    "item": "botania:quartzslabblazehalf",
+    "data": 0
+  }
+}

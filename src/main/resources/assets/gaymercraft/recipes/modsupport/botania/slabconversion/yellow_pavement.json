@@ -1,0 +1,15 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_pav_vert_slabs",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "botania:pavement4slab",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:modsupport/botania/slab1",
+    "data": 2
+  }
+}

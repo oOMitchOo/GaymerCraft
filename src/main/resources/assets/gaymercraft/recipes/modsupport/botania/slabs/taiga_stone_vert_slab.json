@@ -1,0 +1,22 @@
+{
+  "conditions": [{"type": "is_botania_loaded"}],
+  "group": "bot_sto_vert_slabs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "botania:biomestonea",
+        "data": 6
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:modsupport/botania/slab5",
+    "data": 2,
+    "count": 6
+  }
+}
