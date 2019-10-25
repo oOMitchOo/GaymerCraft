@@ -1,94 +1,136 @@
 package oomitchoo.gaymercraft.init;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-import oomitchoo.gaymercraft.GaymerCraft;
-import oomitchoo.gaymercraft.block.BlockColoredWater;
 import oomitchoo.gaymercraft.reference.Reference;
 
 /**
- * Created by oOMitchOo on 30.12.2018.
+ * The order in which RegistryEvent.Register events fire is alphabetically, with the exception that Block will always fire first,
+ * and Item will always fire second, right after Block. After the Register<Block> event has fired, all ObjectHolder annotations are refreshed,
+ * and after Register<Item> has fired they are refreshed again. They are refreshed for a third time after all of the other Register events have fired.
+ *
+ * 1. Blocks
+ * 2. Items
+ * 3. ... (alphabetically)
  */
-@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
+
+
+
+@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryEvents {
+
     @SubscribeEvent
-    public static void onBlockRegister(RegistryEvent.Register<Block> event) {
-        IForgeRegistry<Block> r = event.getRegistry();
-        // BLOCKS
-        r.register(ModBlocks.STONE_VERT_SLAB_1);
-        r.register(ModBlocks.DOUBLE_STONE_VERT_SLAB_1);
-        r.register(ModBlocks.STONE_VERT_SLAB_2);
-        r.register(ModBlocks.DOUBLE_STONE_VERT_SLAB_2);
-        r.register(ModBlocks.WOOD_VERT_SLAB_1);
-        r.register(ModBlocks.DOUBLE_WOOD_VERT_SLAB_1);
-        r.register(ModBlocks.WOOD_VERT_SLAB_2);
-        r.register(ModBlocks.DOUBLE_WOOD_VERT_SLAB_2);
-        r.register(ModBlocks.STONE_VERT_SLAB_NEW);
-        r.register(ModBlocks.DOUBLE_STONE_VERT_SLAB_NEW);
-        r.register(ModBlocks.PURPUR_VERT_SLAB);
-        r.register(ModBlocks.DOUBLE_PURPUR_VERT_SLAB);
-
-        // FLUID BLOCKS
-        r.register(ModBlocks.BLOCK_WHITE_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_WHITE_WATER, ((BlockColoredWater) ModBlocks.BLOCK_WHITE_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_ORANGE_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_ORANGE_WATER, ((BlockColoredWater) ModBlocks.BLOCK_ORANGE_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_MAGENTA_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_MAGENTA_WATER, ((BlockColoredWater) ModBlocks.BLOCK_MAGENTA_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_LIGHT_BLUE_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_LIGHT_BLUE_WATER, ((BlockColoredWater) ModBlocks.BLOCK_LIGHT_BLUE_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_YELLOW_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_YELLOW_WATER, ((BlockColoredWater) ModBlocks.BLOCK_YELLOW_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_LIME_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_LIME_WATER, ((BlockColoredWater) ModBlocks.BLOCK_LIME_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_PINK_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_PINK_WATER, ((BlockColoredWater) ModBlocks.BLOCK_PINK_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_GRAY_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_GRAY_WATER, ((BlockColoredWater) ModBlocks.BLOCK_GRAY_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_LIGHT_GRAY_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_LIGHT_GRAY_WATER, ((BlockColoredWater) ModBlocks.BLOCK_LIGHT_GRAY_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_CYAN_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_CYAN_WATER, ((BlockColoredWater) ModBlocks.BLOCK_CYAN_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_PURPLE_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_PURPLE_WATER, ((BlockColoredWater) ModBlocks.BLOCK_PURPLE_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_BLUE_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_BLUE_WATER, ((BlockColoredWater) ModBlocks.BLOCK_BLUE_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_BROWN_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_BROWN_WATER, ((BlockColoredWater) ModBlocks.BLOCK_BROWN_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_GREEN_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_GREEN_WATER, ((BlockColoredWater) ModBlocks.BLOCK_GREEN_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_RED_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_RED_WATER, ((BlockColoredWater) ModBlocks.BLOCK_RED_WATER).getFluid());
-        r.register(ModBlocks.BLOCK_BLACK_WATER);
-        GaymerCraft.proxy.mapFluidState(ModBlocks.BLOCK_BLACK_WATER, ((BlockColoredWater) ModBlocks.BLOCK_BLACK_WATER).getFluid());
-
-        // HEDGE BLOCK
-        r.register(ModBlocks.BLOCK_HEDGE);
+    public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
+        IForgeRegistry<Block> registry = event.getRegistry();
+        event.getRegistry().registerAll(
+                // Hedge Blocks
+                ModBlocks.OAK_HEDGE,
+                ModBlocks.SPRUCE_HEDGE,
+                ModBlocks.BIRCH_HEDGE,
+                ModBlocks.JUNGLE_HEDGE,
+                ModBlocks.ACACIA_HEDGE,
+                ModBlocks.DARK_OAK_HEDGE,
+                // Vertical Slab Blocks
+                ModBlocks.OAK_VERT_SLAB,
+                ModBlocks.SPRUCE_VERT_SLAB,
+                ModBlocks.BIRCH_VERT_SLAB,
+                ModBlocks.JUNGLE_VERT_SLAB,
+                ModBlocks.ACACIA_VERT_SLAB,
+                ModBlocks.DARK_OAK_VERT_SLAB,
+                ModBlocks.STONE_VERT_SLAB,
+                ModBlocks.SMOOTH_STONE_VERT_SLAB,
+                ModBlocks.SANDSTONE_VERT_SLAB,
+                ModBlocks.CUT_SANDSTONE_VERT_SLAB,
+                ModBlocks.PETRIFIED_OAK_VERT_SLAB,
+                ModBlocks.COBBLESTONE_VERT_SLAB,
+                ModBlocks.BRICK_VERT_SLAB,
+                ModBlocks.STONE_BRICK_VERT_SLAB,
+                ModBlocks.NETHER_BRICK_VERT_SLAB,
+                ModBlocks.QUARTZ_VERT_SLAB,
+                ModBlocks.RED_SANDSTONE_VERT_SLAB,
+                ModBlocks.CUT_RED_SANDSTONE_VERT_SLAB,
+                ModBlocks.PURPUR_VERT_SLAB,
+                ModBlocks.PRISMARINE_VERT_SLAB,
+                ModBlocks.PRISMARINE_BRICK_VERT_SLAB,
+                ModBlocks.DARK_PRISMARINE_VERT_SLAB,
+                ModBlocks.POLISHED_GRANITE_VERT_SLAB,
+                ModBlocks.SMOOTH_RED_SANDSTONE_VERT_SLAB,
+                ModBlocks.MOSSY_STONE_BRICK_VERT_SLAB,
+                ModBlocks.POLISHED_DIORITE_VERT_SLAB,
+                ModBlocks.MOSSY_COBBLESTONE_VERT_SLAB,
+                ModBlocks.END_STONE_BRICK_VERT_SLAB,
+                ModBlocks.SMOOTH_SANDSTONE_VERT_SLAB,
+                ModBlocks.SMOOTH_QUARTZ_VERT_SLAB,
+                ModBlocks.GRANITE_VERT_SLAB,
+                ModBlocks.ANDESITE_VERT_SLAB,
+                ModBlocks.RED_NETHER_BRICK_VERT_SLAB,
+                ModBlocks.POLISHED_ANDESITE_VERT_SLAB,
+                ModBlocks.DIORITE_VERT_SLAB
+        );
     }
 
-    // The order of the items in these registry events determine the order in for example JEI.
     @SubscribeEvent
-    public static void onItemRegister(RegistryEvent.Register<Item> event) {
-        IForgeRegistry<Item> r = event.getRegistry();
-        // ITEMS
-        r.register(ModItems.RAINBOW_STAR);
-        // ITEMBLOCKS HEDGE
-        r.register(ModBlocks.ITEMBLOCK_HEDGE);
-        // ITEMBLOCKS VERT SLABS
-        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_1);
-        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_2);
-        r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_1);
-        r.register(ModBlocks.ITEMBLOCK_WOOD_VERT_SLAB_2);
-        r.register(ModBlocks.ITEMBLOCK_STONE_VERT_SLAB_NEW);
-        r.register(ModBlocks.ITEMBLOCK_PURPUR_VERT_SLAB);
+    public static void onItemRegistry(final RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                // Unicorn Spawn Egg
+                ModItems.UNICORN_SPAWN_EGG,
+                // Rainbow Star Item
+                ModItems.RAINBOW_STAR_CHARGED,
+                ModItems.RAINBOW_STAR_UNCHARGED,
+                // Hedge BlockItems
+                ModItems.OAK_HEDGE_BOCKITEM,
+                ModItems.SPRUCE_HEDGE_BOCKITEM,
+                ModItems.BIRCH_HEDGE_BOCKITEM,
+                ModItems.JUNGLE_HEDGE_BOCKITEM,
+                ModItems.ACACIA_HEDGE_BOCKITEM,
+                ModItems.DARK_OAK_HEDGE_BOCKITEM,
+                // Vertical Slab BlockItems
+                ModItems.OAK_VERT_SLAB_BOCKITEM,
+                ModItems.SPRUCE_VERT_SLAB_BOCKITEM,
+                ModItems.BIRCH_VERT_SLAB_BOCKITEM,
+                ModItems.JUNGLE_VERT_SLAB_BOCKITEM,
+                ModItems.ACACIA_VERT_SLAB_BOCKITEM,
+                ModItems.DARK_OAK_VERT_SLAB_BOCKITEM,
+                ModItems.STONE_VERT_SLAB_BOCKITEM,
+                ModItems.SMOOTH_STONE_VERT_SLAB_BOCKITEM,
+                ModItems.SANDSTONE_VERT_SLAB_BOCKITEM,
+                ModItems.CUT_SANDSTONE_VERT_SLAB_BOCKITEM,
+                ModItems.PETRIFIED_OAK_VERT_SLAB_BOCKITEM,
+                ModItems.COBBLESTONE_VERT_SLAB_BOCKITEM,
+                ModItems.BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.STONE_BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.NETHER_BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.QUARTZ_VERT_SLAB_BOCKITEM,
+                ModItems.RED_SANDSTONE_VERT_SLAB_BOCKITEM,
+                ModItems.CUT_RED_SANDSTONE_VERT_SLAB_BOCKITEM,
+                ModItems.PURPUR_VERT_SLAB_BOCKITEM,
+                ModItems.PRISMARINE_VERT_SLAB_BOCKITEM,
+                ModItems.PRISMARINE_BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.DARK_PRISMARINE_VERT_SLAB_BOCKITEM,
+                ModItems.POLISHED_GRANITE_VERT_SLAB_BOCKITEM,
+                ModItems.SMOOTH_RED_SANDSTONE_VERT_SLAB_BOCKITEM,
+                ModItems.MOSSY_STONE_BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.POLISHED_DIORITE_VERT_SLAB_BOCKITEM,
+                ModItems.MOSSY_COBBLESTONE_VERT_SLAB_BOCKITEM,
+                ModItems.END_STONE_BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.SMOOTH_SANDSTONE_VERT_SLAB_BOCKITEM,
+                ModItems.SMOOTH_QUARTZ_VERT_SLAB_BOCKITEM,
+                ModItems.GRANITE_VERT_SLAB_BOCKITEM,
+                ModItems.ANDESITE_VERT_SLAB_BOCKITEM,
+                ModItems.RED_NETHER_BRICK_VERT_SLAB_BOCKITEM,
+                ModItems.POLISHED_ANDESITE_VERT_SLAB_BOCKITEM,
+                ModItems.DIORITE_VERT_SLAB_BOCKITEM
+        );
+    }
 
-        // ============================ TESTING / DEBUGGING HELPER ============================
-
-        if (Reference.isDevEnvironment)
-            r.register(ModItems.DEBUG_TOOL);
+    //Register Entities
+    @SubscribeEvent
+    public static void onEntitiesRegistry(final RegistryEvent.Register<EntityType<?>> event) {
+        event.getRegistry().register(ModEntities.UNICORN.setRegistryName(Reference.MOD_ID,"unicorn"));
     }
 }

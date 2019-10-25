@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:vert_slab",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:smooth_stone"
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:smooth_stone_vert_slab",
+    "count": 6
+  }
+}

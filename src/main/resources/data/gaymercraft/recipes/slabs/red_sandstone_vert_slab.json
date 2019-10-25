@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:vert_slab",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:red_sandstone"
+      },
+      {
+        "item": "minecraft:chiseled_red_sandstone"
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:red_sandstone_vert_slab",
+    "count": 6
+  }
+}

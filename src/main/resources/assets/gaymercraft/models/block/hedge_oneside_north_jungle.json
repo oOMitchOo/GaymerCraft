@@ -1,6 +1,0 @@
-{
-  "parent": "gaymercraft:block/hedge_oneside_north",
-  "textures": {
-    "leaves": "minecraft:blocks/leaves_jungle"
-  }
-}

@@ -2,11 +2,9 @@ package oomitchoo.gaymercraft.client;
 
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.FoliageColors;
 
-/**
- * Created by oOMitchOo on 27.12.2018.
- */
 public class ItemColorsHedge implements IItemColor {
     private static final IItemColor INSTANCE = new ItemColorsHedge();
     public static IItemColor getInstance() {
@@ -14,14 +12,15 @@ public class ItemColorsHedge implements IItemColor {
     }
 
     @Override
-    public int colorMultiplier(ItemStack stack, int tintIndex) {
-        int meta = stack.getMetadata();
+    public int getColor(ItemStack stack, int tintIndex) {
+        ResourceLocation regName = stack.getItem().getRegistryName();
 
-        if (meta == 1)
-            return ColorizerFoliage.getFoliageColorPine();
-        else if (meta == 2)
-            return ColorizerFoliage.getFoliageColorBirch();
-        else
-            return ColorizerFoliage.getFoliageColorBasic();
+        if (regName.equals(new ResourceLocation("gaymercraft", "spruce_hedge"))) {
+            return FoliageColors.getSpruce();
+        } else if (regName.equals(new ResourceLocation("gaymercraft", "birch_hedge"))) {
+            return FoliageColors.getBirch();
+        } else {
+            return FoliageColors.getDefault();
+        }
     }
 }

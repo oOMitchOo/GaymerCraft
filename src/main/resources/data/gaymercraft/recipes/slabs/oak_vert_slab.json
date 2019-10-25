@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:vert_slab",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:oak_planks"
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:oak_vert_slab",
+    "count": 6
+  }
+}

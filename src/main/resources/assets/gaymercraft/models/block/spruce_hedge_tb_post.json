@@ -1,0 +1,6 @@
+{
+  "parent": "gaymercraft:block/hedge_tb_post",
+  "textures": {
+    "leaves": "minecraft:block/spruce_leaves"
+  }
+}

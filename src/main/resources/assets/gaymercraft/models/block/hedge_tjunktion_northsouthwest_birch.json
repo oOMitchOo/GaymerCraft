@@ -1,6 +1,0 @@
-{
-  "parent": "gaymercraft:block/hedge_tjunktion_northsouthwest",
-  "textures": {
-    "leaves": "minecraft:blocks/leaves_birch"
-  }
-}

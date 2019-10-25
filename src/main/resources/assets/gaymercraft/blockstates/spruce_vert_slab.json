@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "type=north": { "model": "gaymercraft:block/spruce_vert_slab_north" },
+    "type=east": { "model": "gaymercraft:block/spruce_vert_slab_east" },
+    "type=south": { "model": "gaymercraft:block/spruce_vert_slab_south" },
+    "type=west": { "model": "gaymercraft:block/spruce_vert_slab_west" },
+    "type=double": { "model": "minecraft:block/spruce_planks" }
+  }
+}

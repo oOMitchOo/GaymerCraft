@@ -1,76 +1,81 @@
 package oomitchoo.gaymercraft.client.renderer;
 
-import net.minecraft.block.state.IBlockState;
+import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.block.BlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-/**
- * Created by oOMitchOo on 01.01.2019.
- */
-@SideOnly(Side.CLIENT)
+@OnlyIn(value = Dist.CLIENT)
 public class RenderGlobalModded {
-
-    public static void drawLinesForVertSlabPlacement(EntityPlayer player, IBlockState targetBlock, BlockPos blockpos, EnumFacing sideHit, boolean isVertSlab, float partialTicks) {
+    public static void drawLinesForVertSlabPlacement(ActiveRenderInfo info, PlayerEntity player, BlockState targetBlock, BlockPos blockpos, Direction sideHit, boolean isVertSlab, float partialTicks) {
         GlStateManager.enableBlend();
-        GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-        GlStateManager.glLineWidth(5.0F);
-        GlStateManager.disableTexture2D();
+        GlStateManager.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+        GlStateManager.lineWidth(Math.max(5.0F, (float) Minecraft.getInstance().mainWindow.getFramebufferWidth() / 1920.0F * 2.5F));
+        GlStateManager.disableTexture();
         GlStateManager.depthMask(false);
+        GlStateManager.matrixMode(5889);
+        GlStateManager.pushMatrix();
+        GlStateManager.scalef(1.0F, 1.0F, 0.999F);
 
         double d3 = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)partialTicks;
         double d4 = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)partialTicks;
         double d5 = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * (double)partialTicks;
 
-        drawLinesOnTargetedBlockFace(sideHit, targetBlock.getSelectedBoundingBox(player.getEntityWorld(), blockpos).offset(-d3, -d4, -d5), 1.0F, 1.0F, 1.0F, 0.5F, !isVertSlab);
+        double d0 = info.getProjectedView().getX();
+        double d1 = info.getProjectedView().getY();
+        double d2 = info.getProjectedView().getZ();
+
+        drawLinesOnTargetedBlockFace(sideHit, targetBlock.getShape(player.getEntityWorld(), blockpos, ISelectionContext.forEntity(info.getRenderViewEntity())).getBoundingBox(),(double)blockpos.getX() - d0, (double)blockpos.getY() - d1, (double)blockpos.getZ() - d2, 1.0F, 1.0F, 1.0F, 0.5F, !isVertSlab);
 
         GlStateManager.depthMask(true);
-        GlStateManager.enableTexture2D();
+        GlStateManager.enableTexture();
         GlStateManager.disableBlend();
     }
 
-    private static void drawLinesOnTargetedBlockFace(EnumFacing face, AxisAlignedBB targetBlockFullBoundingBox, float red, float green, float blue, float alpha, boolean drawExtraLines) {
-        double minX = targetBlockFullBoundingBox.minX;
-        double minY = targetBlockFullBoundingBox.minY;
-        double minZ = targetBlockFullBoundingBox.minZ;
-        double maxX = targetBlockFullBoundingBox.maxX;
-        double maxY = targetBlockFullBoundingBox.maxY;
-        double maxZ = targetBlockFullBoundingBox.maxZ;
-        double offset = 0.0010000000474974513D;
+    private static void drawLinesOnTargetedBlockFace(Direction face, AxisAlignedBB boundingBox, double xIn, double yIn, double zIn, float red, float green, float blue, float alpha, boolean drawExtraLines) {
+        double offset = 0.001D;
+        double minX = boundingBox.minX + xIn;
+        double minY = boundingBox.minY + yIn;
+        double minZ = boundingBox.minZ + zIn;
+        double maxX = boundingBox.maxX + xIn;
+        double maxY = boundingBox.maxY + yIn;
+        double maxZ = boundingBox.maxZ + zIn;
 
         Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.getBuffer();
-        buffer.begin(3, DefaultVertexFormats.POSITION_COLOR);
+        BufferBuilder bufferbuilder = tessellator.getBuffer();
+        bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);
 
         switch (face) {
 
             case DOWN:
-                drawOutlinesOfUpOrDownFace(buffer, minY-offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfUpOrDownFace(bufferbuilder, minY-offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case UP:
-                drawOutlinesOfUpOrDownFace(buffer, maxY+offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfUpOrDownFace(bufferbuilder, maxY+offset, minX+offset, minZ+offset, maxX-offset, maxZ-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case NORTH:
-                drawOutlinesOfNorthOrSouthFace(buffer, minZ-offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfNorthOrSouthFace(bufferbuilder, minZ-offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case SOUTH:
-                drawOutlinesOfNorthOrSouthFace(buffer, maxZ+offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfNorthOrSouthFace(bufferbuilder, maxZ+offset, minX+offset, minY+offset, maxX-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case WEST:
-                drawOutlinesOfWestOrEastFace(buffer, minX-offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfWestOrEastFace(bufferbuilder, minX-offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
             case EAST:
-                drawOutlinesOfWestOrEastFace(buffer, maxX+offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
+                drawOutlinesOfWestOrEastFace(bufferbuilder, maxX+offset, minZ+offset, minY+offset, maxZ-offset, maxY-offset, red, green, blue, alpha, drawExtraLines);
                 break;
         }
-
         tessellator.draw();
     }
 

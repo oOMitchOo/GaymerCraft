@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:vert_slab",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:mossy_stone_bricks"
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:mossy_stone_brick_vert_slab",
+    "count": 6
+  }
+}

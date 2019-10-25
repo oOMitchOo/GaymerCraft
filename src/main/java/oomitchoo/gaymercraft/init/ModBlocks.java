@@ -1,65 +1,60 @@
 package oomitchoo.gaymercraft.init;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemBlock;
-import oomitchoo.gaymercraft.block.BlockColoredWater;
-import oomitchoo.gaymercraft.block.BlockHedge;
-import oomitchoo.gaymercraft.block.BlockVertSlabBase;
-import oomitchoo.gaymercraft.block.doubleslabs.*;
-import oomitchoo.gaymercraft.block.halfslabs.*;
-import oomitchoo.gaymercraft.item.ItemBlockHedge;
-import oomitchoo.gaymercraft.item.ItemBlockVertSlab;
-
-/**
- * Created by oOMitchOo on 21.11.2018.
- */
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Item;
+import net.minecraftforge.registries.ObjectHolder;
+import oomitchoo.gaymercraft.GaymerCraft;
+import oomitchoo.gaymercraft.block.HedgeBlock;
+import oomitchoo.gaymercraft.block.VertSlabBlock;
 
 public class ModBlocks {
-    // VERT BLOCKS with their DOUBLE BLOCK and ITEMBLOCK
-    public static final Block STONE_VERT_SLAB_1 = new BlockHalfStoneVertSlab1("stoneVerticalSlab1","stone_vertical_slab_1");
-    public static final Block DOUBLE_STONE_VERT_SLAB_1 = new BlockDoubleStoneVertSlab1("stoneVerticalSlab1","double_stone_vertical_slab_1");
-    public static final ItemBlock ITEMBLOCK_STONE_VERT_SLAB_1 = new ItemBlockVertSlab((BlockVertSlabBase)STONE_VERT_SLAB_1, (BlockVertSlabBase)STONE_VERT_SLAB_1, (BlockVertSlabBase)DOUBLE_STONE_VERT_SLAB_1, 3, "stoneVerticalSlab1","stone_vertical_slab_1");
+    private static Item.Properties properties = new Item.Properties().group(GaymerCraft.creativeTab.itemGroup);
 
-    public static final Block STONE_VERT_SLAB_2 = new BlockHalfStoneVertSlab2("stoneVerticalSlab2","stone_vertical_slab_2");
-    public static final Block DOUBLE_STONE_VERT_SLAB_2 = new BlockDoubleStoneVertSlab2("stoneVerticalSlab2","double_stone_vertical_slab_2");
-    public static final ItemBlock ITEMBLOCK_STONE_VERT_SLAB_2 = new ItemBlockVertSlab((BlockVertSlabBase)STONE_VERT_SLAB_2, (BlockVertSlabBase)STONE_VERT_SLAB_2, (BlockVertSlabBase)DOUBLE_STONE_VERT_SLAB_2, 4, "stoneVerticalSlab2","stone_vertical_slab_2");
+    // Hedge Blocks with their BlockItems
+    public static final Block OAK_HEDGE = new HedgeBlock("oak_hedge");
+    public static final Block SPRUCE_HEDGE = new HedgeBlock("spruce_hedge");
+    public static final Block BIRCH_HEDGE = new HedgeBlock("birch_hedge");
+    public static final Block JUNGLE_HEDGE = new HedgeBlock("jungle_hedge");
+    public static final Block ACACIA_HEDGE = new HedgeBlock("acacia_hedge");
+    public static final Block DARK_OAK_HEDGE = new HedgeBlock("dark_oak_hedge");
 
-    public static final Block WOOD_VERT_SLAB_1 = new BlockHalfWoodVertSlab1("woodVerticalSlab1","wood_vertical_slab_1");
-    public static final Block DOUBLE_WOOD_VERT_SLAB_1 = new BlockDoubleWoodVertSlab1("woodVerticalSlab1","double_wood_vertical_slab_1");
-    public static final ItemBlock ITEMBLOCK_WOOD_VERT_SLAB_1 = new ItemBlockVertSlab((BlockVertSlabBase)WOOD_VERT_SLAB_1, (BlockVertSlabBase)WOOD_VERT_SLAB_1, (BlockVertSlabBase)DOUBLE_WOOD_VERT_SLAB_1, 4,"woodVerticalSlab1","wood_vertical_slab_1");
-
-    public static final Block WOOD_VERT_SLAB_2 = new BlockHalfWoodVertSlab2("woodVerticalSlab2","wood_vertical_slab_2");
-    public static final Block DOUBLE_WOOD_VERT_SLAB_2 = new BlockDoubleWoodVertSlab2("woodVerticalSlab2","double_wood_vertical_slab_2");
-    public static final ItemBlock ITEMBLOCK_WOOD_VERT_SLAB_2 = new ItemBlockVertSlab((BlockVertSlabBase)WOOD_VERT_SLAB_2, (BlockVertSlabBase)WOOD_VERT_SLAB_2, (BlockVertSlabBase)DOUBLE_WOOD_VERT_SLAB_2, 2,"woodVerticalSlab2","wood_vertical_slab_2");
-
-    public static final Block STONE_VERT_SLAB_NEW = new BlockHalfStoneVertSlabNew("stoneVerticalSlabNew","stone_vertical_slab_new");
-    public static final Block DOUBLE_STONE_VERT_SLAB_NEW = new BlockDoubleStoneVertSlabNew("stoneVerticalSlabNew","double_stone_vertical_slab_new");
-    public static final ItemBlock ITEMBLOCK_STONE_VERT_SLAB_NEW = new ItemBlockVertSlab((BlockVertSlabBase)STONE_VERT_SLAB_NEW, (BlockVertSlabBase)STONE_VERT_SLAB_NEW, (BlockVertSlabBase)DOUBLE_STONE_VERT_SLAB_NEW, 1,"stoneVerticalSlabNew","stone_vertical_slab_new");
-
-    public static final Block PURPUR_VERT_SLAB = new BlockHalfPurpurVertSlab("purpurVerticalSlab","purpur_vertical_slab");
-    public static final Block DOUBLE_PURPUR_VERT_SLAB = new BlockDoublePurpurVertSlab("purpurVerticalSlab","double_purpur_vertical_slab");
-    public static final ItemBlock ITEMBLOCK_PURPUR_VERT_SLAB = new ItemBlockVertSlab((BlockVertSlabBase)PURPUR_VERT_SLAB, (BlockVertSlabBase)PURPUR_VERT_SLAB, (BlockVertSlabBase)DOUBLE_PURPUR_VERT_SLAB, 1,"purpurVerticalSlab","purpur_vertical_slab");
-
-    // FLUID BLOCKS
-    public static final Block BLOCK_WHITE_WATER = new BlockColoredWater("whiteWater","white_water",ModFluids.FLUID_WHITE_WATER, Material.WATER);
-    public static final Block BLOCK_ORANGE_WATER = new BlockColoredWater("orangeWater","orange_water",ModFluids.FLUID_ORANGE_WATER, Material.WATER);
-    public static final Block BLOCK_MAGENTA_WATER = new BlockColoredWater("magentaWater","magenta_water",ModFluids.FLUID_MAGENTA_WATER, Material.WATER);
-    public static final Block BLOCK_LIGHT_BLUE_WATER = new BlockColoredWater("lightBlueWater","light_blue_water",ModFluids.FLUID_LIGHT_BLUE_WATER, Material.WATER);
-    public static final Block BLOCK_YELLOW_WATER = new BlockColoredWater("yellowWater","yellow_water",ModFluids.FLUID_YELLOW_WATER, Material.WATER);
-    public static final Block BLOCK_LIME_WATER = new BlockColoredWater("limeWater","lime_water",ModFluids.FLUID_LIME_WATER, Material.WATER);
-    public static final Block BLOCK_PINK_WATER = new BlockColoredWater("pinkWater","pink_water",ModFluids.FLUID_PINK_WATER, Material.WATER);
-    public static final Block BLOCK_GRAY_WATER = new BlockColoredWater("grayWater","gray_water",ModFluids.FLUID_GRAY_WATER, Material.WATER);
-    public static final Block BLOCK_LIGHT_GRAY_WATER = new BlockColoredWater("lightGrayWater","light_gray_water",ModFluids.FLUID_LIGHT_GRAY_WATER, Material.WATER);
-    public static final Block BLOCK_CYAN_WATER = new BlockColoredWater("cyanWater","cyan_water",ModFluids.FLUID_CYAN_WATER, Material.WATER);
-    public static final Block BLOCK_PURPLE_WATER = new BlockColoredWater("purpleWater","purple_water",ModFluids.FLUID_PURPLE_WATER, Material.WATER);
-    public static final Block BLOCK_BLUE_WATER = new BlockColoredWater("blueWater","blue_water",ModFluids.FLUID_BLUE_WATER, Material.WATER);
-    public static final Block BLOCK_BROWN_WATER = new BlockColoredWater("brownWater","brown_water",ModFluids.FLUID_BROWN_WATER, Material.WATER);
-    public static final Block BLOCK_GREEN_WATER = new BlockColoredWater("greenWater", "green_water", ModFluids.FLUID_GREEN_WATER, Material.WATER);
-    public static final Block BLOCK_RED_WATER = new BlockColoredWater("redWater","red_water",ModFluids.FLUID_RED_WATER, Material.WATER);
-    public static final Block BLOCK_BLACK_WATER = new BlockColoredWater("blackWater","black_water",ModFluids.FLUID_BLACK_WATER, Material.WATER);
-
-    // HEDGE BLOCK with its ITEMBLOCK
-    public static final Block BLOCK_HEDGE = new BlockHedge("hedge", "hedge");
-    public static final ItemBlock ITEMBLOCK_HEDGE = new ItemBlockHedge(BLOCK_HEDGE, "hedge", "hedge");
+    public static final Block OAK_VERT_SLAB = new VertSlabBlock("oak_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
+    public static final Block SPRUCE_VERT_SLAB = new VertSlabBlock("spruce_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
+    public static final Block BIRCH_VERT_SLAB = new VertSlabBlock("birch_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
+    public static final Block JUNGLE_VERT_SLAB = new VertSlabBlock("jungle_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.DIRT).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
+    public static final Block ACACIA_VERT_SLAB = new VertSlabBlock("acacia_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.ADOBE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
+    public static final Block DARK_OAK_VERT_SLAB = new VertSlabBlock("dark_oak_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
+    public static final Block STONE_VERT_SLAB = new VertSlabBlock("stone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block SMOOTH_STONE_VERT_SLAB = new VertSlabBlock("smooth_stone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block SANDSTONE_VERT_SLAB = new VertSlabBlock("sandstone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block CUT_SANDSTONE_VERT_SLAB = new VertSlabBlock("cut_sandstone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block PETRIFIED_OAK_VERT_SLAB = new VertSlabBlock("petrified_oak_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.WOOD).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block COBBLESTONE_VERT_SLAB = new VertSlabBlock("cobblestone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block BRICK_VERT_SLAB = new VertSlabBlock("brick_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.RED).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block STONE_BRICK_VERT_SLAB = new VertSlabBlock("stone_brick_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block NETHER_BRICK_VERT_SLAB = new VertSlabBlock("nether_brick_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block QUARTZ_VERT_SLAB = new VertSlabBlock("quartz_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block RED_SANDSTONE_VERT_SLAB = new VertSlabBlock("red_sandstone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.ADOBE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block CUT_RED_SANDSTONE_VERT_SLAB = new VertSlabBlock("cut_red_sandstone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.ADOBE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block PURPUR_VERT_SLAB = new VertSlabBlock("purpur_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.MAGENTA).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block PRISMARINE_VERT_SLAB = new VertSlabBlock("prismarine_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.CYAN).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block PRISMARINE_BRICK_VERT_SLAB = new VertSlabBlock("prismarine_brick_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.DIAMOND).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block DARK_PRISMARINE_VERT_SLAB = new VertSlabBlock("dark_prismarine_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.DIAMOND).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block POLISHED_GRANITE_VERT_SLAB = new VertSlabBlock("polished_granite_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.DIRT).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block SMOOTH_RED_SANDSTONE_VERT_SLAB = new VertSlabBlock("smooth_red_sandstone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.ADOBE).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block MOSSY_STONE_BRICK_VERT_SLAB = new VertSlabBlock("mossy_stone_brick_vert_slab", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block POLISHED_DIORITE_VERT_SLAB = new VertSlabBlock("polished_diorite_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block MOSSY_COBBLESTONE_VERT_SLAB = new VertSlabBlock("mossy_cobblestone_vert_slab", Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block END_STONE_BRICK_VERT_SLAB = new VertSlabBlock("end_stone_brick_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(0.8F));
+    public static final Block SMOOTH_SANDSTONE_VERT_SLAB = new VertSlabBlock("smooth_sandstone_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block SMOOTH_QUARTZ_VERT_SLAB = new VertSlabBlock("smooth_quartz_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block GRANITE_VERT_SLAB = new VertSlabBlock("granite_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.DIRT).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block ANDESITE_VERT_SLAB = new VertSlabBlock("andesite_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block RED_NETHER_BRICK_VERT_SLAB = new VertSlabBlock("red_nether_brick_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).hardnessAndResistance(2.0F, 6.0F));
+    public static final Block POLISHED_ANDESITE_VERT_SLAB = new VertSlabBlock("polished_andesite_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(1.5F, 6.0F));
+    public static final Block DIORITE_VERT_SLAB = new VertSlabBlock("diorite_vert_slab", Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(1.5F, 6.0F));
 }

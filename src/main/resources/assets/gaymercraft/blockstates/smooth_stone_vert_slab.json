@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "type=north": { "model": "gaymercraft:block/smooth_stone_vert_slab_north" },
+    "type=east": { "model": "gaymercraft:block/smooth_stone_vert_slab_east" },
+    "type=south": { "model": "gaymercraft:block/smooth_stone_vert_slab_south" },
+    "type=west": { "model": "gaymercraft:block/smooth_stone_vert_slab_west" },
+    "type=double": { "model": "minecraft:block/smooth_stone_slab_double" }
+  }
+}

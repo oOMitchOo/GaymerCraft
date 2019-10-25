@@ -1,6 +1,0 @@
-{
-  "parent": "gaymercraft:block/hedge_middle_unconnected",
-  "textures": {
-    "leaves": "minecraft:blocks/leaves_oak"
-  }
-}

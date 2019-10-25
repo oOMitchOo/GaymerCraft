@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:vert_slab",
+  "pattern": [
+    "S",
+    "S",
+    "S"  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:red_nether_bricks"
+      }
+    ]
+  },
+  "result": {
+    "item": "gaymercraft:red_nether_brick_vert_slab",
+    "count": 6
+  }
+}

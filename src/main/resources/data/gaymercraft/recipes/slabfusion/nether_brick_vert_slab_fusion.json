@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:vert_slab_fusion",
+  "pattern": [
+    "SS" ],
+  "key": {
+    "S": [
+      {
+        "item": "gaymercraft:nether_brick_vert_slab"
+      }
+    ]
+  },
+  "result": {
+    "item": "minecraft:nether_bricks"
+  }
+}

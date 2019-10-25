@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gaymercraft:conv_vanilla_gaymercraft",
+  "ingredients": [
+    {
+      "item": "minecraft:andesite_slab"
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:andesite_vert_slab"
+  }
+}

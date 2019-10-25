@@ -1,0 +1,29 @@
+{
+  "multipart": [
+    {   "apply": { "model": "gaymercraft:block/dark_oak_hedge_tb_post" }},
+    {   "when": { "north": "true" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_side", "uvlock": true }
+    },
+    {   "when": { "east": "true" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_side", "y": 90, "uvlock": true }
+    },
+    {   "when": { "south": "true" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_side", "y": 180, "uvlock": true }
+    },
+    {   "when": { "west": "true" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_side", "y": 270, "uvlock": true }
+    },
+    {   "when": { "north": "false" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_n_post", "uvlock": true }
+    },
+    {   "when": { "east": "false" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_n_post", "y": 90, "uvlock": true }
+    },
+    {   "when": { "south": "false" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_n_post", "y": 180, "uvlock": true }
+    },
+    {   "when": { "west": "false" },
+      "apply": { "model": "gaymercraft:block/dark_oak_hedge_n_post", "y": 270, "uvlock": true }
+    }
+  ]
+}

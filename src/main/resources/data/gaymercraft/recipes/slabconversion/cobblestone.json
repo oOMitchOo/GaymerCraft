@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gaymercraft:conv_vanilla_gaymercraft",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone_slab"
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:cobblestone_vert_slab"
+  }
+}

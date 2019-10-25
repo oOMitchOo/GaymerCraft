@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gaymercraft:conv_vanilla_gaymercraft",
+  "ingredients": [
+    {
+      "item": "minecraft:purpur_slab"
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:purpur_vert_slab"
+  }
+}

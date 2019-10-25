@@ -1,67 +1,56 @@
 package oomitchoo.gaymercraft.client.event;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockFaceShape;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import oomitchoo.gaymercraft.block.BlockVertSlabBase;
-import oomitchoo.gaymercraft.common.config.ConfigHandler;
-import oomitchoo.gaymercraft.item.ItemBlockVertSlab;
+import oomitchoo.gaymercraft.block.VertSlabBlock;
+import oomitchoo.gaymercraft.init.ModItems;
 import oomitchoo.gaymercraft.reference.Reference;
+import oomitchoo.gaymercraft.state.properties.VertSlabType;
 
 import static oomitchoo.gaymercraft.client.renderer.RenderGlobalModded.drawLinesForVertSlabPlacement;
 
-/**
- * Created by oOMitchOo on 30.12.2018.
- */
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MOD_ID)
+@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Reference.MOD_ID)
 public class RandomClientEvents {
 
     @SubscribeEvent
-    public static void onDrawBlockHighlightEvent (DrawBlockHighlightEvent event) {
-        EntityPlayer player = event.getPlayer();
-        // This if-statement will result in some helping lines (for placement of the vertical slab) on the block, the player is looking at.
-        if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemBlockVertSlab) {
+    public static void onDrawBlockHighlightEvent(DrawBlockHighlightEvent event) {
+        Entity player = event.getInfo().getRenderViewEntity();
+
+        // todo: Check, if there is a better solution than comparing the registry name to vert_slab.
+        if(player instanceof PlayerEntity && (((PlayerEntity) player).getHeldItemMainhand().getItem().getRegistryName().getPath().contains("vert_slab") || (((PlayerEntity) player).getHeldItemMainhand().isEmpty()) && ((PlayerEntity) player).getHeldItemOffhand().getItem().getRegistryName().getPath().contains("vert_slab")) ) {
             RayTraceResult target = event.getTarget();
             // Check if player is looking at a block.
-            if (target.typeOfHit == RayTraceResult.Type.BLOCK) {
-                BlockPos blockpos = target.getBlockPos();
-                IBlockState targetBlock = player.getEntityWorld().getBlockState(blockpos);
-                EnumFacing sideHit = target.sideHit;
+            if(target.getType() == RayTraceResult.Type.BLOCK) {
+                BlockPos blockpos = ((BlockRayTraceResult)event.getTarget()).getPos();
+                BlockState targetBlock = player.getEntityWorld().getBlockState(blockpos);
+                Direction sidePlacingOn = ((BlockRayTraceResult) event.getTarget()).getFace();
+                //BlockState offsetBlock = player.getEntityWorld().getBlockState(blockpos.offset(sidePlacingOn));
                 // Check if block is unobstructed on that face the player is looking at.
-                if (targetBlock.getBlock().isReplaceable(player.world, blockpos.offset(sideHit))) {
+                if(player.getEntityWorld().getBlockState(blockpos.offset(sidePlacingOn)).getMaterial().isReplaceable()) {
                     // Some checks on the block we want to draw the helping lines on, before it happens
-                    if(targetBlock.getMaterial() != Material.AIR && !targetBlock.getBlock().isReplaceable(player.world, blockpos) && player.getEntityWorld().getWorldBorder().contains(blockpos)) {
-                        // If it is a vert half slab, set the boolean in the method (isVertSlab) true.
-                        if (targetBlock.getBlock() instanceof BlockVertSlabBase && !((BlockVertSlabBase) targetBlock.getBlock()).isDouble() && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING) && sideHit != targetBlock.getValue(BlockVertSlabBase.FACING).getOpposite()) {
-                            EnumFacing vertSlabFacing = targetBlock.getValue(BlockVertSlabBase.FACING);
-                            // but only for the half sized faces.
-                            if (sideHit != vertSlabFacing && sideHit != vertSlabFacing.getOpposite())
-                                drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, true, event.getPartialTicks());
+                    if (!targetBlock.isAir(player.getEntityWorld(), blockpos) && !targetBlock.getMaterial().isReplaceable() && player.getEntityWorld().getWorldBorder().contains(blockpos)) {
+                        // If it is a vert half slab, set the boolean in the method (isVertSalb) true. (isVertSlab is more like isVertSlabAndHalfFace)
+                        if (targetBlock.getBlock() instanceof VertSlabBlock && targetBlock.get(VertSlabBlock.TYPE) != VertSlabType.DOUBLE && !sidePlacingOn.getName().equals(targetBlock.get(VertSlabBlock.TYPE).getName()) && !sidePlacingOn.getOpposite().getName().equals(targetBlock.get(VertSlabBlock.TYPE).getName())) {
+                            drawLinesForVertSlabPlacement(event.getInfo(), (PlayerEntity) player, targetBlock, blockpos, sidePlacingOn, true, event.getPartialTicks());
                         }
+
                         // If it isn't a vert half slab, only draw the lines on the block face, if it is solid face and set the boolean (isVertSlab) to false.
-                        else if (targetBlock.getBlockFaceShape(player.world, blockpos, sideHit) == BlockFaceShape.SOLID)
-                            drawLinesForVertSlabPlacement(player, targetBlock, blockpos, sideHit, false, event.getPartialTicks());
+                        else if (Block.doesSideFillSquare(targetBlock.getShape(player.getEntityWorld(), blockpos), sidePlacingOn))
+                            drawLinesForVertSlabPlacement(event.getInfo(), (PlayerEntity) player, targetBlock, blockpos, sidePlacingOn, false, event.getPartialTicks());
                     }
+
                 }
             }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onConfigChanged (ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.getModID().equalsIgnoreCase(Reference.MOD_ID)) {
-            // Resync configs
-            ConfigHandler.loadConfig();
         }
     }
 }

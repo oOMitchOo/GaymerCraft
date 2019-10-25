@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gaymercraft:conv_vanilla_gaymercraft",
+  "ingredients": [
+    {
+      "item": "minecraft:red_nether_brick_slab"
+    }
+  ],
+  "result": {
+    "item": "gaymercraft:red_nether_brick_vert_slab"
+  }
+}

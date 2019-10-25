@@ -1,0 +1,6 @@
+{
+  "parent": "gaymercraft:block/hedge_side",
+  "textures": {
+    "leaves": "minecraft:block/birch_leaves"
+  }
+}

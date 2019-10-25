@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gaymercraft:conv_gaymercraft_vanilla",
+  "ingredients": [
+    {
+      "item": "gaymercraft:smooth_quartz_vert_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:smooth_quartz_slab"
+  }
+}

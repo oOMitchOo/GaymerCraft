@@ -1,19 +1,15 @@
 package oomitchoo.gaymercraft.init;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import oomitchoo.gaymercraft.GaymerCraft;
-import oomitchoo.gaymercraft.entity.EntityUnicorn;
-import oomitchoo.gaymercraft.reference.Reference;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
+import oomitchoo.gaymercraft.entity.UnicornEntity;
 
-/**
- * Created by oOMitchOo on 08.12.2018.
- */
 public class ModEntities {
-
-    public static void init() {
-        // todo: Int-Werte (80, 3) müssen eventuell angepasst werden. 80 ist trackingRange und 3 ist updateFrequency. trackingRange habe ich schon angepasst und sollte ungefähr dieselbe wie bei Pferden sein (bestimmt wie lange man es sehen kann).
-        // todo: boolean sendVelocityUpdates noch einmal angucken.
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "unicorn"), EntityUnicorn.class, "unicorn", 0, GaymerCraft.instance, 80, 3, true, 0xEFB1B1, 0x674EA7);
-    }
+    public static final EntityType<UnicornEntity> UNICORN = EntityType.Builder
+            .create(UnicornEntity::new, EntityClassification.CREATURE)
+            .size(1.3964844F, 1.6F)
+            .setShouldReceiveVelocityUpdates(true)
+            .setTrackingRange(80)
+            .setUpdateInterval(3)
+            .build("gaymercraft:unicorn");
 }

@@ -1,0 +1,14 @@
+{
+  "textures": {
+    "particle": "#leaves"
+  },
+  "elements": [
+    {
+      "from": [ 2.0, 0.0, 2.0 ],
+      "to": [ 14.0, 16.0, 14.0 ],
+      "faces": {
+        "north": { "uv": [ 2.0, 0.0, 14.0, 16.0 ], "texture": "#leaves", "tintindex": 0 }
+      }
+    }
+  ]
+}
