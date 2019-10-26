@@ -28,7 +28,7 @@ public class HedgeBlock extends FourWayBlock {
         super(6.0F, 6.0F, 16.0F, 16.0F, 24.0F, Block.Properties.create(Material.LEAVES, MaterialColor.FOLIAGE).hardnessAndResistance(0.2F).sound(SoundType.PLANT));
         this.setRegistryName(Reference.MOD_ID, name);
         this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)this.stateContainer.getBaseState()).with(NORTH, false)).with(EAST, false)).with(SOUTH, false)).with(WEST, false)).with(WATERLOGGED, false));
-        this.renderShapes = this.makeShapes(6.0F, 6.0F, 16.0F, 6.0F, 16.0F); //todo: It seems as if I've guessed the makeShape-values right, but I should check them again, if method is more clear.
+        this.renderShapes = this.makeShapes(6.0F, 6.0F, 16.0F, 6.0F, 16.0F); //todo: It seems as if I've guessed the makeShape-values right, but I should check them again, if method is clearer in later mappings.
     }
 
     @Override
@@ -47,7 +47,6 @@ public class HedgeBlock extends FourWayBlock {
     public boolean canConnectTo(BlockState blockState, boolean hasSolidSide, Direction direction) {
         Block block = blockState.getBlock();
         boolean isHedgeOrLeaves = block instanceof HedgeBlock || block.isIn(BlockTags.LEAVES);
-        // boolean isWoodenFence = block.isIn(BlockTags.FENCES) && blockState.getMaterial() == this.material;
         boolean isGate = block instanceof FenceGateBlock && FenceGateBlock.isParallel(blockState, direction);
         return !cannotAttach(block) && hasSolidSide || isHedgeOrLeaves || isGate;
     }
@@ -81,36 +80,6 @@ public class HedgeBlock extends FourWayBlock {
     public BlockRenderLayer getRenderLayer() {
         return renderTranslucent ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
     }
-
-    /*
-    @OnlyIn(Dist.CLIENT)
-    public static boolean shouldSideBeRendered(BlockState adjacentState, IBlockReader blockState, BlockPos blockAccess, Direction pos) {
-        BlockPos blockpos = blockAccess.offset(pos);
-        BlockState blockstate = blockState.getBlockState(blockpos);
-        if (adjacentState.isSideInvisible(blockstate, pos)) {
-            return false;
-        } else if (blockstate.isSolid()) {
-            Block.RenderSideCacheKey block$rendersidecachekey = new Block.RenderSideCacheKey(adjacentState, blockstate, pos);
-            Object2ByteLinkedOpenHashMap<RenderSideCacheKey> object2bytelinkedopenhashmap = SHOULD_SIDE_RENDER_CACHE.get();
-            byte b0 = object2bytelinkedopenhashmap.getAndMoveToFirst(block$rendersidecachekey);
-            if (b0 != 127) {
-                return b0 != 0;
-            } else {
-                VoxelShape voxelshape = adjacentState.func_215702_a(blockState, blockAccess, pos);
-                VoxelShape voxelshape1 = blockstate.func_215702_a(blockState, blockpos, pos.getOpposite());
-                boolean flag = VoxelShapes.compare(voxelshape, voxelshape1, IBooleanFunction.ONLY_FIRST);
-                if (object2bytelinkedopenhashmap.size() == 200) {
-                    object2bytelinkedopenhashmap.removeLastByte();
-                }
-
-                object2bytelinkedopenhashmap.putAndMoveToFirst(block$rendersidecachekey, (byte)(flag ? 1 : 0));
-                return flag;
-            }
-        } else {
-            return true;
-        }
-    }
-    */
 
     @Override
     @OnlyIn(Dist.CLIENT)

@@ -40,6 +40,9 @@ import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 @Mod(Reference.MOD_ID)
 public class GaymerCraft
 {

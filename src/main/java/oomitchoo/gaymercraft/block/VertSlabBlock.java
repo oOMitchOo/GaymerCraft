@@ -87,7 +87,7 @@ public class VertSlabBlock extends Block implements IWaterLoggable {
             BlockState placingOn = context.getWorld().getBlockState(pos.offset(face.getOpposite())); // this gets the blockState on which face we're placing.
 
             // If player is placing on a non-double vertical slab, use its FACING. (for fast building of walls for example)
-            if (placingOn.getBlock() == this) {
+            if (placingOn.getBlock() instanceof VertSlabBlock) {
                 VertSlabType type = (VertSlabType)placingOn.get(TYPE);
                 if (type != VertSlabType.DOUBLE) {
                     // but only for the half sized faces

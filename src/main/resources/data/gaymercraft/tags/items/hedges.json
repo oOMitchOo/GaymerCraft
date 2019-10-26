@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "gaymercraft:oak_hedge",
+    "gaymercraft:spruce_hedge",
+    "gaymercraft:birch_hedge",
+    "gaymercraft:jungle_hedge",
+    "gaymercraft:acacia_hedge",
+    "gaymercraft:dark_oak_hedge"
+  ]
+}
