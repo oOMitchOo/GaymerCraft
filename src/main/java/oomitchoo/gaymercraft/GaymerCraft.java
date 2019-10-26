@@ -54,6 +54,9 @@ public class GaymerCraft
     public static final DeferredRegister<Fluid> FLUIDS = new DeferredRegister<>(ForgeRegistries.FLUIDS, Reference.MOD_ID); // todo: WATER CODE STUFF
 
     // FLUIDS (STILL?)
+    public static final RegistryObject<FlowingFluid> RAINBOW_WATER = FLUIDS.register("rainbow_water", () -> // todo: WATER CODE STUFF
+            new ForgeFlowingFluid.Source(GaymerCraft.RAINBOW_WATER_PROPERTIES)
+    );
     public static final RegistryObject<FlowingFluid> WHITE_WATER = FLUIDS.register("white_water", () -> // todo: WATER CODE STUFF
             new ForgeFlowingFluid.Source(GaymerCraft.WHITE_WATER_PROPERTIES)
     );
@@ -104,6 +107,9 @@ public class GaymerCraft
     );
 
     // FLUIDS FLOWING
+    public static final RegistryObject<FlowingFluid> RAINBOW_WATER_FLOWING = FLUIDS.register("rainbow_water_flowing", () -> // todo: WATER CODE STUFF
+            new ForgeFlowingFluid.Flowing(GaymerCraft.RAINBOW_WATER_PROPERTIES)
+    );
     public static final RegistryObject<FlowingFluid> WHITE_WATER_FLOWING = FLUIDS.register("white_water_flowing", () -> // todo: WATER CODE STUFF
             new ForgeFlowingFluid.Flowing(GaymerCraft.WHITE_WATER_PROPERTIES)
     );
@@ -155,6 +161,9 @@ public class GaymerCraft
 
     // FLUID BLOCKS
     public static final Block.Properties waterBlockProperties = Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops();
+    public static final RegistryObject<FlowingFluidBlock> RAINBOW_WATER_BLOCK = BLOCKS.register("rainbow_water_block", () -> // todo: WATER CODE STUFF
+            new FlowingFluidBlock(RAINBOW_WATER, waterBlockProperties)
+    );
     public static final RegistryObject<FlowingFluidBlock> WHITE_WATER_BLOCK = BLOCKS.register("white_water_block", () -> // todo: WATER CODE STUFF
             new FlowingFluidBlock(WHITE_WATER, waterBlockProperties)
     );
@@ -206,6 +215,9 @@ public class GaymerCraft
 
     // BUCKET FOR THE FLUIDS
     public static final Item.Properties waterBucketItemProperties = new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(creativeTab.itemGroup);
+    public static final RegistryObject<Item> RAINBOW_WATER_BUCKET = ITEMS.register("rainbow_water_bucket", () -> // todo: WATER CODE STUFF
+            new BucketItem(RAINBOW_WATER, waterBucketItemProperties)
+    );
     public static final RegistryObject<Item> WHITE_WATER_BUCKET = ITEMS.register("white_water_bucket", () -> // todo: WATER CODE STUFF
             new BucketItem(WHITE_WATER, waterBucketItemProperties)
     );
@@ -258,7 +270,12 @@ public class GaymerCraft
     // FLUID PROPERTIES
     public static final ResourceLocation waterStillTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_still");
     public static final ResourceLocation waterFlowingTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_flow");
+    public static final ResourceLocation rainbowWaterStillTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_rainbow_water_still");
+    public static final ResourceLocation rainbowWaterFlowingTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_rainbow_water_flow");
     public static final ResourceLocation waterOverlayTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_overlay");
+    public static final ForgeFlowingFluid.Properties RAINBOW_WATER_PROPERTIES = // todo: WATER CODE STUFF
+            new ForgeFlowingFluid.Properties(RAINBOW_WATER, RAINBOW_WATER_FLOWING, FluidAttributes.builder(rainbowWaterStillTexture, rainbowWaterFlowingTexture).overlay(waterOverlayTexture)) // FF ist alpha mit 100% die letzten 6 chars sind für RGB
+                    .bucket(RAINBOW_WATER_BUCKET).block(RAINBOW_WATER_BLOCK).canMultiply();
     public static final ForgeFlowingFluid.Properties WHITE_WATER_PROPERTIES = // todo: WATER CODE STUFF
             new ForgeFlowingFluid.Properties(WHITE_WATER, WHITE_WATER_FLOWING, FluidAttributes.builder(waterStillTexture, waterFlowingTexture).overlay(waterOverlayTexture).color(0xFFF0F0F0)) // FF ist alpha mit 100% die letzten 6 chars sind für RGB
                     .bucket(WHITE_WATER_BUCKET).block(WHITE_WATER_BLOCK).canMultiply();
