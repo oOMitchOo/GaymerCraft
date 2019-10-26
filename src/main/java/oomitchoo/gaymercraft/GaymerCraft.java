@@ -273,11 +273,12 @@ public class GaymerCraft
     // FLUID PROPERTIES
     public static final ResourceLocation waterStillTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_still");
     public static final ResourceLocation waterFlowingTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_flow");
+    public static final ResourceLocation waterOverlayTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_overlay");
     public static final ResourceLocation rainbowWaterStillTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_rainbow_water_still");
     public static final ResourceLocation rainbowWaterFlowingTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_rainbow_water_flow");
-    public static final ResourceLocation waterOverlayTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_overlay");
+    public static final ResourceLocation rainbowWaterOverlayTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_rainbow_water_overlay");
     public static final ForgeFlowingFluid.Properties RAINBOW_WATER_PROPERTIES = // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Properties(RAINBOW_WATER, RAINBOW_WATER_FLOWING, FluidAttributes.builder(rainbowWaterStillTexture, rainbowWaterFlowingTexture).overlay(waterOverlayTexture)) // FF ist alpha mit 100% die letzten 6 chars sind für RGB
+            new ForgeFlowingFluid.Properties(RAINBOW_WATER, RAINBOW_WATER_FLOWING, FluidAttributes.builder(rainbowWaterStillTexture, rainbowWaterFlowingTexture).overlay(rainbowWaterOverlayTexture).color(0xFF3F76E4)) // FF ist alpha mit 100% die letzten 6 chars sind für RGB
                     .bucket(RAINBOW_WATER_BUCKET).block(RAINBOW_WATER_BLOCK).canMultiply();
     public static final ForgeFlowingFluid.Properties WHITE_WATER_PROPERTIES = // todo: WATER CODE STUFF
             new ForgeFlowingFluid.Properties(WHITE_WATER, WHITE_WATER_FLOWING, FluidAttributes.builder(waterStillTexture, waterFlowingTexture).overlay(waterOverlayTexture).color(0xFFF0F0F0)) // FF ist alpha mit 100% die letzten 6 chars sind für RGB
