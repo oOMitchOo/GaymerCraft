@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:bubble_blocks",
+  "pattern": [
+    "###",
+    "#W#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:soul_sand"
+    },
+    "W": {
+      "item": "gaymercraft:rainbow_water_bucket"
+    }
+  },
+  "result": {
+    "item": "gaymercraft:rainbow_soul_sand",
+    "count": 8
+  }
+}

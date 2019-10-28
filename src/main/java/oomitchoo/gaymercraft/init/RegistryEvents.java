@@ -28,6 +28,27 @@ public class RegistryEvents {
     public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
         event.getRegistry().registerAll(
+                // Rainbow Soul Sand, Rainbow Magma
+                ModBlocks.RAINBOW_SOUL_SAND,
+                ModBlocks.RAINBOW_MAGMA_BLOCK,
+                // Bubbles
+                ModBlocks.RAINBOW_BUBBLE_COLUMN,
+                ModBlocks.WHITE_BUBBLE_COLUMN,
+                ModBlocks.ORANGE_BUBBLE_COLUMN,
+                ModBlocks.MAGENTA_BUBBLE_COLUMN,
+                ModBlocks.LIGHT_BLUE_BUBBLE_COLUMN,
+                ModBlocks.YELLOW_BUBBLE_COLUMN,
+                ModBlocks.LIME_BUBBLE_COLUMN,
+                ModBlocks.PINK_BUBBLE_COLUMN,
+                ModBlocks.GRAY_BUBBLE_COLUMN,
+                ModBlocks.LIGHT_GRAY_BUBBLE_COLUMN,
+                ModBlocks.CYAN_BUBBLE_COLUMN,
+                ModBlocks.PURPLE_BUBBLE_COLUMN,
+                ModBlocks.BLUE_BUBBLE_COLUMN,
+                ModBlocks.BROWN_BUBBLE_COLUMN,
+                ModBlocks.GREEN_BUBBLE_COLUMN,
+                ModBlocks.RED_BUBBLE_COLUMN,
+                ModBlocks.BLACK_BUBBLE_COLUMN,
                 // Hedge Blocks
                 ModBlocks.OAK_HEDGE,
                 ModBlocks.SPRUCE_HEDGE,
@@ -77,6 +98,9 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void onItemRegistry(final RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
+                // (for bubbles) Rainbow Soul Sand, Rainbow Magma
+                ModItems.RAINBOW_SOUL_SAND_BLOCKITEM,
+                ModItems.RAINBOW_MAGMA_BLOCK_BLOCKITEM,
                 // Unicorn Spawn Egg
                 ModItems.UNICORN_SPAWN_EGG,
                 // Rainbow Star Item

@@ -4,17 +4,75 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ObjectHolder;
 import oomitchoo.gaymercraft.GaymerCraft;
-import oomitchoo.gaymercraft.block.HedgeBlock;
-import oomitchoo.gaymercraft.block.VertSlabBlock;
+import oomitchoo.gaymercraft.block.*;
+import oomitchoo.gaymercraft.reference.Reference;
 
 public class ModBlocks {
-    private static Item.Properties properties = new Item.Properties().group(GaymerCraft.creativeTab.itemGroup);
 
-    // Hedge Blocks with their BlockItems
+    // Rainbow Soul Sand and Rainbow Magma Block (for bubbles in colored water)
+    public static final Block RAINBOW_SOUL_SAND = new RainbowSoulSandBlock(Block.Properties.create(Material.SAND, MaterialColor.BROWN).tickRandomly().hardnessAndResistance(0.5F).sound(SoundType.SAND)).setRegistryName(Reference.MOD_ID, "rainbow_soul_sand");
+    public static final Block RAINBOW_MAGMA_BLOCK = new RainbowMagmaBlock(Block.Properties.create(Material.ROCK, MaterialColor.NETHERRACK).lightValue(3).tickRandomly().hardnessAndResistance(0.5F)).setRegistryName(Reference.MOD_ID, "rainbow_magma_block");
+
+    // Bubble Blocks (for water elevators)
+    private static final Block.Properties bubbleProperties = Block.Properties.create(Material.BUBBLE_COLUMN).doesNotBlockMovement().noDrops();
+    public static final Block RAINBOW_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.RAINBOW_WATER, new ResourceLocation(Reference.MOD_ID, "rainbow_water_block")).setRegistryName(Reference.MOD_ID, "rainbow_bubble_column");
+    public static final Block WHITE_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.WHITE_WATER, new ResourceLocation(Reference.MOD_ID, "white_water_block")).setRegistryName(Reference.MOD_ID, "white_bubble_column");
+    public static final Block ORANGE_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.ORANGE_WATER, new ResourceLocation(Reference.MOD_ID, "orange_water_block")).setRegistryName(Reference.MOD_ID, "orange_bubble_column");
+    public static final Block MAGENTA_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.MAGENTA_WATER, new ResourceLocation(Reference.MOD_ID, "magenta_water_block")).setRegistryName(Reference.MOD_ID, "magenta_bubble_column");
+    public static final Block LIGHT_BLUE_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.LIGHT_BLUE_WATER, new ResourceLocation(Reference.MOD_ID, "light_blue_water_block")).setRegistryName(Reference.MOD_ID, "light_blue_bubble_column");
+    public static final Block YELLOW_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.YELLOW_WATER, new ResourceLocation(Reference.MOD_ID, "yellow_water_block")).setRegistryName(Reference.MOD_ID, "yellow_bubble_column");
+    public static final Block LIME_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.LIME_WATER, new ResourceLocation(Reference.MOD_ID, "lime_water_block")).setRegistryName(Reference.MOD_ID, "lime_bubble_column");
+    public static final Block PINK_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.PINK_WATER, new ResourceLocation(Reference.MOD_ID, "pink_water_block")).setRegistryName(Reference.MOD_ID, "pink_bubble_column");
+    public static final Block GRAY_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.GRAY_WATER, new ResourceLocation(Reference.MOD_ID, "gray_water_block")).setRegistryName(Reference.MOD_ID, "gray_bubble_column");
+    public static final Block LIGHT_GRAY_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.LIGHT_GRAY_WATER, new ResourceLocation(Reference.MOD_ID, "light_gray_water_block")).setRegistryName(Reference.MOD_ID, "light_gray_bubble_column");
+    public static final Block CYAN_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.CYAN_WATER, new ResourceLocation(Reference.MOD_ID, "cyan_water_block")).setRegistryName(Reference.MOD_ID, "cyan_bubble_column");
+    public static final Block PURPLE_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.PURPLE_WATER, new ResourceLocation(Reference.MOD_ID, "purple_water_block")).setRegistryName(Reference.MOD_ID, "purple_bubble_column");
+    public static final Block BLUE_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.BLUE_WATER, new ResourceLocation(Reference.MOD_ID, "blue_water_block")).setRegistryName(Reference.MOD_ID, "blue_bubble_column");
+    public static final Block BROWN_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.BROWN_WATER, new ResourceLocation(Reference.MOD_ID, "brown_water_block")).setRegistryName(Reference.MOD_ID, "brown_bubble_column");
+    public static final Block GREEN_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.GREEN_WATER, new ResourceLocation(Reference.MOD_ID, "green_water_block")).setRegistryName(Reference.MOD_ID, "green_bubble_column");
+    public static final Block RED_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.RED_WATER, new ResourceLocation(Reference.MOD_ID, "red_water_block")).setRegistryName(Reference.MOD_ID, "red_bubble_column");
+    public static final Block BLACK_BUBBLE_COLUMN = new ColoredBubbleColumnBlock(bubbleProperties, ModFluids.BLACK_WATER, new ResourceLocation(Reference.MOD_ID, "black_water_block")).setRegistryName(Reference.MOD_ID, "black_bubble_column");
+
+    // Water Blocks
+    @ObjectHolder("gaymercraft:rainbow_water_block")
+    public static final Block RAINBOW_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.RAINBOW_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) RAINBOW_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:white_water_block")
+    public static final Block WHITE_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.WHITE_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) WHITE_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:orange_water_block")
+    public static final Block ORANGE_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.ORANGE_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) ORANGE_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:magenta_water_block")
+    public static final Block MAGENTA_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.MAGENTA_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) MAGENTA_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:light_blue_water_block")
+    public static final Block LIGHT_BLUE_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.LIGHT_BLUE_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) LIGHT_BLUE_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:yellow_water_block")
+    public static final Block YELLOW_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.YELLOW_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) YELLOW_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:lime_water_block")
+    public static final Block LIME_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.LIME_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) LIME_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:pink_water_block")
+    public static final Block PINK_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.PINK_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) PINK_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:gray_water_block")
+    public static final Block GRAY_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.GRAY_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) GRAY_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:light_gray_water_block")
+    public static final Block LIGHT_GRAY_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.LIGHT_GRAY_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) LIGHT_GRAY_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:cyan_water_block")
+    public static final Block CYAN_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.CYAN_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) CYAN_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:purple_water_block")
+    public static final Block PURPLE_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.PURPLE_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) PURPLE_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:blue_water_block")
+    public static final Block BLUE_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.BLUE_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) BLUE_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:brown_water_block")
+    public static final Block BROWN_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.BROWN_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) BROWN_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:green_water_block")
+    public static final Block GREEN_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.GREEN_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) GREEN_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:red_water_block")
+    public static final Block RED_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.RED_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) RED_BUBBLE_COLUMN);
+    @ObjectHolder("gaymercraft:black_water_block")
+    public static final Block BLACK_WATER_BLOCK = new ColoredFlowingFluidBlock(GaymerCraft.BLACK_WATER, GaymerCraft.waterBlockProperties, (ColoredBubbleColumnBlock) BLACK_BUBBLE_COLUMN);
+
+    // Hedge Blocks
     public static final Block OAK_HEDGE = new HedgeBlock("oak_hedge");
     public static final Block SPRUCE_HEDGE = new HedgeBlock("spruce_hedge");
     public static final Block BIRCH_HEDGE = new HedgeBlock("birch_hedge");
@@ -22,6 +80,7 @@ public class ModBlocks {
     public static final Block ACACIA_HEDGE = new HedgeBlock("acacia_hedge");
     public static final Block DARK_OAK_HEDGE = new HedgeBlock("dark_oak_hedge");
 
+    // Vertical Slab Blocks
     public static final Block OAK_VERT_SLAB = new VertSlabBlock("oak_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
     public static final Block SPRUCE_VERT_SLAB = new VertSlabBlock("spruce_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));
     public static final Block BIRCH_VERT_SLAB = new VertSlabBlock("birch_vert_slab", Block.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD));

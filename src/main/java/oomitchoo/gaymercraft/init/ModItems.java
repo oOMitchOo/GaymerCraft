@@ -11,6 +11,10 @@ public class ModItems {
     // (For now) Only used to put the BlockItems in the right creative tab.
     private static final Item.Properties plainItemProperties = new Item.Properties().group(GaymerCraft.creativeTab.itemGroup);
 
+    //
+    public static final Item RAINBOW_SOUL_SAND_BLOCKITEM = new BlockItem(ModBlocks.RAINBOW_SOUL_SAND, plainItemProperties).setRegistryName(Reference.MOD_ID, "rainbow_soul_sand");
+    public static final Item RAINBOW_MAGMA_BLOCK_BLOCKITEM = new BlockItem(ModBlocks.RAINBOW_MAGMA_BLOCK, plainItemProperties).setRegistryName(Reference.MOD_ID, "rainbow_magma_block");
+
     // Spawn Egg
     public static final Item UNICORN_SPAWN_EGG = new SpawnEggItem(ModEntities.UNICORN, 0xFFE6FF, 0x9966FF, new Item.Properties().maxStackSize(1).maxDamage(0).group(GaymerCraft.creativeTab.itemGroup)).setRegistryName(Reference.MOD_ID, "unicorn_spawn_egg");
 

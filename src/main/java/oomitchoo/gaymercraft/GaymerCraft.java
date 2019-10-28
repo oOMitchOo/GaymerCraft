@@ -32,6 +32,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import oomitchoo.gaymercraft.config.Config;
 import oomitchoo.gaymercraft.init.CreativeTab;
+import oomitchoo.gaymercraft.init.ModBlocks;
+import oomitchoo.gaymercraft.init.ModFluids;
 import oomitchoo.gaymercraft.proxy.ClientProxy;
 import oomitchoo.gaymercraft.proxy.IProxy;
 import oomitchoo.gaymercraft.proxy.ServerProxy;
@@ -39,9 +41,6 @@ import oomitchoo.gaymercraft.reference.Reference;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Collection;
-import java.util.Iterator;
 
 @Mod(Reference.MOD_ID)
 public class GaymerCraft
@@ -58,55 +57,55 @@ public class GaymerCraft
 
     // FLUIDS (STILL?)
     public static final RegistryObject<FlowingFluid> RAINBOW_WATER = FLUIDS.register("rainbow_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.RAINBOW_WATER_PROPERTIES)
+            ModFluids.RAINBOW_WATER
     );
     public static final RegistryObject<FlowingFluid> WHITE_WATER = FLUIDS.register("white_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.WHITE_WATER_PROPERTIES)
+            ModFluids.WHITE_WATER
     );
     public static final RegistryObject<FlowingFluid> ORANGE_WATER = FLUIDS.register("orange_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.ORANGE_WATER_PROPERTIES)
+            ModFluids.ORANGE_WATER
     );
     public static final RegistryObject<FlowingFluid> MAGENTA_WATER = FLUIDS.register("magenta_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.MAGENTA_WATER_PROPERTIES)
+            ModFluids.MAGENTA_WATER
     );
     public static final RegistryObject<FlowingFluid> LIGHT_BLUE_WATER = FLUIDS.register("light_blue_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.LIGHT_BLUE_WATER_PROPERTIES)
+            ModFluids.LIGHT_BLUE_WATER
     );
     public static final RegistryObject<FlowingFluid> YELLOW_WATER = FLUIDS.register("yellow_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.YELLOW_WATER_PROPERTIES)
+            ModFluids.YELLOW_WATER
     );
     public static final RegistryObject<FlowingFluid> LIME_WATER = FLUIDS.register("lime_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.LIME_WATER_PROPERTIES)
+            ModFluids.LIME_WATER
     );
     public static final RegistryObject<FlowingFluid> PINK_WATER = FLUIDS.register("pink_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.PINK_WATER_PROPERTIES)
+            ModFluids.PINK_WATER
     );
     public static final RegistryObject<FlowingFluid> GRAY_WATER = FLUIDS.register("gray_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.GRAY_WATER_PROPERTIES)
+            ModFluids.GRAY_WATER
     );
     public static final RegistryObject<FlowingFluid> LIGHT_GRAY_WATER = FLUIDS.register("light_gray_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.LIGHT_GRAY_WATER_PROPERTIES)
+            ModFluids.LIGHT_GRAY_WATER
     );
     public static final RegistryObject<FlowingFluid> CYAN_WATER = FLUIDS.register("cyan_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.CYAN_WATER_PROPERTIES)
+            ModFluids.CYAN_WATER
     );
     public static final RegistryObject<FlowingFluid> PURPLE_WATER = FLUIDS.register("purple_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.PURPLE_WATER_PROPERTIES)
+            ModFluids.PURPLE_WATER
     );
     public static final RegistryObject<FlowingFluid> BLUE_WATER = FLUIDS.register("blue_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.BLUE_WATER_PROPERTIES)
+            ModFluids.BLUE_WATER
     );
     public static final RegistryObject<FlowingFluid> BROWN_WATER = FLUIDS.register("brown_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.BROWN_WATER_PROPERTIES)
+            ModFluids.BROWN_WATER
     );
     public static final RegistryObject<FlowingFluid> GREEN_WATER = FLUIDS.register("green_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.GREEN_WATER_PROPERTIES)
+            ModFluids.GREEN_WATER
     );
     public static final RegistryObject<FlowingFluid> RED_WATER = FLUIDS.register("red_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.RED_WATER_PROPERTIES)
+            ModFluids.RED_WATER
     );
     public static final RegistryObject<FlowingFluid> BLACK_WATER = FLUIDS.register("black_water", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Source(GaymerCraft.BLACK_WATER_PROPERTIES)
+            ModFluids.BLACK_WATER
     );
 
     // FLUIDS FLOWING
@@ -165,55 +164,55 @@ public class GaymerCraft
     // FLUID BLOCKS
     public static final Block.Properties waterBlockProperties = Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops();
     public static final RegistryObject<FlowingFluidBlock> RAINBOW_WATER_BLOCK = BLOCKS.register("rainbow_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(RAINBOW_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.RAINBOW_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> WHITE_WATER_BLOCK = BLOCKS.register("white_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(WHITE_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.WHITE_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> ORANGE_WATER_BLOCK = BLOCKS.register("orange_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(ORANGE_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.ORANGE_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> MAGENTA_WATER_BLOCK = BLOCKS.register("magenta_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(MAGENTA_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.MAGENTA_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> LIGHT_BLUE_WATER_BLOCK = BLOCKS.register("light_blue_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(LIGHT_BLUE_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.LIGHT_BLUE_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> YELLOW_WATER_BLOCK = BLOCKS.register("yellow_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(YELLOW_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.YELLOW_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> LIME_WATER_BLOCK = BLOCKS.register("lime_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(LIME_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.LIME_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> PINK_WATER_BLOCK = BLOCKS.register("pink_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(PINK_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.PINK_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> GRAY_WATER_BLOCK = BLOCKS.register("gray_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(GRAY_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.GRAY_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> LIGHT_GRAY_WATER_BLOCK = BLOCKS.register("light_gray_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(LIGHT_GRAY_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.LIGHT_GRAY_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> CYAN_WATER_BLOCK = BLOCKS.register("cyan_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(CYAN_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.CYAN_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> PURPLE_WATER_BLOCK = BLOCKS.register("purple_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(PURPLE_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.PURPLE_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> BLUE_WATER_BLOCK = BLOCKS.register("blue_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(BLUE_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.BLUE_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> BROWN_WATER_BLOCK = BLOCKS.register("brown_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(BROWN_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.BROWN_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> GREEN_WATER_BLOCK = BLOCKS.register("green_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(GREEN_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.GREEN_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> RED_WATER_BLOCK = BLOCKS.register("red_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(RED_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.RED_WATER_BLOCK
     );
     public static final RegistryObject<FlowingFluidBlock> BLACK_WATER_BLOCK = BLOCKS.register("black_water_block", () -> // todo: WATER CODE STUFF
-            new FlowingFluidBlock(BLACK_WATER, waterBlockProperties)
+            (FlowingFluidBlock) ModBlocks.BLACK_WATER_BLOCK
     );
 
     // BUCKET FOR THE FLUIDS
