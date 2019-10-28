@@ -75,5 +75,7 @@
   "message.rainbow.star.charged.1of2": "It's charged with §cR§6A§eI§aN§bB§9O§dW §fPower!",
   "message.rainbow.star.charged.2of2": "§7§oI should try it on some animals. Wild ones though...",
   "message.rainbow.star.uncharged.1of2": "Oh noes, it lost all the colors.",
-  "message.rainbow.star.uncharged.2of2": "§7§oRecharging it should be cheaper than creating a new one though."
+  "message.rainbow.star.uncharged.2of2": "§7§oRecharging it should be cheaper than creating a new one though.",
+  "message.rainbow.magma.block": "§7§oThis can be used to make downward bubble streams in colored water.",
+  "message.rainbow.soul.sand": "§7§oThis can be used to make upward bubble streams in colored water."
 }

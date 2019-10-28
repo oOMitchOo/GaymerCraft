@@ -74,5 +74,7 @@
   "message.rainbow.star.charged.1of2": "Es strotzt vor §cR§6EG§eE§aNB§bO§9GE§dN§f-Energie!",
   "message.rainbow.star.charged.2of2": "§7§oIch sollte es an ein paar Tieren testen. Es müssen aber wilde sein...",
   "message.rainbow.star.uncharged.1of2": "Oh nö, es hat alle Farben verloren.",
-  "message.rainbow.star.uncharged.2of2": "§7§oDen Stern wieder aufzuladen sollte aber weniger kosten als einen neuen zu bauen."
+  "message.rainbow.star.uncharged.2of2": "§7§oDen Stern wieder aufzuladen sollte aber weniger kosten als einen neuen zu bauen.",
+  "message.rainbow.magma.block": "§7§oKann benutzt werden um Abwärts-Strömungen in gefärbten Wasser zu erzeugen.",
+  "message.rainbow.soul.sand": "§7§oKann benutzt werden um Aufwärts-Strömungen in gefärbten Wasser zu erzeugen."
 }
