@@ -1,9 +1,6 @@
 package oomitchoo.gaymercraft;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
@@ -34,6 +31,7 @@ import oomitchoo.gaymercraft.config.Config;
 import oomitchoo.gaymercraft.init.CreativeTab;
 import oomitchoo.gaymercraft.init.ModBlocks;
 import oomitchoo.gaymercraft.init.ModFluids;
+import oomitchoo.gaymercraft.init.ModItems;
 import oomitchoo.gaymercraft.proxy.ClientProxy;
 import oomitchoo.gaymercraft.proxy.IProxy;
 import oomitchoo.gaymercraft.proxy.ServerProxy;
@@ -110,55 +108,55 @@ public class GaymerCraft
 
     // FLUIDS FLOWING
     public static final RegistryObject<FlowingFluid> RAINBOW_WATER_FLOWING = FLUIDS.register("rainbow_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.RAINBOW_WATER_PROPERTIES)
+            ModFluids.RAINBOW_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> WHITE_WATER_FLOWING = FLUIDS.register("white_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.WHITE_WATER_PROPERTIES)
+            ModFluids.WHITE_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> ORANGE_WATER_FLOWING = FLUIDS.register("orange_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.ORANGE_WATER_PROPERTIES)
+            ModFluids.ORANGE_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> MAGENTA_WATER_FLOWING = FLUIDS.register("magenta_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.MAGENTA_WATER_PROPERTIES)
+            ModFluids.MAGENTA_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> LIGHT_BLUE_WATER_FLOWING = FLUIDS.register("light_blue_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.LIGHT_BLUE_WATER_PROPERTIES)
+            ModFluids.LIGHT_BLUE_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> YELLOW_WATER_FLOWING = FLUIDS.register("yellow_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.YELLOW_WATER_PROPERTIES)
+            ModFluids.YELLOW_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> LIME_WATER_FLOWING = FLUIDS.register("lime_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.LIME_WATER_PROPERTIES)
+            ModFluids.LIME_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> PINK_WATER_FLOWING = FLUIDS.register("pink_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.PINK_WATER_PROPERTIES)
+            ModFluids.PINK_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> GRAY_WATER_FLOWING = FLUIDS.register("gray_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.GRAY_WATER_PROPERTIES)
+            ModFluids.GRAY_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> LIGHT_GRAY_WATER_FLOWING = FLUIDS.register("light_gray_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.LIGHT_GRAY_WATER_PROPERTIES)
+            ModFluids.LIGHT_GRAY_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> CYAN_WATER_FLOWING = FLUIDS.register("cyan_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.CYAN_WATER_PROPERTIES)
+            ModFluids.CYAN_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> PURPLE_WATER_FLOWING = FLUIDS.register("purple_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.PURPLE_WATER_PROPERTIES)
+            ModFluids.PURPLE_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> BLUE_WATER_FLOWING = FLUIDS.register("blue_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.BLUE_WATER_PROPERTIES)
+            ModFluids.BLUE_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> BROWN_WATER_FLOWING = FLUIDS.register("brown_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.BROWN_WATER_PROPERTIES)
+            ModFluids.BROWN_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> GREEN_WATER_FLOWING = FLUIDS.register("green_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.GREEN_WATER_PROPERTIES)
+            ModFluids.GREEN_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> RED_WATER_FLOWING = FLUIDS.register("red_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.RED_WATER_PROPERTIES)
+            ModFluids.RED_WATER_FLOWING
     );
     public static final RegistryObject<FlowingFluid> BLACK_WATER_FLOWING = FLUIDS.register("black_water_flowing", () -> // todo: WATER CODE STUFF
-            new ForgeFlowingFluid.Flowing(GaymerCraft.BLACK_WATER_PROPERTIES)
+            ModFluids.BLACK_WATER_FLOWING
     );
 
     // FLUID BLOCKS
@@ -361,6 +359,10 @@ public class GaymerCraft
 
     public void loadComplete(FMLLoadCompleteEvent event) // todo: WATER CODE STUFF
     {
+        // todo: Check if this is good here. It'll work, but not sure, if this is the best place.
+        ComposterBlock.registerCompostable(0.5F, ModItems.RAINBOW_SEAGRASS_BLOCKITEM); // vanilla seagrass has a chance of 0.3F
+        ComposterBlock.registerCompostable(0.8F, ModItems.RAINBOW_SEA_PICKLE_BLOCKITEM); // vanilla sea pickle has a chance of 0.65F
+        ComposterBlock.registerCompostable(0.5F, ModItems.RAINBOW_KELP_BLOCKITEM); //vanilla kelp has a chance of 0.3F
         // some sanity checks
         BlockState state = Fluids.WATER.getDefaultState().getBlockState(); // todo: WATER CODE STUFF
         BlockState state2 = Fluids.WATER.getAttributes().getBlock(null,null,Fluids.WATER.getDefaultState()); // todo: WATER CODE STUFF

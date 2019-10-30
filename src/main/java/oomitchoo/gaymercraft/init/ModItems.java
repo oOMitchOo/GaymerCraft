@@ -5,15 +5,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import oomitchoo.gaymercraft.GaymerCraft;
 import oomitchoo.gaymercraft.item.RainbowStarItem;
+import oomitchoo.gaymercraft.item.SpecialBlockItem;
+import oomitchoo.gaymercraft.item.SpecialWallOrFloorItem;
 import oomitchoo.gaymercraft.reference.Reference;
 
 public class ModItems {
     // (For now) Only used to put the BlockItems in the right creative tab.
     private static final Item.Properties plainItemProperties = new Item.Properties().group(GaymerCraft.creativeTab.itemGroup);
-
-    //
-    public static final Item RAINBOW_SOUL_SAND_BLOCKITEM = new BlockItem(ModBlocks.RAINBOW_SOUL_SAND, plainItemProperties).setRegistryName(Reference.MOD_ID, "rainbow_soul_sand");
-    public static final Item RAINBOW_MAGMA_BLOCK_BLOCKITEM = new BlockItem(ModBlocks.RAINBOW_MAGMA_BLOCK, plainItemProperties).setRegistryName(Reference.MOD_ID, "rainbow_magma_block");
 
     // Spawn Egg
     public static final Item UNICORN_SPAWN_EGG = new SpawnEggItem(ModEntities.UNICORN, 0xFFE6FF, 0x9966FF, new Item.Properties().maxStackSize(1).maxDamage(0).group(GaymerCraft.creativeTab.itemGroup)).setRegistryName(Reference.MOD_ID, "unicorn_spawn_egg");
@@ -66,4 +64,33 @@ public class ModItems {
     public static final Item RED_NETHER_BRICK_VERT_SLAB_BOCKITEM = new BlockItem(ModBlocks.RED_NETHER_BRICK_VERT_SLAB, plainItemProperties).setRegistryName(Reference.MOD_ID, "red_nether_brick_vert_slab");
     public static final Item POLISHED_ANDESITE_VERT_SLAB_BOCKITEM = new BlockItem(ModBlocks.POLISHED_ANDESITE_VERT_SLAB, plainItemProperties).setRegistryName(Reference.MOD_ID, "polished_andesite_vert_slab");
     public static final Item DIORITE_VERT_SLAB_BOCKITEM = new BlockItem(ModBlocks.DIORITE_VERT_SLAB, plainItemProperties).setRegistryName(Reference.MOD_ID, "diorite_vert_slab");
+
+    // Rainbow Soul Sand and Rainbow Magma Block
+    public static final Item RAINBOW_SOUL_SAND_BLOCKITEM = new BlockItem(ModBlocks.RAINBOW_SOUL_SAND, plainItemProperties).setRegistryName(Reference.MOD_ID, "rainbow_soul_sand");
+    public static final Item RAINBOW_MAGMA_BLOCK_BLOCKITEM = new BlockItem(ModBlocks.RAINBOW_MAGMA_BLOCK, plainItemProperties).setRegistryName(Reference.MOD_ID, "rainbow_magma_block");
+
+    // Rainbow underwater plants
+    public static final Item RAINBOW_KELP_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_KELP, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_kelp");
+    public static final Item RAINBOW_SEAGRASS_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_SEAGRASS, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_seagrass");
+    public static final Item RAINBOW_SEA_PICKLE_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_SEA_PICKLE, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_sea_pickle");
+    public static final Item RAINBOW_TUBE_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_TUBE_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_tube_coral");
+    public static final Item RAINBOW_BRAIN_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_BRAIN_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_brain_coral");
+    public static final Item RAINBOW_BUBBLE_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_BUBBLE_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_bubble_coral");
+    public static final Item RAINBOW_FIRE_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_FIRE_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_fire_coral");
+    public static final Item RAINBOW_HORN_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_HORN_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_horn_coral");
+    public static final Item RAINBOW_DEAD_TUBE_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_DEAD_TUBE_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_tube_coral");
+    public static final Item RAINBOW_DEAD_BRAIN_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_DEAD_BRAIN_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_brain_coral");
+    public static final Item RAINBOW_DEAD_BUBBLE_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_DEAD_BUBBLE_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_bubble_coral");
+    public static final Item RAINBOW_DEAD_FIRE_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_DEAD_FIRE_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_fire_coral");
+    public static final Item RAINBOW_DEAD_HORN_CORAL_BLOCKITEM = new SpecialBlockItem(ModBlocks.RAINBOW_DEAD_HORN_CORAL , plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_horn_coral");
+    public static final Item RAINBOW_TUBE_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_TUBE_CORAL_FAN, ModBlocks.RAINBOW_TUBE_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_tube_coral_fan");
+    public static final Item RAINBOW_BRAIN_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_BRAIN_CORAL_FAN, ModBlocks.RAINBOW_BRAIN_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_brain_coral_fan");
+    public static final Item RAINBOW_BUBBLE_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_BUBBLE_CORAL_FAN, ModBlocks.RAINBOW_BUBBLE_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_bubble_coral_fan");
+    public static final Item RAINBOW_FIRE_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_FIRE_CORAL_FAN, ModBlocks.RAINBOW_FIRE_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_fire_coral_fan");
+    public static final Item RAINBOW_HORN_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_HORN_CORAL_FAN, ModBlocks.RAINBOW_HORN_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_horn_coral_fan");
+    public static final Item RAINBOW_DEAD_TUBE_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_DEAD_TUBE_CORAL_FAN, ModBlocks.RAINBOW_DEAD_TUBE_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_tube_coral_fan");
+    public static final Item RAINBOW_DEAD_BRAIN_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_DEAD_BRAIN_CORAL_FAN, ModBlocks.RAINBOW_DEAD_BRAIN_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_brain_coral_fan");
+    public static final Item RAINBOW_DEAD_BUBBLE_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_DEAD_BUBBLE_CORAL_FAN, ModBlocks.RAINBOW_DEAD_BUBBLE_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_bubble_coral_fan");
+    public static final Item RAINBOW_DEAD_FIRE_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_DEAD_FIRE_CORAL_FAN, ModBlocks.RAINBOW_DEAD_FIRE_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_fire_coral_fan");
+    public static final Item RAINBOW_DEAD_HORN_CORAL_FAN_BLOCKITEM = new SpecialWallOrFloorItem(ModBlocks.RAINBOW_DEAD_HORN_CORAL_FAN, ModBlocks.RAINBOW_DEAD_HORN_CORAL_WALL_FAN, plainItemProperties, true, "message.underwater.plant").setRegistryName(Reference.MOD_ID, "rainbow_dead_horn_coral_fan");
 }

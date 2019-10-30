@@ -1,9 +1,8 @@
 {
+  "itemGroup.gaymercraft": "GaymerCraft",
+
   "item.gaymercraft.rainbow_star_charged": "Regenbogen-Stern",
   "item.gaymercraft.rainbow_star_uncharged": "Regenbogen-Stern",
-
-  "block.gaymercraft.rainbow_soul_sand": "Regenbogen-Seelensand",
-  "block.gaymercraft.rainbow_magma_block": "Regenbogen-Magmablock",
 
   "entity.unicorn.name": "Einhorn",
   "item.gaymercraft.unicorn_spawn_egg": "Einhorn-Spawn-Ei",
@@ -69,12 +68,51 @@
   "block.gaymercraft.polished_andesite_vert_slab": "Halber Polierter Andesit",
   "block.gaymercraft.diorite_vert_slab": "Halber Diorit",
 
-  "itemGroup.gaymercraft": "GaymerCraft",
+  "block.gaymercraft.rainbow_soul_sand": "Regenbogen-Seelensand",
+  "block.gaymercraft.rainbow_magma_block": "Regenbogen-Magmablock",
+
+  "block.gaymercraft.rainbow_seagrass": "Regenbogen-Seegras",
+  "block.gaymercraft.rainbow_tall_seagrass": "Hohes Regenbogen-Seegras",
+  "block.gaymercraft.rainbow_sea_pickle": "Regenbogen-Seegurke",
+  "block.gaymercraft.rainbow_kelp": "Regenbogen-Seetang",
+  "block.gaymercraft.rainbow_kelp_plant": "Regenbogen-Seetang-Pflanze",
+
+  "block.gaymercraft.rainbow_dead_tube_coral": "Tote Regenbogen-Orgelkoralle",
+  "block.gaymercraft.rainbow_dead_brain_coral": "Tote Regenbogen-Hirnkoralle",
+  "block.gaymercraft.rainbow_dead_bubble_coral": "Tote Regenbogen-Blasenkoralle",
+  "block.gaymercraft.rainbow_dead_fire_coral": "Tote Regenbogen-Feuerkoralle",
+  "block.gaymercraft.rainbow_dead_horn_coral": "Tote Regenbogen-Geweihkoralle",
+  "block.gaymercraft.rainbow_tube_coral": "Regenbogen-Orgelkoralle",
+  "block.gaymercraft.rainbow_brain_coral": "Regenbogen-Hirnkoralle",
+  "block.gaymercraft.rainbow_bubble_coral": "Regenbogen-Blasenkoralle",
+  "block.gaymercraft.rainbow_fire_coral": "Regenbogen-Feuerkoralle",
+  "block.gaymercraft.rainbow_horn_coral": "Regenbogen-Geweihkoralle",
+  "block.gaymercraft.rainbow_dead_tube_coral_fan": "Toter Regenbogen-Orgelkorallenfächer",
+  "block.gaymercraft.rainbow_dead_brain_coral_fan": "Toter Regenbogen-Hirnkorallenfächer",
+  "block.gaymercraft.rainbow_dead_bubble_coral_fan": "Toter Regenbogen-Blasenkorallenfächer",
+  "block.gaymercraft.rainbow_dead_fire_coral_fan": "Toter Regenbogen-Feuerkorallenfächer",
+  "block.gaymercraft.rainbow_dead_horn_coral_fan": "Toter Regenbogen-Geweihkorallenfächer",
+  "block.gaymercraft.rainbow_tube_coral_fan": "Regenbogen-Orgelkorallefächer",
+  "block.gaymercraft.rainbow_brain_coral_fan": "Regenbogen-Hirnkorallefächer",
+  "block.gaymercraft.rainbow_bubble_coral_fan": "Regenbogen-Blasenkorallefächer",
+  "block.gaymercraft.rainbow_fire_coral_fan": "Regenbogen-Feuerkorallefächer",
+  "block.gaymercraft.rainbow_horn_coral_fan": "Regenbogen-Geweihkorallefächer",
+  "block.gaymercraft.rainbow_dead_tube_coral_wall_fan": "Toter Regenbogen-Orgelkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_dead_brain_coral_wall_fan": "Toter Regenbogen-Hirnkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_dead_bubble_coral_wall_fan": "Toter Regenbogen-Blasenkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_dead_fire_coral_wall_fan": "Toter Regenbogen-Feuerkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_dead_horn_coral_wall_fan": "Toter Regenbogen-Geweihkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_tube_coral_wall_fan": "Regenbogen-Orgelkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_brain_coral_wall_fan": "Regenbogen-Hirnkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_bubble_coral_wall_fan": "Regenbogen-Blasenkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_fire_coral_wall_fan": "Regenbogen-Feuerkoralle-Wandfächer",
+  "block.gaymercraft.rainbow_horn_coral_wall_fan": "Regenbogen-Geweihkoralle-Wandfächer",
 
   "message.rainbow.star.charged.1of2": "Es strotzt vor §cR§6EG§eE§aNB§bO§9GE§dN§f-Energie!",
   "message.rainbow.star.charged.2of2": "§7§oIch sollte es an ein paar Tieren testen. Es müssen aber wilde sein...",
   "message.rainbow.star.uncharged.1of2": "Oh nö, es hat alle Farben verloren.",
   "message.rainbow.star.uncharged.2of2": "§7§oDen Stern wieder aufzuladen sollte aber weniger kosten als einen neuen zu bauen.",
   "message.rainbow.magma.block": "§7§oKann benutzt werden um Abwärts-Strömungen in gefärbten Wasser zu erzeugen.",
-  "message.rainbow.soul.sand": "§7§oKann benutzt werden um Aufwärts-Strömungen in gefärbten Wasser zu erzeugen."
+  "message.rainbow.soul.sand": "§7§oKann benutzt werden um Aufwärts-Strömungen in gefärbten Wasser zu erzeugen.",
+  "message.underwater.plant": "§7§oKann sowohl in gefärbten wie auch normalen Wasser gepflanzt werden."
 }

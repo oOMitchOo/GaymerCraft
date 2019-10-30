@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:underwater_plants",
+  "pattern": [
+    "###",
+    "#W#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:dead_tube_coral_fan"
+    },
+    "W": {
+      "item": "gaymercraft:rainbow_water_bucket"
+    }
+  },
+  "result": {
+    "item": "gaymercraft:rainbow_dead_tube_coral_fan",
+    "count": 8
+  }
+}

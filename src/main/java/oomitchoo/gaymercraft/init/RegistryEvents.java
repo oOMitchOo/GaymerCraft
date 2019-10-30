@@ -28,9 +28,6 @@ public class RegistryEvents {
     public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
         event.getRegistry().registerAll(
-                // Rainbow Soul Sand, Rainbow Magma
-                ModBlocks.RAINBOW_SOUL_SAND,
-                ModBlocks.RAINBOW_MAGMA_BLOCK,
                 // Bubbles
                 ModBlocks.RAINBOW_BUBBLE_COLUMN,
                 ModBlocks.WHITE_BUBBLE_COLUMN,
@@ -91,16 +88,52 @@ public class RegistryEvents {
                 ModBlocks.ANDESITE_VERT_SLAB,
                 ModBlocks.RED_NETHER_BRICK_VERT_SLAB,
                 ModBlocks.POLISHED_ANDESITE_VERT_SLAB,
-                ModBlocks.DIORITE_VERT_SLAB
+                ModBlocks.DIORITE_VERT_SLAB,
+                // Rainbow Soul Sand, Rainbow Magma
+                ModBlocks.RAINBOW_SOUL_SAND,
+                ModBlocks.RAINBOW_MAGMA_BLOCK,
+                // Rainbow underwater plants
+                ModBlocks.RAINBOW_KELP,
+                ModBlocks.RAINBOW_KELP_PLANT,
+                ModBlocks.RAINBOW_SEAGRASS,
+                ModBlocks.RAINBOW_TALL_SEAGRASS,
+                ModBlocks.RAINBOW_SEA_PICKLE,
+                ModBlocks.RAINBOW_TUBE_CORAL,
+                ModBlocks.RAINBOW_BRAIN_CORAL,
+                ModBlocks.RAINBOW_BUBBLE_CORAL,
+                ModBlocks.RAINBOW_FIRE_CORAL,
+                ModBlocks.RAINBOW_HORN_CORAL,
+                ModBlocks.RAINBOW_DEAD_TUBE_CORAL,
+                ModBlocks.RAINBOW_DEAD_BRAIN_CORAL,
+                ModBlocks.RAINBOW_DEAD_BUBBLE_CORAL,
+                ModBlocks.RAINBOW_DEAD_FIRE_CORAL,
+                ModBlocks.RAINBOW_DEAD_HORN_CORAL,
+                ModBlocks.RAINBOW_TUBE_CORAL_FAN,
+                ModBlocks.RAINBOW_BRAIN_CORAL_FAN,
+                ModBlocks.RAINBOW_BUBBLE_CORAL_FAN,
+                ModBlocks.RAINBOW_FIRE_CORAL_FAN,
+                ModBlocks.RAINBOW_HORN_CORAL_FAN,
+                ModBlocks.RAINBOW_DEAD_TUBE_CORAL_FAN,
+                ModBlocks.RAINBOW_DEAD_BRAIN_CORAL_FAN,
+                ModBlocks.RAINBOW_DEAD_BUBBLE_CORAL_FAN,
+                ModBlocks.RAINBOW_DEAD_FIRE_CORAL_FAN,
+                ModBlocks.RAINBOW_DEAD_HORN_CORAL_FAN,
+                ModBlocks.RAINBOW_TUBE_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_BRAIN_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_BUBBLE_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_FIRE_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_HORN_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_DEAD_TUBE_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_DEAD_BRAIN_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_DEAD_BUBBLE_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_DEAD_FIRE_CORAL_WALL_FAN,
+                ModBlocks.RAINBOW_DEAD_HORN_CORAL_WALL_FAN
         );
     }
 
     @SubscribeEvent
     public static void onItemRegistry(final RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                // (for bubbles) Rainbow Soul Sand, Rainbow Magma
-                ModItems.RAINBOW_SOUL_SAND_BLOCKITEM,
-                ModItems.RAINBOW_MAGMA_BLOCK_BLOCKITEM,
                 // Unicorn Spawn Egg
                 ModItems.UNICORN_SPAWN_EGG,
                 // Rainbow Star Item
@@ -148,7 +181,34 @@ public class RegistryEvents {
                 ModItems.ANDESITE_VERT_SLAB_BOCKITEM,
                 ModItems.RED_NETHER_BRICK_VERT_SLAB_BOCKITEM,
                 ModItems.POLISHED_ANDESITE_VERT_SLAB_BOCKITEM,
-                ModItems.DIORITE_VERT_SLAB_BOCKITEM
+                ModItems.DIORITE_VERT_SLAB_BOCKITEM,
+                // (for bubbles) Rainbow Soul Sand, Rainbow Magma
+                ModItems.RAINBOW_SOUL_SAND_BLOCKITEM,
+                ModItems.RAINBOW_MAGMA_BLOCK_BLOCKITEM,
+                // Rainbow underwater plants
+                ModItems.RAINBOW_KELP_BLOCKITEM,
+                ModItems.RAINBOW_SEAGRASS_BLOCKITEM,
+                ModItems.RAINBOW_SEA_PICKLE_BLOCKITEM,
+                ModItems.RAINBOW_TUBE_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_BRAIN_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_BUBBLE_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_FIRE_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_HORN_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_TUBE_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_BRAIN_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_BUBBLE_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_FIRE_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_HORN_CORAL_BLOCKITEM,
+                ModItems.RAINBOW_TUBE_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_BRAIN_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_BUBBLE_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_FIRE_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_HORN_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_TUBE_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_BRAIN_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_BUBBLE_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_FIRE_CORAL_FAN_BLOCKITEM,
+                ModItems.RAINBOW_DEAD_HORN_CORAL_FAN_BLOCKITEM
         );
     }
 

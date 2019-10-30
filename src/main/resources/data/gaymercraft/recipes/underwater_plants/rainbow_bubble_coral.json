@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gaymercraft:underwater_plants",
+  "pattern": [
+    "###",
+    "#W#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bubble_coral"
+    },
+    "W": {
+      "item": "gaymercraft:rainbow_water_bucket"
+    }
+  },
+  "result": {
+    "item": "gaymercraft:rainbow_bubble_coral",
+    "count": 8
+  }
+}

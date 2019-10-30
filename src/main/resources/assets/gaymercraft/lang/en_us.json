@@ -1,10 +1,8 @@
 {
+  "itemGroup.gaymercraft": "GaymerCraft",
+
   "item.gaymercraft.rainbow_star_charged": "Rainbow Star",
   "item.gaymercraft.rainbow_star_uncharged": "Rainbow Star",
-
-  "block.gaymercraft.rainbow_soul_sand": "Rainbow Soul Sand",
-  "block.gaymercraft.rainbow_magma_block": "Rainbow Magma Block",
-
 
   "entity.unicorn.name": "Unicorn",
   "item.gaymercraft.unicorn_spawn_egg": "Unicorn Spawn Egg",
@@ -70,12 +68,51 @@
   "block.gaymercraft.polished_andesite_vert_slab": "Vertical Polished Andesite Slab",
   "block.gaymercraft.diorite_vert_slab": "Vertical Diorite Slab",
 
-  "itemGroup.gaymercraft": "GaymerCraft",
+  "block.gaymercraft.rainbow_soul_sand": "Rainbow Soul Sand",
+  "block.gaymercraft.rainbow_magma_block": "Rainbow Magma Block",
+
+  "block.gaymercraft.rainbow_seagrass": "Rainbow Seagrass",
+  "block.gaymercraft.rainbow_tall_seagrass": "Tall Rainbow Seagrass",
+  "block.gaymercraft.rainbow_sea_pickle": "Rainbow Sea Pickle",
+  "block.gaymercraft.rainbow_kelp": "Rainbow Kelp",
+  "block.gaymercraft.rainbow_kelp_plant": "Rainbow Kelp Plant",
+
+  "block.gaymercraft.rainbow_dead_tube_coral": "Dead Rainbow Tube Coral",
+  "block.gaymercraft.rainbow_dead_brain_coral": "Dead Rainbow Brain Coral",
+  "block.gaymercraft.rainbow_dead_bubble_coral": "Dead Rainbow Bubble Coral",
+  "block.gaymercraft.rainbow_dead_fire_coral": "Dead Rainbow Fire Coral",
+  "block.gaymercraft.rainbow_dead_horn_coral": "Dead Rainbow Horn Coral",
+  "block.gaymercraft.rainbow_tube_coral": "Rainbow Tube Coral",
+  "block.gaymercraft.rainbow_brain_coral": "Rainbow Brain Coral",
+  "block.gaymercraft.rainbow_bubble_coral": "Rainbow Bubble Coral",
+  "block.gaymercraft.rainbow_fire_coral": "Rainbow Fire Coral",
+  "block.gaymercraft.rainbow_horn_coral": "Rainbow Horn Coral",
+  "block.gaymercraft.rainbow_dead_tube_coral_fan": "Dead Rainbow Tube Coral Fan",
+  "block.gaymercraft.rainbow_dead_brain_coral_fan": "Dead Rainbow Brain Coral Fan",
+  "block.gaymercraft.rainbow_dead_bubble_coral_fan": "Dead Rainbow Bubble Coral Fan",
+  "block.gaymercraft.rainbow_dead_fire_coral_fan": "Dead Rainbow Fire Coral Fan",
+  "block.gaymercraft.rainbow_dead_horn_coral_fan": "Dead Rainbow Horn Coral Fan",
+  "block.gaymercraft.rainbow_tube_coral_fan": "Rainbow Tube Coral Fan",
+  "block.gaymercraft.rainbow_brain_coral_fan": "Rainbow Brain Coral Fan",
+  "block.gaymercraft.rainbow_bubble_coral_fan": "Rainbow Bubble Coral Fan",
+  "block.gaymercraft.rainbow_fire_coral_fan": "Rainbow Fire Coral Fan",
+  "block.gaymercraft.rainbow_horn_coral_fan": "Rainbow Horn Coral Fan",
+  "block.gaymercraft.rainbow_dead_tube_coral_wall_fan": "Dead Rainbow Tube Coral Wall Fan",
+  "block.gaymercraft.rainbow_dead_brain_coral_wall_fan": "Dead Rainbow Brain Coral Wall Fan",
+  "block.gaymercraft.rainbow_dead_bubble_coral_wall_fan": "Dead Rainbow Bubble Coral Wall Fan",
+  "block.gaymercraft.rainbow_dead_fire_coral_wall_fan": "Dead Rainbow Fire Coral Wall Fan",
+  "block.gaymercraft.rainbow_dead_horn_coral_wall_fan": "Dead Rainbow Horn Coral Wall Fan",
+  "block.gaymercraft.rainbow_tube_coral_wall_fan": "Rainbow Tube Coral Wall Fan",
+  "block.gaymercraft.rainbow_brain_coral_wall_fan": "Rainbow Brain Coral Wall Fan",
+  "block.gaymercraft.rainbow_bubble_coral_wall_fan": "Rainbow Bubble Coral Wall Fan",
+  "block.gaymercraft.rainbow_fire_coral_wall_fan": "Rainbow Fire Coral Wall Fan",
+  "block.gaymercraft.rainbow_horn_coral_wall_fan": "Rainbow Horn Coral Wall Fan",
 
   "message.rainbow.star.charged.1of2": "It's charged with §cR§6A§eI§aN§bB§9O§dW §fPower!",
   "message.rainbow.star.charged.2of2": "§7§oI should try it on some animals. Wild ones though...",
   "message.rainbow.star.uncharged.1of2": "Oh noes, it lost all the colors.",
   "message.rainbow.star.uncharged.2of2": "§7§oRecharging it should be cheaper than creating a new one though.",
   "message.rainbow.magma.block": "§7§oThis can be used to make downward bubble streams in colored water.",
-  "message.rainbow.soul.sand": "§7§oThis can be used to make upward bubble streams in colored water."
+  "message.rainbow.soul.sand": "§7§oThis can be used to make upward bubble streams in colored water.",
+  "message.underwater.plant": "§7§oThis can be placed in both colored and normal water."
 }
