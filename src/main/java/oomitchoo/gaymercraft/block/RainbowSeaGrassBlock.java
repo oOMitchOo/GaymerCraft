@@ -98,7 +98,6 @@ public class RainbowSeaGrassBlock extends BushBlock implements IGrowable, ILiqui
         BlockState blockstate1 = blockstate.with(RainbowTallSeaGrassBlock.BLOCK_HALF, DoubleBlockHalf.UPPER);
 
         // Searching for iFluidState.isTagged alone here is not enough. Since waterlogged Blocks would return true too, but we want a water block here.
-        // todo: Maybe check, if the FlowingFluidBlock is full?
         if (worldIn.getBlockState(posUp).getBlock() instanceof FlowingFluidBlock && iFluidState.isTagged(FluidTags.WATER)) {
             // If the FlowingFluidBlock where the Seagrass is growing into is a fluid from another Mod, ColoredWaterlogged.byFluid() would return VANILLA.
             // ... which is fine, I guess.

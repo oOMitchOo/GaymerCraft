@@ -97,7 +97,6 @@ public class RainbowKelpTopBlock extends Block implements ILiquidContainer {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        // todo: import Blocks, if everything else was checked.
         if (block == Blocks.MAGMA_BLOCK || block == ModBlocks.RAINBOW_MAGMA_BLOCK) {
             return false;
         } else {
