@@ -26,7 +26,7 @@ import oomitchoo.gaymercraft.init.ModBlocks;
 
 import java.util.Random;
 
-public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHandler {
+public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHandler, ICanPlaceBubbleColumn {
     public static final BooleanProperty DRAG = BlockStateProperties.DRAG;
     private final FlowingFluid fluid;
     // todo: The water block always seems to be null, if I want to give it (because it wasn't registered yet? Or because it has no regName yet?) That's why I used the ResourceLocation instead. Find something more elegant?

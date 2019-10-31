@@ -5,15 +5,15 @@ import net.minecraft.fluid.FlowingFluid;
 
 import java.util.function.Supplier;
 
-public class ColoredFlowingFluidBlock extends FlowingFluidBlock {
-    private final ColoredBubbleColumnBlock bubbleBlock;
+public class ColoredFlowingFluidBlock extends FlowingFluidBlock implements IBubblyFluidBlock {
+    private final ICanPlaceBubbleColumn bubbleBlock;
 
     public ColoredFlowingFluidBlock(Supplier<? extends FlowingFluid> supplier, Properties properties, ColoredBubbleColumnBlock bubbleBlock) {
         super(supplier, properties);
         this.bubbleBlock = bubbleBlock;
     }
 
-    public ColoredBubbleColumnBlock getBubbleBlock() {
+    public ICanPlaceBubbleColumn getBubbleColumnPlacer() {
         return this.bubbleBlock;
     }
 }
