@@ -64,7 +64,7 @@ public class RainbowSeaPickleBlock extends BushBlock implements IGrowable, IBuck
     /**
      * Basically checks if PickleBlock is on land, which is BadEnvironment for a water creature...
      */
-    private boolean isInBadEnvironment(BlockState state) { return state.get(FLUID).getFluid().isEmpty(); }
+    private boolean isInBadEnvironment(BlockState state) { return state.get(FLUID) == ColoredWaterlogged.EMPTY; }
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos) {
@@ -199,7 +199,7 @@ public class RainbowSeaPickleBlock extends BushBlock implements IGrowable, IBuck
             Fluid fluid = iFluidState.getFluid();
             ColoredWaterlogged waterType = ColoredWaterlogged.byFluid(fluid);
             // Again, it is NOT vanilla, when any colored Fluid (not flowingFluid and we're testing against empty) was found.
-            if(fluid == Fluids.WATER || (!fluid.isEmpty() && waterType != ColoredWaterlogged.VANILLA)) {
+            if(fluid == Fluids.WATER || (waterType != ColoredWaterlogged.EMPTY && waterType != ColoredWaterlogged.VANILLA)) {
                 if(!world.isRemote()) {
                     world.setBlockState(pos, state.with(FLUID, waterType), 3);
                     world.getPendingFluidTicks().scheduleTick(pos, fluid, fluid.getTickRate(world));
