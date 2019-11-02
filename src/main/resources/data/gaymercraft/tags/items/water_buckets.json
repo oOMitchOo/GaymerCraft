@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:water_bucket",
+    "gaymercraft:rainbow_water_bucket",
+    "gaymercraft:white_water_bucket",
+    "gaymercraft:orange_water_bucket",
+    "gaymercraft:magenta_water_bucket",
+    "gaymercraft:light_blue_water_bucket",
+    "gaymercraft:yellow_water_bucket",
+    "gaymercraft:lime_water_bucket",
+    "gaymercraft:pink_water_bucket",
+    "gaymercraft:gray_water_bucket",
+    "gaymercraft:light_gray_water_bucket",
+    "gaymercraft:cyan_water_bucket",
+    "gaymercraft:purple_water_bucket",
+    "gaymercraft:blue_water_bucket",
+    "gaymercraft:brown_water_bucket",
+    "gaymercraft:green_water_bucket",
+    "gaymercraft:red_water_bucket",
+    "gaymercraft:black_water_bucket"
+  ]
+}

@@ -3,10 +3,12 @@ package oomitchoo.gaymercraft.init;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
+import oomitchoo.gaymercraft.item.crafting.NoContainerShapelessRecipe;
 import oomitchoo.gaymercraft.reference.Reference;
 
 /**
@@ -216,5 +218,11 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void onEntitiesRegistry(final RegistryEvent.Register<EntityType<?>> event) {
         event.getRegistry().register(ModEntities.UNICORN.setRegistryName(Reference.MOD_ID,"unicorn"));
+    }
+
+    @SubscribeEvent
+    public static void onRecipeRegistry(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
+        // Name says it all. This is used, so that the colored water recipes don't dupe buckets.
+        event.getRegistry().register(new NoContainerShapelessRecipe.Serializer().setRegistryName(Reference.MOD_ID, "no_container_crafting_shapeless"));
     }
 }

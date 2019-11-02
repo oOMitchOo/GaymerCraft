@@ -1,15 +1,12 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "gaymercraft:no_container_crafting_shapeless",
   "group": "gaymercraft:colored_water_bucket",
   "ingredients": [
     {
-      "item": "minecraft:bucket"
+      "tag": "forge:dyes/orange"
     },
     {
-      "item": "minecraft:orange_dye"
-    },
-    {
-      "item": "minecraft:water_bucket"
+      "tag": "gaymercraft:water_buckets"
     }
   ],
   "result": {
