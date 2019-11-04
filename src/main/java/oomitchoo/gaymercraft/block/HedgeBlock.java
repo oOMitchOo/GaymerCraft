@@ -18,15 +18,13 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import oomitchoo.gaymercraft.reference.Reference;
 
 public class HedgeBlock extends FourWayBlock {
     private final VoxelShape[] renderShapes;
     protected static boolean renderTranslucent = true; //todo: unset this here and build a method where it is set at start and every time the config is changed...
 
-    public HedgeBlock(String name) {
+    public HedgeBlock() {
         super(6.0F, 6.0F, 16.0F, 16.0F, 24.0F, Block.Properties.create(Material.LEAVES, MaterialColor.FOLIAGE).hardnessAndResistance(0.2F).sound(SoundType.PLANT));
-        this.setRegistryName(Reference.MOD_ID, name);
         this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)this.stateContainer.getBaseState()).with(NORTH, false)).with(EAST, false)).with(SOUTH, false)).with(WEST, false)).with(WATERLOGGED, false));
         this.renderShapes = this.makeShapes(6.0F, 6.0F, 16.0F, 6.0F, 16.0F); //todo: It seems as if I've guessed the makeShape-values right, but I should check them again, if method is clearer in later mappings.
     }

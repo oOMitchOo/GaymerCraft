@@ -141,6 +141,7 @@ public class AbstractRainbowCoralPlantBlock extends Block implements IBucketPick
             Fluid fluid = iFluidState.getFluid();
             ColoredWaterlogged waterType = ColoredWaterlogged.byFluid(fluid);
             // Again, it is NOT vanilla, when any colored Fluid (not flowingFluid and we're testing against empty) was found.
+            // todo: Something is not quite right here.
             if(fluid == Fluids.WATER || (waterType != ColoredWaterlogged.EMPTY && waterType != ColoredWaterlogged.VANILLA)) {
                 if(!world.isRemote()) {
                     world.setBlockState(pos, state.with(FLUID, waterType), 3);

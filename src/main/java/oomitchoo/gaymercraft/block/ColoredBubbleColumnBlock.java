@@ -9,7 +9,10 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.*;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -21,22 +24,22 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.registries.ForgeRegistries;
 import oomitchoo.gaymercraft.init.ModBlocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHandler, ICanPlaceBubbleColumn {
     public static final BooleanProperty DRAG = BlockStateProperties.DRAG;
-    private final FlowingFluid fluid;
-    // todo: The water block always seems to be null, if I want to give it (because it wasn't registered yet? Or because it has no regName yet?) That's why I used the ResourceLocation instead. Find something more elegant?
-    // todo: One idea is to get the block from the block supplier saved in ForgeFlowingFluid? I need to extend the class for that and write a method to get the Block out of it.
-    private final ResourceLocation waterBlockLocation;
+    private boolean fluidStateCacheInitialized = false;
+    private final Supplier<? extends Fluid> fluidSupplier;
+    private IFluidState stillFluidState;
+    private final Supplier<? extends Block> fluidBlockSupplier;
 
-    public ColoredBubbleColumnBlock(net.minecraft.block.Block.Properties properties, FlowingFluid fluid, ResourceLocation waterBlockLocation) {
+    public ColoredBubbleColumnBlock(net.minecraft.block.Block.Properties properties, Supplier<? extends FlowingFluid> fluidSupplier, Supplier<? extends FlowingFluidBlock> fluidBlockSupplier) {
         super(properties);
-        this.fluid = fluid;
-        this.waterBlockLocation = waterBlockLocation;
+        this.fluidSupplier = fluidSupplier;
+        this.fluidBlockSupplier = fluidBlockSupplier;
         this.setDefaultState(this.stateContainer.getBaseState().with(DRAG, Boolean.valueOf(true)));
     }
 
@@ -68,7 +71,8 @@ public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHand
 
     @Override
     public IFluidState getFluidState(BlockState state) {
-        return fluid.getStillFluidState(false);
+        if (!fluidStateCacheInitialized) initFluidStateCache();
+        return this.stillFluidState;
     }
 
     public void placeBubbleColumn(IWorld world, BlockPos pos, boolean drag) {
@@ -79,7 +83,7 @@ public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHand
 
     public boolean canHoldBubbleColumn(IWorld world, BlockPos pos) {
         IFluidState ifluidstate = world.getFluidState(pos);
-        return world.getBlockState(pos).getBlock() == ForgeRegistries.BLOCKS.getValue(waterBlockLocation) && ifluidstate.getLevel() >= 8 && ifluidstate.isSource();
+        return world.getBlockState(pos).getBlock() == this.getFluidBlock() && ifluidstate.getLevel() >= 8 && ifluidstate.isSource();
     }
 
     private boolean getDrag(IBlockReader world, BlockPos pos) {
@@ -135,15 +139,14 @@ public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHand
     @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (!stateIn.isValidPosition(worldIn, currentPos)) {
-            return ForgeRegistries.BLOCKS.getValue(waterBlockLocation).getDefaultState();
+            return this.getFluidBlock().getDefaultState();
         } else {
             if (facing == Direction.DOWN) {
                 worldIn.setBlockState(currentPos, this.getDefaultState().with(DRAG, Boolean.valueOf(getDrag(worldIn, facingPos))), 2);
             } else if (facing == Direction.UP && facingState.getBlock() != this && canHoldBubbleColumn(worldIn, facingPos)) {
                 worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, this.tickRate(worldIn));
             }
-
-            worldIn.getPendingFluidTicks().scheduleTick(currentPos, fluid, fluid.getTickRate(worldIn));
+            worldIn.getPendingFluidTicks().scheduleTick(currentPos, this.getFluid(), this.getFluid().getTickRate(worldIn));
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }
@@ -182,6 +185,21 @@ public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHand
     @Override
     public Fluid pickupFluid(IWorld worldIn, BlockPos pos, BlockState state) {
         worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
-        return fluid;
+        return this.getFluid();
+    }
+
+    public FlowingFluid getFluid() {
+        return (FlowingFluid)this.fluidSupplier.get();
+    }
+
+    public FlowingFluidBlock getFluidBlock() { return (FlowingFluidBlock)this.fluidBlockSupplier.get(); }
+
+    protected synchronized void initFluidStateCache() {
+        if (fluidStateCacheInitialized == false)
+        {
+            this.stillFluidState = this.getFluid().getStillFluidState(false);
+
+            fluidStateCacheInitialized = true;
+        }
     }
 }

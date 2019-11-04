@@ -1,19 +1,20 @@
 package oomitchoo.gaymercraft.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.fluid.FlowingFluid;
 
 import java.util.function.Supplier;
 
 public class ColoredFlowingFluidBlock extends FlowingFluidBlock implements IBubblyFluidBlock {
-    private final ICanPlaceBubbleColumn bubbleBlock;
+    private final Supplier<? extends Block> bubbleBlockSupplier;
 
-    public ColoredFlowingFluidBlock(Supplier<? extends FlowingFluid> supplier, Properties properties, ColoredBubbleColumnBlock bubbleBlock) {
+    public ColoredFlowingFluidBlock(Supplier<? extends FlowingFluid> supplier, Properties properties, Supplier<? extends Block> bubbleBlockSupplier) {
         super(supplier, properties);
-        this.bubbleBlock = bubbleBlock;
+        this.bubbleBlockSupplier = bubbleBlockSupplier;
     }
 
     public ICanPlaceBubbleColumn getBubbleColumnPlacer() {
-        return this.bubbleBlock;
+        return (ICanPlaceBubbleColumn) this.bubbleBlockSupplier.get();
     }
 }

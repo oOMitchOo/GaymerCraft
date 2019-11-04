@@ -32,12 +32,12 @@ public class ClientProxy extends CommonProxy{
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
         IItemColor itemColorsHedge = ItemColorsHedge.getInstance();
 
-        itemColors.register(itemColorsHedge, ModItems.OAK_HEDGE_BOCKITEM);
-        itemColors.register(itemColorsHedge, ModItems.SPRUCE_HEDGE_BOCKITEM);
-        itemColors.register(itemColorsHedge, ModItems.BIRCH_HEDGE_BOCKITEM);
-        itemColors.register(itemColorsHedge, ModItems.JUNGLE_HEDGE_BOCKITEM);
-        itemColors.register(itemColorsHedge, ModItems.ACACIA_HEDGE_BOCKITEM);
-        itemColors.register(itemColorsHedge, ModItems.DARK_OAK_HEDGE_BOCKITEM);
+        itemColors.register(itemColorsHedge, ModItems.OAK_HEDGE);
+        itemColors.register(itemColorsHedge, ModItems.SPRUCE_HEDGE);
+        itemColors.register(itemColorsHedge, ModItems.BIRCH_HEDGE);
+        itemColors.register(itemColorsHedge, ModItems.JUNGLE_HEDGE);
+        itemColors.register(itemColorsHedge, ModItems.ACACIA_HEDGE);
+        itemColors.register(itemColorsHedge, ModItems.DARK_OAK_HEDGE);
     }
 
     @Override

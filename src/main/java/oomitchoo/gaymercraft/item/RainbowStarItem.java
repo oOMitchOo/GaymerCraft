@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import oomitchoo.gaymercraft.GaymerCraft;
-import oomitchoo.gaymercraft.reference.Reference;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -23,9 +22,8 @@ public class RainbowStarItem extends Item {
     private static final Properties properties = new Item.Properties().maxStackSize(1).maxDamage(0).group(GaymerCraft.creativeTab.itemGroup);
     private final boolean isCharged;
 
-    public RainbowStarItem(String name, boolean isCharged) {
+    public RainbowStarItem(boolean isCharged) {
         super(properties);
-        this.setRegistryName(Reference.MOD_ID, name);
         this.isCharged = isCharged;
     }
 

@@ -23,7 +23,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import oomitchoo.gaymercraft.reference.Reference;
 import oomitchoo.gaymercraft.state.properties.ModBlockStateProperties;
 import oomitchoo.gaymercraft.state.properties.VertSlabType;
 
@@ -37,9 +36,8 @@ public class VertSlabBlock extends Block implements IWaterLoggable {
     protected static final VoxelShape SOUTH_SHAPE;
     protected static final VoxelShape WEST_SHAPE;
 
-    public VertSlabBlock(String name, Properties properties) {
+    public VertSlabBlock(Properties properties) {
         super(properties);
-        this.setRegistryName(Reference.MOD_ID, name);
         this.setDefaultState((BlockState)((BlockState)this.getDefaultState().with(TYPE, VertSlabType.NORTH)).with(WATERLOGGED, false));
     }
 

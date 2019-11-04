@@ -14,14 +14,15 @@ import net.minecraft.world.World;
 import oomitchoo.gaymercraft.state.properties.ColoredWaterlogged;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class RainbowCoralPlantBlock extends AbstractRainbowCoralPlantBlock {
-    private final Block deadBlock;
+    private final Supplier<? extends Block> deadBlockSupplier;
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 
-    public RainbowCoralPlantBlock(Block deadCoralBlock, Block.Properties properties) {
+    public RainbowCoralPlantBlock(Supplier<? extends Block> deadBlockSupplier, Block.Properties properties) {
         super(properties);
-        this.deadBlock = deadCoralBlock;
+        this.deadBlockSupplier = deadBlockSupplier;
     }
 
     @Override
@@ -32,7 +33,7 @@ public class RainbowCoralPlantBlock extends AbstractRainbowCoralPlantBlock {
     @Override
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
         if (!isInWater(state, worldIn, pos)) {
-            worldIn.setBlockState(pos, this.deadBlock.getDefaultState().with(FLUID, ColoredWaterlogged.EMPTY), 2);
+            worldIn.setBlockState(pos, this.getDeadBlock().getDefaultState().with(FLUID, ColoredWaterlogged.EMPTY), 2);
         }
     }
 
@@ -60,4 +61,6 @@ public class RainbowCoralPlantBlock extends AbstractRainbowCoralPlantBlock {
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
+
+    public Block getDeadBlock() { return this.deadBlockSupplier.get(); }
 }

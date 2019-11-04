@@ -11,13 +11,14 @@ import net.minecraft.world.World;
 import oomitchoo.gaymercraft.state.properties.ColoredWaterlogged;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class RainbowCoralFinBlock extends RainbowCoralFanBlock {
-    private final Block deadBlock;
+    private final Supplier<? extends Block> deadBlockSupplier;
 
-    public RainbowCoralFinBlock(Block deadCoralFanBlock, Block.Properties builder) {
+    public RainbowCoralFinBlock(Supplier<? extends Block> deadBlockSupplier, Block.Properties builder) {
         super(builder);
-        this.deadBlock = deadCoralFanBlock;
+        this.deadBlockSupplier = deadBlockSupplier;
     }
 
     @Override
@@ -28,7 +29,7 @@ public class RainbowCoralFinBlock extends RainbowCoralFanBlock {
     @Override
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
         if (!isInWater(state, worldIn, pos)) {
-            worldIn.setBlockState(pos, this.deadBlock.getDefaultState().with(FLUID, ColoredWaterlogged.EMPTY), 2);
+            worldIn.setBlockState(pos, this.getDeadBlock().getDefaultState().with(FLUID, ColoredWaterlogged.EMPTY), 2);
         }
     }
 
@@ -51,5 +52,9 @@ public class RainbowCoralFinBlock extends RainbowCoralFanBlock {
 
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
+    }
+
+    public Block getDeadBlock() {
+        return this.deadBlockSupplier.get();
     }
 }
