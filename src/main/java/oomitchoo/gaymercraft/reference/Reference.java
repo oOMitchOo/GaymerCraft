@@ -12,6 +12,7 @@ public class Reference {
         public static final String COMMON_CONFIG_FILE_NAME = MOD_ID + "-common.toml";
 
         public static final String CATEGORY_COLORED_WATER = "colored_water";
+        public static final String CATEGORY_VERTICAL_SLABS = "vertical_slabs";
         public static final String CATEGORY_UNICORN = "unicorn";
 
         //colored_water
@@ -22,5 +23,7 @@ public class Reference {
         public static double defaultUnicornMovementSpeed = 0.3375D;
         public static double defaultUnicornJumpStrength = 1.0D;
         public static double defaultUnicornArmor = 11D;
+        // vertical_slabs
+        public static boolean defaultVerticalSlabsEnabled = true;
     }
 }

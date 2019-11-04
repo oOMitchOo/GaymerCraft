@@ -23,14 +23,15 @@ import oomitchoo.gaymercraft.state.properties.ColoredWaterlogged;
 import oomitchoo.gaymercraft.state.properties.ModBlockStateProperties;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class RainbowKelpBlock extends Block implements ILiquidContainer {
     public static final EnumProperty<ColoredWaterlogged> FLUID = ModBlockStateProperties.COLORED_WATERLOGGED;
-    private final RainbowKelpTopBlock top;
+    private final Supplier<? extends Block> topBlockSupplier;
 
-    public RainbowKelpBlock(RainbowKelpTopBlock kelpTopBlock, Block.Properties properties) {
+    public RainbowKelpBlock(Supplier<? extends Block> topBlockSupplier, Block.Properties properties) {
         super(properties);
-        this.top = kelpTopBlock;
+        this.topBlockSupplier = topBlockSupplier;
         this.setDefaultState((BlockState)(BlockState) this.stateContainer.getBaseState().with(FLUID, ColoredWaterlogged.VANILLA));
     }
 
@@ -77,8 +78,8 @@ public class RainbowKelpBlock extends Block implements ILiquidContainer {
         if (facing == Direction.UP) {
             Block blockUp = facingState.getBlock();
             // This basically turns this block into a topKep, if it hasn't a kelp or topKelp above it.
-            if (blockUp != this && blockUp != this.top) {
-                return this.top.randomAge(worldIn).with(FLUID, ColoredWaterlogged.byFluid(stateInFluid));
+            if (blockUp != this && blockUp != this.getTopKelpBlock()) {
+                return ((RainbowKelpTopBlock) this.getTopKelpBlock()).randomAge(worldIn).with(FLUID, ColoredWaterlogged.byFluid(stateInFluid));
             }
         }
 
@@ -94,8 +95,10 @@ public class RainbowKelpBlock extends Block implements ILiquidContainer {
     }
 
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(this.top);
+        return new ItemStack(this.getTopKelpBlock());
     }
+
+    public Block getTopKelpBlock() { return this.topBlockSupplier.get(); }
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

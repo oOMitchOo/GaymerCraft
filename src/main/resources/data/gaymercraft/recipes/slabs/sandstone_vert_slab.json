@@ -1,4 +1,5 @@
 {
+  "conditions": [{"type": "gaymercraft:vert_slabs_by_config"}],
   "type": "minecraft:crafting_shaped",
   "group": "gaymercraft:vert_slab",
   "pattern": [

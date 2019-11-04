@@ -8,6 +8,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,10 +16,13 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import oomitchoo.gaymercraft.GaymerCraft;
 import oomitchoo.gaymercraft.block.*;
+import oomitchoo.gaymercraft.config.Config;
+import oomitchoo.gaymercraft.item.BurnableBlockItem;
 import oomitchoo.gaymercraft.item.RainbowStarItem;
 import oomitchoo.gaymercraft.item.SpecialBlockItem;
 import oomitchoo.gaymercraft.item.SpecialWallOrFloorItem;
 import oomitchoo.gaymercraft.item.crafting.NoContainerShapelessRecipe;
+import oomitchoo.gaymercraft.item.crafting.conditions.VertSlabsEnabledCondition;
 import oomitchoo.gaymercraft.reference.Reference;
 
 import javax.annotation.Nonnull;
@@ -110,8 +114,6 @@ public class RegistryEvents {
                 setup(new RainbowSoulSandBlock(Block.Properties.from(Blocks.SOUL_SAND)), "rainbow_soul_sand"),
                 setup(new RainbowMagmaBlock(Block.Properties.from(Blocks.MAGMA_BLOCK)), "rainbow_magma_block"),
                 // Rainbow underwater plants
-                setup(new RainbowKelpTopBlock(Block.Properties.from(Blocks.KELP)), "rainbow_kelp"),
-                setup(new RainbowKelpBlock((RainbowKelpTopBlock) ModBlocks.RAINBOW_KELP, Block.Properties.from(Blocks.KELP_PLANT)), "rainbow_kelp_plant"),
                 setup(new RainbowSeaGrassBlock(Block.Properties.from(Blocks.SEAGRASS)), "rainbow_seagrass"),
                 setup(new RainbowTallSeaGrassBlock(Block.Properties.from(Blocks.TALL_SEAGRASS)), "rainbow_tall_seagrass"),
                 setup(new RainbowSeaPickleBlock(Block.Properties.from(Blocks.SEA_PICKLE)), "rainbow_sea_pickle")
@@ -147,6 +149,11 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void onItemRegistry(final RegistryEvent.Register<Item> event) {
         Item.Properties plainItemProperties = new Item.Properties().group(GaymerCraft.creativeTab.itemGroup);
+        int burnTime = 150;
+
+        if(!Config.VERTICAL_SLABS_ENABLED.get()) {
+            burnTime = -1;
+        }
 
         event.getRegistry().registerAll(
                 // Unicorn Spawn Egg
@@ -162,12 +169,12 @@ public class RegistryEvents {
                 setup(new BlockItem(ModBlocks.ACACIA_HEDGE, plainItemProperties), "acacia_hedge"),
                 setup(new BlockItem(ModBlocks.DARK_OAK_HEDGE, plainItemProperties), "dark_oak_hedge"),
                 // Vertical Slab BlockItems
-                setup(new BlockItem(ModBlocks.OAK_VERT_SLAB, plainItemProperties), "oak_vert_slab"),
-                setup(new BlockItem(ModBlocks.SPRUCE_VERT_SLAB, plainItemProperties), "spruce_vert_slab"),
-                setup(new BlockItem(ModBlocks.BIRCH_VERT_SLAB, plainItemProperties), "birch_vert_slab"),
-                setup(new BlockItem(ModBlocks.JUNGLE_VERT_SLAB, plainItemProperties), "jungle_vert_slab"),
-                setup(new BlockItem(ModBlocks.ACACIA_VERT_SLAB, plainItemProperties), "acacia_vert_slab"),
-                setup(new BlockItem(ModBlocks.DARK_OAK_VERT_SLAB, plainItemProperties), "dark_oak_vert_slab"),
+                setup(new BurnableBlockItem(ModBlocks.OAK_VERT_SLAB, plainItemProperties, burnTime), "oak_vert_slab"),
+                setup(new BurnableBlockItem(ModBlocks.SPRUCE_VERT_SLAB, plainItemProperties, burnTime), "spruce_vert_slab"),
+                setup(new BurnableBlockItem(ModBlocks.BIRCH_VERT_SLAB, plainItemProperties, burnTime), "birch_vert_slab"),
+                setup(new BurnableBlockItem(ModBlocks.JUNGLE_VERT_SLAB, plainItemProperties, burnTime), "jungle_vert_slab"),
+                setup(new BurnableBlockItem(ModBlocks.ACACIA_VERT_SLAB, plainItemProperties, burnTime), "acacia_vert_slab"),
+                setup(new BurnableBlockItem(ModBlocks.DARK_OAK_VERT_SLAB, plainItemProperties, burnTime), "dark_oak_vert_slab"),
                 setup(new BlockItem(ModBlocks.STONE_VERT_SLAB, plainItemProperties), "stone_vert_slab"),
                 setup(new BlockItem(ModBlocks.SMOOTH_STONE_VERT_SLAB, plainItemProperties), "smooth_stone_vert_slab"),
                 setup(new BlockItem(ModBlocks.SANDSTONE_VERT_SLAB, plainItemProperties), "sandstone_vert_slab"),
@@ -235,9 +242,9 @@ public class RegistryEvents {
 
     @SubscribeEvent
     public static void onRecipeRegistry(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
+        CraftingHelper.register(VertSlabsEnabledCondition.Serializer.INSTANCE);
         // Name says it all. This is used, so that the colored water recipes don't dupe buckets.
         event.getRegistry().register(setup(new NoContainerShapelessRecipe.Serializer(), "no_container_crafting_shapeless"));
-        //event.getRegistry().register(new NoContainerShapelessRecipe.Serializer().setRegistryName(Reference.MOD_ID, "no_container_crafting_shapeless"));
     }
 
     //================ helping methods ==================

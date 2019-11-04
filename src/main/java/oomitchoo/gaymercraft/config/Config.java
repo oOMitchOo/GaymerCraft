@@ -22,12 +22,18 @@ public class Config {
     public static ForgeConfigSpec.DoubleValue UNICORN_MOVEMENT_SPEED;
     public static ForgeConfigSpec.DoubleValue UNICORN_JUMP_STRENGTH;
     public static ForgeConfigSpec.DoubleValue UNICORN_ARMOR;
+    // vertical_slabs
+    public static ForgeConfigSpec.BooleanValue VERTICAL_SLABS_ENABLED;
     // colored_water
     public static ForgeConfigSpec.IntValue COLORED_WATER_BRIGHTNESS;
 
     static {
         COMMON_BUILDER.comment("Unicorn Settings").push(Reference.ConfigConstants.CATEGORY_UNICORN);
         setupUnicornConfig();
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.comment("Vertical Slab Settings").push(Reference.ConfigConstants.CATEGORY_VERTICAL_SLABS);
+        setupVerticalSlabsConfig();
         COMMON_BUILDER.pop();
 
         CLIENT_BUILDER.comment("Colored Water Settings").push(Reference.ConfigConstants.CATEGORY_COLORED_WATER);
@@ -49,6 +55,11 @@ public class Config {
                 .defineInRange("JumpStrength", Reference.ConfigConstants.defaultUnicornJumpStrength, 0.5D, 1.0D);
         UNICORN_ARMOR = COMMON_BUILDER.comment("Sets the armor for the unicorn. Can't surpass a vanilla horse. SP: Can be modified while playing but applies only to newly spawned unicorns. MP: Restart Server.")
                 .defineInRange("Armor", Reference.ConfigConstants.defaultUnicornArmor, 0, 11);
+    }
+
+    private static void setupVerticalSlabsConfig() {
+        VERTICAL_SLABS_ENABLED = COMMON_BUILDER.comment("Enables/disables the vertical slabs (false: the recipes will be disabled and they will be hidden in JEI). Needs a restart.")
+                .define("VertSlabsEnabled", Reference.ConfigConstants.defaultVerticalSlabsEnabled);
     }
 
     private static void setupColoredWaterConfig() {

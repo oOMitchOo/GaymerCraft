@@ -475,6 +475,13 @@ public class GaymerCraft
     public static final RegistryObject<RainbowCoralWallFanBlock> RAINBOW_HORN_CORAL_WALL_FAN = BLOCKS.register( "rainbow_horn_coral_wall_fan", () ->
             new RainbowCoralWallFanBlock(RAINBOW_DEAD_HORN_CORAL_WALL_FAN, Block.Properties.create(Material.OCEAN_PLANT, MaterialColor.YELLOW).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.WET_GRASS))
     );
+    // KELP BLOCK AND KELP TOP BLOCK
+    public static final RegistryObject<RainbowKelpTopBlock> RAINBOW_KELP = BLOCKS.register( "rainbow_kelp", () ->
+            new RainbowKelpTopBlock(Block.Properties.from(Blocks.KELP))
+    );
+    public static final RegistryObject<RainbowKelpBlock> RAINBOW_KELP_PLANT = BLOCKS.register( "rainbow_kelp_plant", () ->
+            new RainbowKelpBlock(RAINBOW_KELP, Block.Properties.from(Blocks.KELP_PLANT))
+    );
 
     // todo: ###### END ###### Fluid stuff (put it out of the main mod class...)
 
