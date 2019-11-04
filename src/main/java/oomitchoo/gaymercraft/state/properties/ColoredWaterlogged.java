@@ -3,30 +3,30 @@ package oomitchoo.gaymercraft.state.properties;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.IStringSerializable;
-import oomitchoo.gaymercraft.GaymerCraft;
+import oomitchoo.gaymercraft.init.RegistryObjects;
 
 import javax.annotation.Nullable;
 
 public enum ColoredWaterlogged implements IStringSerializable {
     EMPTY("empty", Fluids.EMPTY, null),
     VANILLA("vanilla_water", Fluids.WATER, null),
-    RAINBOW("rainbow_water", null, GaymerCraft.RAINBOW_WATER),
-    WHITE("white_water", null, GaymerCraft.WHITE_WATER),
-    ORANGE("orange_water", null, GaymerCraft.ORANGE_WATER),
-    MAGENTA("magenta_water", null, GaymerCraft.MAGENTA_WATER),
-    LIGHT_BLUE("light_blue_water", null, GaymerCraft.LIGHT_BLUE_WATER),
-    YELLOW("yellow_water", null, GaymerCraft.YELLOW_WATER),
-    LIME("lime_water", null, GaymerCraft.LIME_WATER),
-    PINK("pink_water", null, GaymerCraft.PINK_WATER),
-    GRAY("gray_water", null, GaymerCraft.GRAY_WATER),
-    LIGHT_GRAY("light_gray_water", null, GaymerCraft.LIGHT_GRAY_WATER),
-    CYAN("cyan_water", null, GaymerCraft.CYAN_WATER),
-    PURPLE("purple_water", null, GaymerCraft.PURPLE_WATER),
-    BLUE("blue_water", null, GaymerCraft.BLUE_WATER),
-    BROWN("brown_water", null, GaymerCraft.BROWN_WATER),
-    GREEN("green_water", null, GaymerCraft.GREEN_WATER),
-    RED("red_water", null, GaymerCraft.RED_WATER),
-    BLACK("black_water", null, GaymerCraft.BLACK_WATER);
+    RAINBOW("rainbow_water", null, RegistryObjects.RAINBOW_WATER),
+    WHITE("white_water", null, RegistryObjects.WHITE_WATER),
+    ORANGE("orange_water", null, RegistryObjects.ORANGE_WATER),
+    MAGENTA("magenta_water", null, RegistryObjects.MAGENTA_WATER),
+    LIGHT_BLUE("light_blue_water", null, RegistryObjects.LIGHT_BLUE_WATER),
+    YELLOW("yellow_water", null, RegistryObjects.YELLOW_WATER),
+    LIME("lime_water", null, RegistryObjects.LIME_WATER),
+    PINK("pink_water", null, RegistryObjects.PINK_WATER),
+    GRAY("gray_water", null, RegistryObjects.GRAY_WATER),
+    LIGHT_GRAY("light_gray_water", null, RegistryObjects.LIGHT_GRAY_WATER),
+    CYAN("cyan_water", null, RegistryObjects.CYAN_WATER),
+    PURPLE("purple_water", null, RegistryObjects.PURPLE_WATER),
+    BLUE("blue_water", null, RegistryObjects.BLUE_WATER),
+    BROWN("brown_water", null, RegistryObjects.BROWN_WATER),
+    GREEN("green_water", null, RegistryObjects.GREEN_WATER),
+    RED("red_water", null, RegistryObjects.RED_WATER),
+    BLACK("black_water", null, RegistryObjects.BLACK_WATER);
 
     private final String name;
     @Nullable
