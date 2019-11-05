@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.BooleanProperty;
@@ -26,6 +27,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import oomitchoo.gaymercraft.init.ModBlocks;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -36,7 +38,7 @@ public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHand
     private IFluidState stillFluidState;
     private final Supplier<? extends Block> fluidBlockSupplier;
 
-    public ColoredBubbleColumnBlock(net.minecraft.block.Block.Properties properties, Supplier<? extends FlowingFluid> fluidSupplier, Supplier<? extends FlowingFluidBlock> fluidBlockSupplier) {
+    public ColoredBubbleColumnBlock(net.minecraft.block.Block.Properties properties, @Nullable Supplier<? extends FlowingFluid> fluidSupplier, @Nullable Supplier<? extends FlowingFluidBlock> fluidBlockSupplier) {
         super(properties);
         this.fluidSupplier = fluidSupplier;
         this.fluidBlockSupplier = fluidBlockSupplier;
@@ -189,10 +191,12 @@ public class ColoredBubbleColumnBlock extends Block implements IBucketPickupHand
     }
 
     public FlowingFluid getFluid() {
-        return (FlowingFluid)this.fluidSupplier.get();
+        return (this.fluidSupplier == null) ? Fluids.WATER : (FlowingFluid)this.fluidSupplier.get();
     }
 
-    public FlowingFluidBlock getFluidBlock() { return (FlowingFluidBlock)this.fluidBlockSupplier.get(); }
+    public FlowingFluidBlock getFluidBlock() {
+        return (this.fluidBlockSupplier == null) ? (FlowingFluidBlock)Blocks.WATER : (FlowingFluidBlock)this.fluidBlockSupplier.get();
+    }
 
     protected synchronized void initFluidStateCache() {
         if (fluidStateCacheInitialized == false)

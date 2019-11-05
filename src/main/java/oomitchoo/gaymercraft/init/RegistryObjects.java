@@ -26,11 +26,10 @@ public class RegistryObjects {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
     public static final DeferredRegister<Fluid> FLUIDS = new DeferredRegister<>(ForgeRegistries.FLUIDS, Reference.MOD_ID);
 
-
-
     //#################################################################################################################
     //##                                               BLOCKS                                                        ##
     //#################################################################################################################
+
     // FLUID BLOCKS
     public static final RegistryObject<FlowingFluidBlock> RAINBOW_WATER_BLOCK = BLOCKS.register("rainbow_water_block", () ->
             new ColoredFlowingFluidBlock(RegistryObjects.RAINBOW_WATER, createWaterBlockProperties(MaterialColor.WATER), RegistryObjects.RAINBOW_BUBBLE_COLUMN)
@@ -84,6 +83,9 @@ public class RegistryObjects {
             new ColoredFlowingFluidBlock(RegistryObjects.BLACK_WATER, createWaterBlockProperties(MaterialColor.BLACK), RegistryObjects.BLACK_BUBBLE_COLUMN)
     );
     // BUBBLE COLUMN BLOCKS
+    public static final RegistryObject<ColoredBubbleColumnBlock> MODDED_VANILLA_BUBBLE_COLUMN = BLOCKS.register("modded_vanilla_bubble_column", () ->
+            new ColoredBubbleColumnBlock(Block.Properties.from(Blocks.BUBBLE_COLUMN), null, null)
+    );
     public static final RegistryObject<ColoredBubbleColumnBlock> RAINBOW_BUBBLE_COLUMN = BLOCKS.register("rainbow_bubble_column", () ->
             new ColoredBubbleColumnBlock(Block.Properties.from(Blocks.BUBBLE_COLUMN), RegistryObjects.RAINBOW_WATER, RAINBOW_WATER_BLOCK)
     );
@@ -242,6 +244,7 @@ public class RegistryObjects {
     //#################################################################################################################
     //##                                               ITEMS                                                         ##
     //#################################################################################################################
+
     // BUCKETS FOR THE FLUIDS
     public static final Item.Properties waterBucketItemProperties = new Item.Properties().containerItem(Items.BUCKET)
             .maxStackSize(1).group(GaymerCraft.creativeTab.itemGroup);
@@ -300,6 +303,7 @@ public class RegistryObjects {
     //#################################################################################################################
     //##                                               FLUIDS                                                        ##
     //#################################################################################################################
+
     // FLUID SOURCES
     public static final RegistryObject<FlowingFluid> RAINBOW_WATER = FLUIDS.register("rainbow_water", () ->
             new ForgeFlowingFluid.Source(RegistryObjects.RAINBOW_WATER_PROPERTIES)

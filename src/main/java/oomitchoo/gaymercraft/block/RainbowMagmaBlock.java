@@ -12,6 +12,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import oomitchoo.gaymercraft.init.ModBlocks;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -28,7 +29,7 @@ public class RainbowMagmaBlock extends MagmaBlock {
 
         // todo: This doesn't work, since BubbleColumnBlock checks for vanilla Soul Sand / Magma Block. It would work, if this was the vanilla Magma Block.
         if(blockUp == Blocks.WATER) {
-            BubbleColumnBlock.placeBubbleColumn(worldIn, pos.up(), true);
+            ((ColoredBubbleColumnBlock) ModBlocks.MODDED_VANILLA_BUBBLE_COLUMN).placeBubbleColumn(worldIn, pos.up(), true);
         }
 
         if (blockUp instanceof IBubblyFluidBlock) {

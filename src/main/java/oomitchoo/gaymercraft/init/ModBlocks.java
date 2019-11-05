@@ -9,6 +9,7 @@ import oomitchoo.gaymercraft.reference.Reference;
 public class ModBlocks {
 
     // Bubble Blocks (for water elevators)
+    public static final Block MODDED_VANILLA_BUBBLE_COLUMN = ModUtil._null();
     public static final Block RAINBOW_BUBBLE_COLUMN = ModUtil._null();
     public static final Block WHITE_BUBBLE_COLUMN = ModUtil._null();
     public static final Block ORANGE_BUBBLE_COLUMN = ModUtil._null();
