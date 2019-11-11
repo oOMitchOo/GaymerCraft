@@ -25,12 +25,10 @@ public class RainbowSoulSandBlock extends SoulSandBlock {
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
         Block blockUp = worldIn.getBlockState(pos.up()).getBlock();
 
-        // todo: This doesn't work, since BubbleColumnBlock checks for vanilla Soul Sand / Magma Block. It would work, if this was the vanilla Soul Sand.
+        // todo: Change this to vanilla bubble column method, if it is no longer hardcoded to only work with vanilla Soul Sand / Magma Block?
         if(blockUp == Blocks.WATER) {
             ((ColoredBubbleColumnBlock) ModBlocks.MODDED_VANILLA_BUBBLE_COLUMN).placeBubbleColumn(worldIn, pos.up(), false);
-        }
-
-        if (blockUp instanceof IBubblyFluidBlock) {
+        } else if (blockUp instanceof IBubblyFluidBlock) {
             ((IBubblyFluidBlock) blockUp).getBubbleColumnPlacer().placeBubbleColumn(worldIn, pos.up(), false);
         }
     }
