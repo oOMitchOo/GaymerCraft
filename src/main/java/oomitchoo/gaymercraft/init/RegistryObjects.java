@@ -19,6 +19,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import oomitchoo.gaymercraft.GaymerCraft;
 import oomitchoo.gaymercraft.block.*;
+import oomitchoo.gaymercraft.fluid.ColoredFlowingFluid;
 import oomitchoo.gaymercraft.reference.Reference;
 
 public class RegistryObjects {
@@ -306,107 +307,107 @@ public class RegistryObjects {
 
     // FLUID SOURCES
     public static final RegistryObject<FlowingFluid> RAINBOW_WATER = FLUIDS.register("rainbow_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.RAINBOW_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.RAINBOW_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> WHITE_WATER = FLUIDS.register("white_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.WHITE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.WHITE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> ORANGE_WATER = FLUIDS.register("orange_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.ORANGE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.ORANGE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> MAGENTA_WATER = FLUIDS.register("magenta_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.MAGENTA_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.MAGENTA_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> LIGHT_BLUE_WATER = FLUIDS.register("light_blue_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.LIGHT_BLUE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.LIGHT_BLUE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> YELLOW_WATER = FLUIDS.register("yellow_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.YELLOW_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.YELLOW_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> LIME_WATER = FLUIDS.register("lime_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.LIME_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.LIME_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> PINK_WATER = FLUIDS.register("pink_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.PINK_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.PINK_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> GRAY_WATER = FLUIDS.register("gray_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.GRAY_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.GRAY_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> LIGHT_GRAY_WATER = FLUIDS.register("light_gray_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.LIGHT_GRAY_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.LIGHT_GRAY_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> CYAN_WATER = FLUIDS.register("cyan_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.CYAN_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.CYAN_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> PURPLE_WATER = FLUIDS.register("purple_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.PURPLE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.PURPLE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> BLUE_WATER = FLUIDS.register("blue_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.BLUE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.BLUE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> BROWN_WATER = FLUIDS.register("brown_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.BROWN_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.BROWN_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> GREEN_WATER = FLUIDS.register("green_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.GREEN_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.GREEN_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> RED_WATER = FLUIDS.register("red_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.RED_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.RED_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> BLACK_WATER = FLUIDS.register("black_water", () ->
-            new ForgeFlowingFluid.Source(RegistryObjects.BLACK_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Source(RegistryObjects.BLACK_WATER_PROPERTIES)
     );
     // FLUIDS FLOWING
     public static final RegistryObject<FlowingFluid> RAINBOW_WATER_FLOWING = FLUIDS.register("rainbow_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.RAINBOW_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.RAINBOW_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> WHITE_WATER_FLOWING = FLUIDS.register("white_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.WHITE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.WHITE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> ORANGE_WATER_FLOWING = FLUIDS.register("orange_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.ORANGE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.ORANGE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> MAGENTA_WATER_FLOWING = FLUIDS.register("magenta_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.MAGENTA_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.MAGENTA_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> LIGHT_BLUE_WATER_FLOWING = FLUIDS.register("light_blue_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.LIGHT_BLUE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.LIGHT_BLUE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> YELLOW_WATER_FLOWING = FLUIDS.register("yellow_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.YELLOW_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.YELLOW_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> LIME_WATER_FLOWING = FLUIDS.register("lime_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.LIME_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.LIME_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> PINK_WATER_FLOWING = FLUIDS.register("pink_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.PINK_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.PINK_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> GRAY_WATER_FLOWING = FLUIDS.register("gray_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.GRAY_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.GRAY_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> LIGHT_GRAY_WATER_FLOWING = FLUIDS.register("light_gray_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.LIGHT_GRAY_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.LIGHT_GRAY_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> CYAN_WATER_FLOWING = FLUIDS.register("cyan_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.CYAN_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.CYAN_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> PURPLE_WATER_FLOWING = FLUIDS.register("purple_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.PURPLE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.PURPLE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> BLUE_WATER_FLOWING = FLUIDS.register("blue_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.BLUE_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.BLUE_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> BROWN_WATER_FLOWING = FLUIDS.register("brown_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.BROWN_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.BROWN_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> GREEN_WATER_FLOWING = FLUIDS.register("green_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.GREEN_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.GREEN_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> RED_WATER_FLOWING = FLUIDS.register("red_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.RED_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.RED_WATER_PROPERTIES)
     );
     public static final RegistryObject<FlowingFluid> BLACK_WATER_FLOWING = FLUIDS.register("black_water_flowing", () ->
-            new ForgeFlowingFluid.Flowing(RegistryObjects.BLACK_WATER_PROPERTIES)
+            new ColoredFlowingFluid.Flowing(RegistryObjects.BLACK_WATER_PROPERTIES)
     );
     // FLUID PROPERTIES
     public static final ResourceLocation waterStillTexture = new ResourceLocation(Reference.MOD_ID, "block/desat_hell60_water_still");

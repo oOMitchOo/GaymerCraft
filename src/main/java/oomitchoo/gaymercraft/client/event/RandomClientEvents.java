@@ -2,8 +2,11 @@ package oomitchoo.gaymercraft.client.event;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,10 +19,12 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import oomitchoo.gaymercraft.GaymerCraft;
 import oomitchoo.gaymercraft.block.VertSlabBlock;
+import oomitchoo.gaymercraft.fluid.ColoredFlowingFluid;
 import oomitchoo.gaymercraft.reference.Reference;
 import oomitchoo.gaymercraft.state.properties.VertSlabType;
 
@@ -27,6 +32,18 @@ import static oomitchoo.gaymercraft.client.renderer.RenderGlobalModded.drawLines
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Reference.MOD_ID)
 public class RandomClientEvents {
+
+    @SubscribeEvent
+    public static void onFogEvent (EntityViewRenderEvent.FogColors event) {
+        ActiveRenderInfo info = Minecraft.getInstance().gameRenderer.getActiveRenderInfo();
+        Fluid fluid = info.getFluidState().getFluid();
+        if (fluid instanceof ColoredFlowingFluid.Flowing || fluid instanceof ColoredFlowingFluid.Source) {
+            int color = fluid.getAttributes().getColor(); // Alpha, Red, Green, Blue
+            event.setRed(((color >> 16) & 0xFF) / 255f);
+            event.setGreen(((color >> 8) & 0xFF) / 255f);
+            event.setBlue((color & 0xFF) / 255f);
+        }
+    }
 
     @SubscribeEvent
     public static void onDrawBlockHighlightEvent(DrawBlockHighlightEvent event) {
